@@ -3,35 +3,41 @@ import {
     Wrapper,
     ArrowIcon,
     Button,
-    Text
+    TextButton,
+    PageInfo,
+    Span
 } from "./styled";
 
-export default Pagination => {
+const Pagination = () => {
 
     return (
         <Wrapper>
-            <Button>
-                <ArrowIcon />
-                <Text>First</Text>
+            <Button disabled>
+                <ArrowIcon disabled mobile="true" />
+                <ArrowIcon disabled/>
+                <TextButton>First</TextButton>
             </Button>
             <Button>
                 <ArrowIcon />
-                <Text>Previous</Text>
+                <TextButton>Previous</TextButton>
             </Button>
-            <p>
+            <PageInfo>
                 Page
-                <span>1</span>
+                <Span>1</Span>
                 of
-                <span>500</span>
-            </p>
-            <Button>
-                <Text>Next</Text>
+                <Span> 500</Span>
+            </PageInfo>
+            <Button next>
+                <TextButton>Next</TextButton>
                 <ArrowIcon next="true" />
             </Button>
-            <Button>
-                <Text>Last</Text>
+            <Button next>
+                <TextButton>Last</TextButton>
+                <ArrowIcon mobile="true" next="true" />
                 <ArrowIcon next="true" />
             </Button>
         </Wrapper>
     );
 };
+
+export default Pagination;
