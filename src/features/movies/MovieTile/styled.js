@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 324px;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
+`;
+
+export const Poster = styled.img`
+  width: 100%;
 `;
 
 export const Title = styled.h3`
