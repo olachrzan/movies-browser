@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
-import { ReactComponent as arrow } from "./arrow.svg";
-import { ReactComponent as arrowNext } from "./arrowNext.svg";
+import { ReactComponent as arrow } from "./images/arrow.svg";
+import { ReactComponent as arrowNext } from "./images/arrowNext.svg";
 
 export const Wrapper = styled.div`
     display: flex;
@@ -54,7 +54,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonText = styled.span`
-
+    line-height: 16px;
     @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         display: none;
     }
