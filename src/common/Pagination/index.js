@@ -2,8 +2,9 @@ import React from "react";
 import {
     Wrapper,
     ArrowIcon,
+    ArrowIconNext,
     Button,
-    TextButton,
+    ButtonText,
     PageInfo,
     Span
 } from "./styled";
@@ -15,11 +16,11 @@ const Pagination = () => {
             <Button disabled>
                 <ArrowIcon disabled mobile="true" />
                 <ArrowIcon disabled/>
-                <TextButton>First</TextButton>
+                <ButtonText>First</ButtonText>
             </Button>
             <Button>
                 <ArrowIcon />
-                <TextButton>Previous</TextButton>
+                <ButtonText>Previous</ButtonText>
             </Button>
             <PageInfo>
                 Page
@@ -27,14 +28,14 @@ const Pagination = () => {
                 of
                 <Span> 500</Span>
             </PageInfo>
-            <Button next>
-                <TextButton>Next</TextButton>
-                <ArrowIcon next="true" />
+            <Button>
+                <ButtonText>Next</ButtonText>
+                <ArrowIconNext/>
             </Button>
-            <Button next>
-                <TextButton>Last</TextButton>
-                <ArrowIcon mobile="true" next="true" />
-                <ArrowIcon next="true" />
+            <Button>
+                <ButtonText>Last</ButtonText>
+                <ArrowIconNext mobile="true" />
+                <ArrowIconNext />
             </Button>
         </Wrapper>
     );

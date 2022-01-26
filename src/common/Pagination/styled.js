@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
 import { ReactComponent as arrow } from "./arrow.svg";
+import { ReactComponent as arrowNext } from "./arrowNext.svg";
 
 export const Wrapper = styled.div`
     display: flex;
@@ -12,13 +13,13 @@ const move = keyframes`
       transform: translateX(0px);
    }
    25% {
-    transform: translateX(-4px);
+    transform: translateX(-3px);
    }
    50% {
     transform: translateX(0px);
    }
    75% {
-    transform: translateX(4px);
+    transform: translateX(3px);
    }
    100% {
     transform: translateX(0px);
@@ -35,20 +36,11 @@ export const Button = styled.button`
     border: none;
     background: ${({ theme }) => theme.colors.lightBlueButton};
     margin: 0px 6px;
+    transition: background .3s;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-        &:hover{
-            animation: ${move} 1s linear infinite;
-        }
+    &:active{
+        background: ${({ theme }) => theme.colors.activeButton};
     }
-    
-    ${({ next }) => next && css`
-        @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-            &:hover{
-                animation: ${move} 1s linear infinite reverse;
-            }
-        } 
-    `}
 
     &:disabled{
         background: ${({ theme }) => theme.colors.grayButton};
@@ -61,7 +53,7 @@ export const Button = styled.button`
     }
 `;
 
-export const TextButton = styled.span`
+export const ButtonText = styled.span`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         display: none;
@@ -72,22 +64,48 @@ export const ArrowIcon = styled(arrow)`
     color: ${({ theme }) => theme.colors.darkBlueButton};
     margin-right: 8px;
 
+    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+        ${Button}:hover & {
+            animation: ${move} 1s linear infinite;
+        }
+    }
+
     @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         margin: 0px;
         width: 5px;
         height: 8px;
     }
 
-    ${({ next }) => next && css`
-        transform: rotate(180deg);
-        margin-right: 0px;
-        margin-left: 8px;
-        color: ${({ theme }) => theme.colors.darkBlueButton};
-    `}
-
     ${({ disabled }) => disabled && css`
         color: ${({ theme }) => theme.colors.grayText};
     `}
+
+    ${({ mobile }) => mobile && css`
+        display: none;
+        
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+            display: block;
+            margin-right: 4px;
+        }
+    `}
+`;
+
+export const ArrowIconNext = styled(arrowNext)`
+    color: ${({ theme }) => theme.colors.darkBlueButton};
+    margin-left: 8px;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+        ${Button}:hover & {
+            animation: ${move} 1s linear infinite reverse;
+        }
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        margin: 0px;
+        width: 5px;
+        height: 8px;
+    }
+
 
     ${({ mobile }) => mobile && css`
         display: none;
