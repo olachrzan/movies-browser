@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SearchIcon from "../images/Search.png"
+import SearchIcon from "../images/Search.png";
 
 export const NavigationContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.headerBackground};
@@ -7,6 +7,11 @@ export const NavigationContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    flex-direction: column;
+    padding: 10px;
+  }
 `;
 
 export const NavWrapper = styled.nav`
@@ -16,13 +21,22 @@ export const NavWrapper = styled.nav`
 `;
 
 export const PageHeader = styled.header`
-  font-size: 24px;
+  font-size: 22px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 18px;
+    word-break: normal;
+  }
 `;
 
 export const LinkList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    flex: none;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -30,8 +44,7 @@ export const ListItem = styled.li`
   padding: 13px;
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
-  font-size: 18px;
-  
+  font-size: 16px;
 `;
 
 export const SearchBar = styled.input`
@@ -43,7 +56,6 @@ export const SearchBar = styled.input`
   background-repeat: no-repeat;
   background-size: 24px;
   background-position: left;
- 
 `;
 
 export const Icon = styled.img`

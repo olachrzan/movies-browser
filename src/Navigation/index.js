@@ -24,7 +24,6 @@ export const Navigation = ({ title }) => {
           </ListItem>
         </LinkList>
       </NavWrapper>
-      <SearchBar placeholder="     Search for movies..." />
     </NavigationContainer>
   );
 };
