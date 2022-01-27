@@ -4,7 +4,7 @@ import { ReactComponent as star } from "./star.svg";
 export const Wrapper = styled.div`
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+  box-shadow: 0px 4px 12px ${({ theme }) => theme.colors.tileBoxShadow};
   border-radius: 5px;
   display: flex;
   flex-direction: column;

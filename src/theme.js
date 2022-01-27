@@ -8,6 +8,7 @@ export const theme = {
     grayButton: "#E4E6F0",
     lightBlueButton: "#D6E4FF",
     darkBlueButton: "#0044CC",
+    tileBoxShadow: "rgba(186, 199, 213, 0.5)",
   },
   breakpoints: {
     small: "480px",
