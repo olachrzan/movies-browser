@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SearchIcon from "../Navigation/icons/search-icon.svg";
 
 export const NavigationContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.headerBackground};
@@ -64,11 +65,16 @@ export const ListItem = styled.li`
 export const SearchBar = styled.input`
   border-radius: 25px;
   border: none;
+  min-width: 350px;
   padding: 10px;
-  width: 300px;
+  text-indent: 42px;
+  font-size: 16px;
+  background-image: url(${SearchIcon});
+  background-repeat: no-repeat;
+  background-position: 5% center;
 `;
 
 export const Icon = styled.img`
   padding: 5px;
-  margin-right: 10px;
+  margin-right: 8px;
 `;

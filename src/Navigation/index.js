@@ -6,8 +6,10 @@ import {
   SearchBar,
   Icon,
   ListItem,
+  SearchBarIcon,
+  SearchBarWrapper,
 } from "./styled";
-import CameraIcon from "../images/camera-icon.svg";
+import CameraIcon from "../Navigation/icons/camera-icon.svg";
 
 export const Navigation = ({ title }) => {
   return (
@@ -24,7 +26,7 @@ export const Navigation = ({ title }) => {
           </ListItem>
         </LinkList>
       </NavWrapper>
-      <SearchBar placeholder="Search for movies..." />
+      <SearchBar type="search" placeholder="Search for movies..." />
     </NavigationContainer>
   );
 };
