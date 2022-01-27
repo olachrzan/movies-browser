@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     flex-direction: row;
   }
 `;
@@ -18,17 +18,17 @@ export const Poster = styled.img`
   width: 100%;
   height: fit-content;
 
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     width: 50%;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 40%;
   }
 `;
 
 export const TextSide = styled.div`
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     margin-left: 16px;
   }
 `;
@@ -39,12 +39,12 @@ export const Title = styled.h3`
   font-size: 22px;
   line-height: 130%;
 
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     font-size: 16px;
     margin: 0 0 4px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 4vw;
   }
 `;
@@ -55,11 +55,11 @@ export const Year = styled.p`
   color: ${({ theme }) => theme.colors.grayText};
   line-height: 150%;
 
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     font-size: 13px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 2.5vw;
   }
 `;
@@ -76,12 +76,12 @@ export const Tag = styled.span`
   border-radius: 5px;
   font-size: 14px;
 
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: 4px 8px;
     font-size: 10px; 
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 1vw 2vw;
     font-size: 2vw;
   }
@@ -94,18 +94,18 @@ export const RatingLine = styled.div`
   align-items: center;
   gap: 12px;
 
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     gap: 8px;
   }
 `;
 
 export const Star = styled(star)`
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     width: 16px;
     height: 16px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 3vw;
     height: 3vw;
   }
@@ -115,11 +115,11 @@ export const Rating = styled.span`
   font-weight: 600;
   font-size: 16px;
 
-  @media (max-width: 1070px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     font-size: 13px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 3vw;
   }
 `;
