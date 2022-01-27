@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
   gap: 24px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     grid-template-columns: 1fr;
     gap: 16px;
   }
