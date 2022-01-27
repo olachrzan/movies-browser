@@ -8,11 +8,6 @@ export const Navigation = styled.header`
   align-items: center;
   justify-content: space-evenly;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    flex-direction: column;
-    padding: 10px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     flex-direction: column;
     padding: 10px;
@@ -27,11 +22,6 @@ export const NavWrapper = styled.div`
 
 export const PageHeader = styled.h1`
   font-size: 22px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 18px;
-    word-break: normal;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 18px;
