@@ -5,9 +5,7 @@ import {
   LinkList,
   SearchBar,
   Icon,
-  ListItem,
-  SearchBarIcon,
-  SearchBarWrapper,
+  ListItem
 } from "./styled";
 import CameraIcon from "../Navigation/icons/camera-icon.svg";
 
