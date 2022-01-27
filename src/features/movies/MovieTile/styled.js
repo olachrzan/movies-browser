@@ -1,14 +1,36 @@
 import styled from "styled-components";
+import { ReactComponent as star } from "./star.svg";
 
 export const Wrapper = styled.div`
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 1070px) {
+    flex-direction: row;
+  }
 `;
 
 export const Poster = styled.img`
   width: 100%;
+  height: fit-content;
+
+  @media (max-width: 1070px) {
+    width: 50%;
+  }
+
+  @media (max-width: 767px) {
+    width: 40%;
+  }
+`;
+
+export const TextSide = styled.div`
+  @media (max-width: 1070px) {
+    margin-left: 16px;
+  }
 `;
 
 export const Title = styled.h3`
@@ -16,13 +38,30 @@ export const Title = styled.h3`
   font-weight: 500;
   font-size: 22px;
   line-height: 130%;
+
+  @media (max-width: 1070px) {
+    font-size: 16px;
+    margin: 0 0 4px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 4vw;
+  }
 `;
 
 export const Year = styled.p`
-  margin: 8px 0;
+  margin: 0 0 8px 0;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.grayText};
   line-height: 150%;
+
+  @media (max-width: 1070px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 2.5vw;
+  }
 `;
 
 export const TagsLine = styled.div`
@@ -36,19 +75,53 @@ export const Tag = styled.span`
   background: ${({ theme }) => theme.colors.grayButton};
   border-radius: 5px;
   font-size: 14px;
+
+  @media (max-width: 1070px) {
+    padding: 4px 8px;
+    font-size: 10px; 
+  }
+
+  @media (max-width: 767px) {
+    padding: 1vw 2vw;
+    font-size: 2vw;
+  }
 `;
 
 export const RatingLine = styled.div`
-  margin-top: 39px;
+  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
+
+  @media (max-width: 1070px) {
+    gap: 8px;
+  }
+`;
+
+export const Star = styled(star)`
+  @media (max-width: 1070px) {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (max-width: 767px) {
+    width: 3vw;
+    height: 3vw;
+  }
 `;
 
 export const Rating = styled.span`
   font-weight: 600;
   font-size: 16px;
+
+  @media (max-width: 1070px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 3vw;
+  }
 `;
 
 export const Votes = styled(Rating)`
