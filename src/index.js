@@ -4,9 +4,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from './GlobalStyle';
 import store from "./store";
 import { theme } from "./theme";
-import { GlobalStyle } from './GlobalStyle';
+
 
 ReactDOM.render(
   <React.StrictMode>
