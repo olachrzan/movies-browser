@@ -70,7 +70,8 @@ export const TagsLine = styled.div`
   gap: 8px;
 `;
 
-export const Tag = styled.span`
+export const Tag = styled.p`
+  margin: 0;
   padding: 8px 16px;
   background: ${({ theme }) => theme.colors.grayButton};
   border-radius: 5px;
@@ -111,7 +112,8 @@ export const Star = styled(star)`
   }
 `;
 
-export const Rating = styled.span`
+export const Rating = styled.p`
+  margin: 0;
   font-weight: 600;
   font-size: 16px;
 
