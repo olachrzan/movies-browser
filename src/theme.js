@@ -8,6 +8,7 @@ export const theme = {
     grayButton: "#E4E6F0",
     lightBlueButton: "#D6E4FF",
     darkBlueButton: "#0044CC",
+    activeButton: "#ccdbf7"
   },
   breakpoints: {
     small: "480px",
