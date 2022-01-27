@@ -1,18 +1,21 @@
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from './GlobalStyle';
-import { theme } from "./theme";
-import Container from './common/Container';
+import Pagination from "./common/Pagination";
+import Container from "./common/Container";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchMovies } from "./features/movies/MoviesList/movieListSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMovies())
+  }, [dispatch]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Container>
-        
-      </Container>
-    </ThemeProvider>
+    <Container>
+      <Pagination />
+    </Container>
   );
-}
+};
 
 export default App;
