@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SearchIcon from "../Navigation/icons/search-icon.svg";
 
-export const NavigationContainer = styled.div`
+export const Navigation = styled.header`
   background-color: ${({ theme }) => theme.colors.headerBackground};
   color: ${({ theme }) => theme.colors.white};
   display: flex;
@@ -19,13 +19,13 @@ export const NavigationContainer = styled.div`
   }
 `;
 
-export const NavWrapper = styled.nav`
+export const NavWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
 
-export const PageHeader = styled.header`
+export const PageHeader = styled.h1`
   font-size: 22px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
@@ -43,6 +43,7 @@ export const LinkList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
+  word-break: normal;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     flex: none;
@@ -50,7 +51,6 @@ export const LinkList = styled.ul`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 18px;
-    word-break: normal;
   }
 `;
 

@@ -1,5 +1,5 @@
 import {
-  NavigationContainer,
+  Navigation,
   NavWrapper,
   PageHeader,
   LinkList,
@@ -9,9 +9,9 @@ import {
 } from "./styled";
 import CameraIcon from "../Navigation/icons/camera-icon.svg";
 
-export const Navigation = ({ title }) => {
+export const PageNavigation = ({ title }) => {
   return (
-    <NavigationContainer>
+    <Navigation>
       <NavWrapper>
         <Icon src={CameraIcon} alt="camera icon" />
         <PageHeader>{title}</PageHeader>
@@ -25,6 +25,6 @@ export const Navigation = ({ title }) => {
         </LinkList>
       </NavWrapper>
       <SearchBar type="search" placeholder="Search for movies..." />
-    </NavigationContainer>
+    </Navigation>
   );
 };
