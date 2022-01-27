@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SearchIcon from "../images/Search.png";
 
 export const NavigationContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.headerBackground};
@@ -9,6 +8,11 @@ export const NavigationContainer = styled.div`
   justify-content: space-evenly;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     flex-direction: column;
     padding: 10px;
   }
@@ -27,6 +31,11 @@ export const PageHeader = styled.header`
     font-size: 18px;
     word-break: normal;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 18px;
+    word-break: normal;
+  }
 `;
 
 export const LinkList = styled.ul`
@@ -36,6 +45,11 @@ export const LinkList = styled.ul`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     flex: none;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 18px;
+    word-break: normal;
   }
 `;
 
@@ -52,10 +66,6 @@ export const SearchBar = styled.input`
   border: none;
   padding: 10px;
   width: 300px;
-  background-image: url(${SearchIcon});
-  background-repeat: no-repeat;
-  background-size: 24px;
-  background-position: left;
 `;
 
 export const Icon = styled.img`
