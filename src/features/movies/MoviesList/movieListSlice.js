@@ -20,6 +20,7 @@ const moviesListSlice = createSlice({
         setError: state => {
             state.error = true;
             state.loading = false;
+            state.total_pages = "...";
         },
         setTotalPages: (state, { payload: allPages }) => {
             state.total_pages = allPages;
