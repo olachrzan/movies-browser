@@ -36,6 +36,10 @@ export const PageHeader = styled.h1`
 export const Navigation = styled.ul`
   list-style: none;
   display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin-left: -25px;
+  }
 `;
 
 export const NavigationItem = styled.li`
