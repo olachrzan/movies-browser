@@ -10,8 +10,8 @@ import {
   SearchIcon,
   SearchInput
 } from "./styled";
-import camera from "../Navigation/icons/camera-icon.svg";
-import search from "../Navigation/icons/search-icon.svg";
+import camera from "../Header/icons/camera-icon.svg";
+import search from "../Header/icons/search-icon.svg";
 
 export const Header = ({ title }) => {
   return (

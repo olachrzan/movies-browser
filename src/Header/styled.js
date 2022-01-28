@@ -21,7 +21,11 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Icon = styled.img`
-  margin-right: 10px;
+  margin-right: 15px;
+
+   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    width: 20%;
+  }
 `;
 
 export const Title = styled.h1`
@@ -31,6 +35,10 @@ export const Title = styled.h1`
   letter-spacing: -1.5px;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 16px;
+  }
 `;
 
 export const TextSide = styled.div`
@@ -62,8 +70,13 @@ export const ListItem = styled.li`
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
   font-size: 16px;
-  width: 100px;
-  text-align: center;
+  width: max-content;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 14px;
+    weight: 600;
+    margin: 0 15px;
+  }
 `;
 
 export const SearchBar = styled.div`
@@ -87,8 +100,13 @@ export const SearchInput = styled.input`
   border-radius: 25px;
   border: none;
   padding: 12px 12px 12px 48px;
+  font-weight: 400;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     width: 100%;
+  }
+
+   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 14px;
   }
 `;
