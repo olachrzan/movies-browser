@@ -14,11 +14,13 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    flex-flow: column wrap;
   }
 `;
 
 export const HeaderWrapper = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 export const PageHeader = styled.h1`
@@ -42,6 +44,7 @@ export const NavigationItem = styled.li`
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
   font-size: 16px;
+  word-break: keep-all;
 `;
 
 export const SearchWrapper = styled.div`
