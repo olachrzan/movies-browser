@@ -52,6 +52,10 @@ export const SearchWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    justify-content: center;
+  }
 `;
 
 export const SearchBar = styled.input`
@@ -69,4 +73,8 @@ export const SearchBar = styled.input`
 export const Icon = styled.img`
   padding: 5px;
   margin-right: 8px;
+`;
+
+export const FlexWrapper = styled.div`
+  display: flex;
 `;
