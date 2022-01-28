@@ -26,18 +26,11 @@ export const Icon = styled.img`
 
 export const Title = styled.h1`
   margin: 0;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 24px;
   letter-spacing: -1.5px;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    flex-basis: 495px;
-    justify-content: space-between;
-    flex-shrink: 1;
-  }
 `;
 
 export const TextSide = styled.div`
