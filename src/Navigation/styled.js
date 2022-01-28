@@ -51,6 +51,7 @@ export const SearchWrapper = styled.div`
   width: 64%;
   display: flex;
   justify-content: flex-end;
+  margin: 5px;
 `;
 
 export const SearchBar = styled.input`
