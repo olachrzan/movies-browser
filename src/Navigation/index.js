@@ -1,39 +1,43 @@
 import {
-  Header,
-  PageHeader,
+  HeaderArea,
+  Title,
   NavigationItem,
-  Navigation,
-  SearchBar,
+  NavigationList,
+  SearchInput,
   Icon,
-  HeaderWrapper,
-  Wrapper,
-  SearchWrapper,
-  FlexWrapper
+  HeaderContainer,
+  SearchBar,
+  TextSide,
+  SearchIcon,
 } from "./styled";
-import CameraIcon from "../Navigation/icons/camera-icon.svg";
+import camera from "../Navigation/icons/camera-icon.svg";
+import search from "../Navigation/icons/search-icon.svg";
 
-export const PageNavigation = ({ title }) => {
+export const Header = ({ title }) => {
   return (
-    <Header>
-      <Wrapper>
-        <FlexWrapper>
-          <HeaderWrapper>
-            <Icon src={CameraIcon} alt="camera icon" />
-            <PageHeader>{title}</PageHeader>
-          </HeaderWrapper>
-          <Navigation>
-            <NavigationItem>
-              <a>Movies</a>
-            </NavigationItem>
-            <NavigationItem>
-              <a>People</a>
-            </NavigationItem>
-          </Navigation>
-        </FlexWrapper>
-        <SearchWrapper>
-          <SearchBar type="search" placeholder="Search for movies..." />
-        </SearchWrapper>
-      </Wrapper>
-    </Header>
+    <HeaderArea>
+      <HeaderContainer>
+        <TextSide>
+          <Title>
+            <Icon src={camera} alt="camera icon" />
+            {title}
+          </Title>
+          <nav>
+            <NavigationList>
+              <NavigationItem>
+                <a>Movies</a>
+              </NavigationItem>
+              <NavigationItem>
+                <a>People</a>
+              </NavigationItem>
+            </NavigationList>
+          </nav>
+        </TextSide>
+        <SearchBar>
+          <SearchIcon src={search} alt="" />
+          <SearchInput type="search" placeholder="Search for movies..." />
+        </SearchBar>
+      </HeaderContainer>
+    </HeaderArea>
   );
 };

@@ -1,39 +1,51 @@
 import styled from "styled-components";
-import SearchIcon from "../Navigation/icons/search-icon.svg";
 
-export const Header = styled.header`
+export const HeaderArea = styled.header`
   background-color: ${({ theme }) => theme.colors.headerBackground};
   color: ${({ theme }) => theme.colors.white};
+  padding: 23px 16px;
 `;
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-width: 1280px;
+export const HeaderContainer = styled.div`
+  max-width: 1237px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    flex-flow: column wrap;
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
   }
 `;
 
-export const HeaderWrapper = styled.div`
+export const TextSide = styled.div`
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    flex-basis: 495px;
+    justify-content: space-between;
+    flex-shrink: 1;
+  }
+`;
+
+export const Icon = styled.img`
+  margin-right: 12px;
+`;
+
+export const Title = styled.h1`
+  margin: 0;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -1.5px;
   display: flex;
   align-items: center;
 `;
 
-export const PageHeader = styled.h1`
-  font-size: 22px;
-  word-break: normal;
-  width: max-content;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 18px;
-  }
-`;
-
-export const Navigation = styled.ul`
+export const NavigationList = styled.ul`
   list-style: none;
   display: flex;
 
@@ -43,42 +55,40 @@ export const Navigation = styled.ul`
 `;
 
 export const NavigationItem = styled.li`
-  margin: 5px;
+  margin: 0 8px;
   padding: 13px;
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
   font-size: 16px;
-  word-break: keep-all;
+  width: 100px;
+  text-align: center;
 `;
 
-export const SearchWrapper = styled.div`
-  width: 64%;
-  display: flex;
-  justify-content: flex-end;
-  margin: 5px;
+export const SearchBar = styled.div`
+  margin-left: 8px;
+  flex-shrink: 1;
+  border-radius: 25px;
+  position: relative;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    justify-content: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    flex-basis: 495px;
+    margin-left: 0px;
   }
 `;
 
-export const SearchBar = styled.input`
+export const SearchInput = styled.input`
+  width: 432px;
   border-radius: 25px;
   border: none;
-  min-width: 350px;
-  padding: 10px;
-  text-indent: 40px;
-  font-size: 16px;
-  background-image: url(${SearchIcon});
-  background-repeat: no-repeat;
-  background-position: 5% 48%;
+  padding: 12px 12px 12px 48px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 100%;
+  }
 `;
 
-export const Icon = styled.img`
-  padding: 5px;
-  margin-right: 8px;
-`;
-
-export const FlexWrapper = styled.div`
-  display: flex;
+export const SearchIcon = styled.img`
+  position: absolute;
+  top: 25%;
+  left: 16px;
 `;
