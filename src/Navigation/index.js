@@ -1,30 +1,36 @@
 import {
-  Navigation,
-  NavWrapper,
+  Header,
   PageHeader,
-  LinkList,
+  NavigationItem,
+  Navigation,
   SearchBar,
   Icon,
-  ListItem
+  HeaderWrapper,
+  Wrapper,
+  SearchWrapper,
 } from "./styled";
 import CameraIcon from "../Navigation/icons/camera-icon.svg";
 
 export const PageNavigation = ({ title }) => {
   return (
-    <Navigation>
-      <NavWrapper>
-        <Icon src={CameraIcon} alt="camera icon" />
-        <PageHeader>{title}</PageHeader>
-        <LinkList>
-          <ListItem>
+    <Header>
+      <Wrapper>
+        <HeaderWrapper>
+          <Icon src={CameraIcon} alt="camera icon" />
+          <PageHeader>{title}</PageHeader>
+        </HeaderWrapper>
+        <Navigation>
+          <NavigationItem>
             <a>Movies</a>
-          </ListItem>
-          <ListItem>
+          </NavigationItem>
+          <NavigationItem>
             <a>People</a>
-          </ListItem>
-        </LinkList>
-      </NavWrapper>
-      <SearchBar type="search" placeholder="Search for movies..." />
-    </Navigation>
+          </NavigationItem>
+        </Navigation>
+        <SearchWrapper>
+          <SearchBar type="search" placeholder="Search for movies..." />
+        </SearchWrapper>
+      </Wrapper>
+    </Header>
   );
 };
