@@ -8,24 +8,17 @@ export const Header = styled.header`
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   max-width: 1280px;
   margin: 0 auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    flex-flow: column wrap;
-    padding: 10px;
-    align-content: center;
   }
 `;
 
 export const HeaderWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-  }
 `;
 
 export const PageHeader = styled.h1`
@@ -41,16 +34,6 @@ export const PageHeader = styled.h1`
 export const Navigation = styled.ul`
   list-style: none;
   display: flex;
-  flex-direction: row;
-  word-break: normal;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    flex: none;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 18px;
-  }
 `;
 
 export const NavigationItem = styled.li`
@@ -62,8 +45,9 @@ export const NavigationItem = styled.li`
 `;
 
 export const SearchWrapper = styled.div`
+  width: 64%;
   display: flex;
-  align-content: center;
+  justify-content: flex-end;
 `;
 
 export const SearchBar = styled.input`
