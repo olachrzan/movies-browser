@@ -58,6 +58,7 @@ export const TextSide = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     flex-basis: 360px;
+    justify-content: space-around;
   }
 `;
 
