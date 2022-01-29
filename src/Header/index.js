@@ -13,12 +13,12 @@ import {
 import camera from "../Header/icons/camera-icon.svg";
 import search from "../Header/icons/search-icon.svg";
 
-export const Header = ({ title }) => {
+export const Header = () => {
   return (
     <HeaderArea>
       <HeaderContainer>
         <TextSide>
-          <Title><Icon src={camera} alt="" />{title}</Title>
+          <Title><Icon src={camera} alt="" />Movies Browser</Title>
           <nav>
             <LinkList>
               <ListItem>

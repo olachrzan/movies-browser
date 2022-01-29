@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header title="Movies Browser"/>
+      <Header/>
     </ThemeProvider>
   );
 }
