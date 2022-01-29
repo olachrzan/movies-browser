@@ -21,10 +21,10 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Icon = styled.img`
-  margin-right: 15px;
+  margin-right: 8px;
 
    @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    width: 20%;
+    width: 17px;
   }
 `;
 
@@ -37,7 +37,7 @@ export const Title = styled.h1`
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 16px;
+    font-size: 13px;
   }
 `;
 
@@ -50,6 +50,14 @@ export const TextSide = styled.div`
     flex-basis: 495px;
     justify-content: space-between;
     flex-shrink: 1;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    flex-basis: 420px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    flex-basis: 360px;
   }
 `;
 
@@ -73,9 +81,8 @@ export const ListItem = styled.li`
   width: max-content;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 14px;
+    font-size: 12px;
     weight: 600;
-    margin: 0 15px;
   }
 `;
 
@@ -107,6 +114,6 @@ export const SearchInput = styled.input`
   }
 
    @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
