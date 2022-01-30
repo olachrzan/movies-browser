@@ -8,7 +8,6 @@ const movieDetailsSlice = createSlice({
         crew: [],
         loading: false,
         error: false,
-        id: '',
     },
     reducers: {
         fetchMovieDetails: state => {
@@ -26,13 +25,7 @@ const movieDetailsSlice = createSlice({
         },
         setError: state => {
             state.error = true;
-        }
-        // setId: (state, { payload: id }) => {
-        //     state.id = id;
-        // },
-        //     findMovieId: (state, { payload: movieId }) => {
-        //         state.movieDetails.findIndex(state.id = movieId);
-        //     },
+        },
     },
 });
 
@@ -52,9 +45,5 @@ export const selectMovieCast = state => selectMovieDetailsState(state).cast;
 export const selectMovieCrew = state => selectMovieDetailsState(state).crew;
 export const selectMovieLoading = state => selectMovieDetailsState(state).loading;
 export const selectMovieError = state => selectMovieDetailsState(state).error;
-
-export const selectGetMoviebyId = (state, movieId) => {
-    selectMovieDetails(state).find(({ id }) => id = movieId);
-};
 
 export default movieDetailsSlice.reducer;
