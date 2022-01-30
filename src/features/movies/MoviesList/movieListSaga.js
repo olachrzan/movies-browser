@@ -6,10 +6,10 @@ import {
     setError,
     setTotalPages
 } from "./movieListSlice";
-import { apiUrlPopularMovies, apiKey } from "../../apiData";
+import { apiUrlPopularMovies } from "../../apiData";
 
 function* fetchMovieListHandler() {
-    const apiUrl = `${apiUrlPopularMovies}${apiKey}`;
+    const apiUrl = `${apiUrlPopularMovies}`;
 
     try {
         yield delay(2000);
