@@ -1,9 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderArea = styled.div`
   background-color: ${({ theme }) => theme.colors.headerBackground};
   color: ${({ theme }) => theme.colors.white};
   padding: 23px 0;
+
+   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    padding: 16px 0;
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -18,6 +22,7 @@ export const HeaderContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    padding: 0px 16px;
   }
 `;
 
@@ -26,6 +31,11 @@ export const Icon = styled.img`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    width: 16px;
+    margin-right: 8px;
   }
 `;
 
@@ -40,6 +50,13 @@ export const Title = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 16px;
     font-weight: 600;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
   }
 `;
 
@@ -73,6 +90,10 @@ export const NavList = styled.ul`
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: 0;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+        margin: 0px 0px 0 7px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -86,6 +107,17 @@ export const ListItem = styled.li`
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 13px 22px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    padding: 9px 12px;
+    margin: 0 2px;
+  }
+
+  ${({ inactive }) =>
+    inactive &&
+    css`
+      border: none
+    `}
 `;
 
 export const SearchBar = styled.div`
@@ -94,7 +126,6 @@ export const SearchBar = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-basis: 495px;
-    margin-left: 0px;
   }
 `;
 
@@ -108,7 +139,7 @@ export const SearchInput = styled.input`
   width: 432px;
   border-radius: 25px;
   border: none;
-  padding: 12px 12px 12px 48px;
+  padding: 15px 12px 12px 48px;
   font-weight: 400;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -116,7 +147,7 @@ export const SearchInput = styled.input`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 12px;
+    font-size: 13px;
   }
 `;
 
