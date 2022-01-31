@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const HeaderArea = styled.div`
   background-color: ${({ theme }) => theme.colors.headerBackground};
   color: ${({ theme }) => theme.colors.white};
-  padding: 15px 16px;
+  padding: 23px 0;
 `;
 
 export const HeaderContainer = styled.div`
-  max-width: 1237px;
+  max-width: 1368px;
+  padding: 0px 20px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -21,10 +22,10 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Icon = styled.img`
-  margin-right: 8px;
+  margin-right: 12px;
 
-   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    width: 17px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 20px;
   }
 `;
 
@@ -36,8 +37,9 @@ export const Title = styled.h1`
   display: flex;
   align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 13px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 16px;
+    font-weight: 600;
   }
 `;
 
@@ -54,16 +56,16 @@ export const TextSide = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     flex-basis: 420px;
+    justify-content: space-around;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     flex-basis: 360px;
-    justify-content: space-around;
   }
 `;
 
-export const LinkList = styled.ul`
-  margin: 0 0 0 80px;
+export const NavList = styled.ul`
+  margin: 0 0 0 72px;
   padding: 0;
   list-style: none;
   display: flex;
@@ -75,15 +77,14 @@ export const LinkList = styled.ul`
 
 export const ListItem = styled.li`
   margin: 0 8px;
-  padding: 13px;
+  padding: 13.5px 24px;
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
-  font-size: 16px;
+
   width: max-content;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 12px;
-    weight: 600;
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding: 13px 22px;
   }
 `;
 
@@ -114,7 +115,17 @@ export const SearchInput = styled.input`
     width: 100%;
   }
 
-   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 12px;
+  }
+`;
+
+export const ListLink = styled.a`
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 12px;
   }
 `;
