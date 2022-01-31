@@ -2,13 +2,14 @@ import {
   HeaderArea,
   HeaderContainer,
   Title,
-  LinkList,
+  NavList,
   Icon,
   ListItem,
   TextSide,
   SearchBar,
   SearchIcon,
-  SearchInput
+  SearchInput,
+  ListLink,
 } from "./styled";
 import camera from "../Header/icons/camera-icon.svg";
 import search from "../Header/icons/search-icon.svg";
@@ -20,14 +21,14 @@ export const Header = () => {
         <TextSide>
           <Title><Icon src={camera} alt="" />Movies Browser</Title>
           <nav>
-            <LinkList>
+            <NavList>
               <ListItem>
-                <a>Movies</a>
+                <ListLink>Movies</ListLink>
               </ListItem>
               <ListItem>
-                <a>People</a>
+                <ListLink>People</ListLink>
               </ListItem>
-            </LinkList>
+            </NavList>
           </nav>
         </TextSide>
         <SearchBar>
