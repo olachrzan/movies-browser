@@ -29,9 +29,6 @@ const moviesListSlice = createSlice({
         setGenres: (state, { payload: genresApi }) => {
             state.genres = genresApi;
         },
-        findGenresId: (state, { payload: id }) => {
-            state.id = id
-        },
     },
 });
 
