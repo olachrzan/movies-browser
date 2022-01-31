@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   box-shadow: 0px 4px 12px ${({ theme }) => theme.colors.tileBoxShadow};
   border-radius: 5px;
   display: flex;
+  flex: 1 1 324px;
   flex-direction: column;
   height: 100%;
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
@@ -50,7 +51,6 @@ export const Title = styled.h3`
 `;
 
 export const Year = styled.p`
-  flex: 1 1 auto;
   margin: 0 0 8px 0;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.grayText};
@@ -86,13 +86,17 @@ export const Tag = styled.p`
 `;
 
 export const RatingLine = styled.div`
-  flex: 1 1 auto;
   margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-end;
   gap: 12px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    flex: 1 1 auto;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     gap: 8px;
   }
