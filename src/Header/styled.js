@@ -5,7 +5,7 @@ export const HeaderArea = styled.div`
   color: ${({ theme }) => theme.colors.white};
   padding: 23px 0;
 
-   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     padding: 16px 0;
   }
 `;
@@ -50,6 +50,7 @@ export const Title = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 16px;
     font-weight: 600;
+    letter-spacing: -0.5px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
@@ -73,7 +74,7 @@ export const TextSide = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     flex-basis: 420px;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
@@ -92,7 +93,7 @@ export const NavList = styled.ul`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-        margin: 0px 0px 0 7px;
+    margin: 0px 0px 0 7px;
   }
 `;
 
@@ -109,14 +110,14 @@ export const ListItem = styled.li`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    padding: 9px 12px;
+    padding: 8px 12px;
     margin: 0 2px;
   }
 
   ${({ inactive }) =>
     inactive &&
     css`
-      border: none
+      border: none;
     `}
 `;
 
@@ -133,13 +134,19 @@ export const SearchIcon = styled.img`
   position: absolute;
   top: 25%;
   left: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    top: 30%;
+    left: 20px;
+    width: 15px;
+  }
 `;
 
 export const SearchInput = styled.input`
   width: 432px;
   border-radius: 25px;
   border: none;
-  padding: 15px 12px 12px 48px;
+  padding: 15px 12px 12px 45px;
   font-weight: 400;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {

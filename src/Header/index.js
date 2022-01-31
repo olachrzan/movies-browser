@@ -19,7 +19,10 @@ export const Header = () => {
     <HeaderArea>
       <HeaderContainer>
         <TextSide>
-          <Title><Icon src={camera} alt="" />Movies Browser</Title>
+          <Title>
+            <Icon src={camera} alt="" />
+            Movies Browser
+          </Title>
           <nav>
             <NavList>
               <ListItem>
