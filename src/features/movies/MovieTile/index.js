@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectGenres } from "../MoviesList/movieListSlice";
+import { selectGenres } from "../MovieList/movieListSlice";
 import {
   Poster,
   Rating,
