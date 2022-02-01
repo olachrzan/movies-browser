@@ -1,14 +1,9 @@
-import Pagination from "./common/Pagination";
-import Container from "./common/Container";
-import { MovieList } from "./features/movies/MoviesList";
+import { MovieDetailsPage } from "./features/movies/MovieDetails/MovieDetailsPage";
 
 function App() {
 
   return (
-    <Container>
-      <MovieList />
-      <Pagination />
-    </Container>
+      <MovieDetailsPage />
   );
 };
 
