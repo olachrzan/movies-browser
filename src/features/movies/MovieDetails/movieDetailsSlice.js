@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const movieDetailsSlice = createSlice({
     name: 'movieDetails',
     initialState: {
-        movieDetails: [],
+        movieDetails: {},
         cast: [],
         crew: [],
         loading: false,
@@ -38,7 +38,7 @@ export const {
     setError,
 } = movieDetailsSlice.actions;
 
-const selectMovieDetailsState = state => state.movieDetails;
+export const selectMovieDetailsState = state => state.movieDetails;
 
 export const selectMovieDetails = state => selectMovieDetailsState(state).movieDetails;
 export const selectMovieCast = state => selectMovieDetailsState(state).cast;
