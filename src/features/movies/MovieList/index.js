@@ -1,7 +1,7 @@
 import { MovieTile } from "../MovieTile";
 import { Wrapper } from "./styled";
 
-export const MoviesList = () => {
+export const MovieList = () => {
   const listLength = 8;
   return (
     <Wrapper>

@@ -9,7 +9,7 @@ import {
     Span
 } from "./styled";
 
-const Pagination = () => {
+export const Pagination = () => {
 
     return (
         <Wrapper>
@@ -40,5 +40,3 @@ const Pagination = () => {
         </Wrapper>
     );
 };
-
-export default Pagination;
