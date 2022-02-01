@@ -37,7 +37,7 @@ export const MovieTile = ({ poster, title, year, rating, voteCount, genres }) =>
         <RatingLine>
           <Star />
           <Rating>{rating}</Rating>
-          <Votes> <span>{voteCount}</span> votes</Votes>
+          <Votes>{voteCount} votes</Votes>
         </RatingLine>
       </TextSide>
     </Wrapper >

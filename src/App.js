@@ -1,14 +1,18 @@
-import Pagination from "./common/Pagination";
+import { Header } from "./common/Header";
 import Container from "./common/Container";
-import { MovieList } from "./features/movies/MoviesList";
+import { MovieList } from "./features/movies/MovieList";
+import { Pagination } from "./common/Pagination";
 
 function App() {
 
   return (
-    <Container>
-      <MovieList />
-      <Pagination />
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <MovieList />
+        <Pagination />
+      </Container>
+    </>
   );
 };
 
