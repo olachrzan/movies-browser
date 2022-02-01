@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './GlobalStyle';
-import { Header } from './Header';
+import { Header } from './common/Header';
 import { theme } from "./theme";
 import Container from './common/Container';
 import { MovieList } from './features/movies/MovieList';

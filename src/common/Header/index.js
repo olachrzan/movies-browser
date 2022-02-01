@@ -11,8 +11,8 @@ import {
   SearchInput,
   ListLink,
 } from "./styled";
-import camera from "../Header/icons/camera-icon.svg";
-import search from "../Header/icons/search-icon.svg";
+import camera from "./icons/camera-icon.svg";
+import search from "./icons/search-icon.svg";
 
 export const Header = () => {
   return (
