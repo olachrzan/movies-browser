@@ -7,8 +7,10 @@ export const Wrapper = styled.div`
   box-shadow: 0px 4px 12px ${({ theme }) => theme.colors.tileBoxShadow};
   border-radius: 5px;
   display: flex;
+  flex: 1 1 324px;
   flex-direction: column;
-
+  height: 100%;
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     flex-direction: row;
   }
@@ -28,6 +30,10 @@ export const Poster = styled.img`
 `;
 
 export const TextSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     margin-left: 16px;
   }
@@ -81,7 +87,7 @@ export const Tag = styled.p`
     padding: 4px 8px;
     font-size: 10px; 
   }
-
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 1vw 2vw;
     font-size: 2vw;
@@ -93,7 +99,12 @@ export const RatingLine = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  align-content: flex-end;
   gap: 12px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    flex: 1 1 auto;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     gap: 8px;
