@@ -24,6 +24,10 @@ export const HeaderContainer = styled.div`
     gap: 20px;
     padding: 0 16px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    gap: 10px;
+  }
 `;
 
 export const TextSide = styled.div`
@@ -37,13 +41,8 @@ export const TextSide = styled.div`
     flex-shrink: 1;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    flex-basis: 420px;
-    justify-content: space-evenly;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    flex-basis: 360px;
+    flex-basis: 320px;
   }
 `;
 
@@ -55,24 +54,14 @@ export const Title = styled.h1`
   display: flex;
   align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.5px;
   }
 `;
 
 export const Icon = styled.img`
   margin-right: 12px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 20px;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     width: 16px;
@@ -87,10 +76,6 @@ export const NavList = styled.ul`
   display: flex;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     margin: 0 0 0 7px;
   }
 `;
@@ -107,7 +92,7 @@ export const ListItem = styled.li`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    padding: 8px 12px;
+    padding: 6px 12px;
     margin: 0 2px;
   }
 
@@ -133,6 +118,10 @@ export const SearchBar = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-basis: 495px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    flex-basis: 320px;
+  }
 `;
 
 export const SearchIcon = styled.img`
@@ -142,7 +131,7 @@ export const SearchIcon = styled.img`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     top: 30%;
-    left: 20px;
+    left: 16px;
     width: 15px;
   }
 `;
@@ -151,7 +140,7 @@ export const SearchInput = styled.input`
   width: 432px;
   border-radius: 25px;
   border: none;
-  padding: 15px 12px 12px 45px;
+  padding: 14px 12px 14px 45px;
   font-weight: 400;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -160,5 +149,6 @@ export const SearchInput = styled.input`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 13px;
+    padding: 12px 12px 12px 38px;
   }
 `;
