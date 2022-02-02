@@ -1,3 +1,4 @@
+import {Pagination} from "../../../common/Pagination";
 import { MovieTile } from "../MovieTile"
 import { Wrapper } from "./styled";
 import { useSelector } from "react-redux";
@@ -16,17 +17,20 @@ export const MovieList = () => {
   }, [dispatch]);
 
   return (
-    <Wrapper>
-      {[...movies].map((movie, index) => {
-        return <MovieTile key={index}
-          poster={`${apiUrlImage}w500/${movie.poster_path}`} //here we need to change the image for mobile phones 
-          title={movie.title}
-          year={(movie.release_date).slice(0, 4)}
-          genres={movie.genre_ids}
-          rating={movie.vote_average}
-          voteCount={movie.vote_count}
-        />
-      })}
-    </Wrapper>
+    <>
+      <Wrapper>
+        {[...movies].map((movie, index) => {
+          return <MovieTile key={index}
+            poster={`${apiUrlImage}w500/${movie.poster_path}`} //here we need to change the image for mobile phones 
+            title={movie.title}
+            year={(movie.release_date).slice(0, 4)}
+            genres={movie.genre_ids}
+            rating={movie.vote_average}
+            voteCount={movie.vote_count}
+          />
+        })}
+      </Wrapper>
+      <Pagination />
+    </>
   )
 };
