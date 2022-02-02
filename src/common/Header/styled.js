@@ -11,7 +11,7 @@ export const HeaderArea = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  max-width: 1368px;
+  max-width: 1408px;
   padding: 0px 20px;
   margin: 0 auto;
   display: flex;
@@ -56,8 +56,6 @@ export const Title = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: -0.5px;
-}
   }
 `;
 
@@ -99,14 +97,14 @@ export const NavList = styled.ul`
 
 export const ListItem = styled.li`
   margin: 0 8px;
-  padding: 13.5px 24px;
+  padding: 14px 24px;
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
 
   width: max-content;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding: 13px 22px;
+    padding: 10px 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
