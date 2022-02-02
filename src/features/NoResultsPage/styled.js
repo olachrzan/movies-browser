@@ -6,7 +6,6 @@ export const NoResultsText = styled.p`
   letter-spacing: -0.5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    text-align: center;
     font-size: 30px;
   }
 
