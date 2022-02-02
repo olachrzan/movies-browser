@@ -12,7 +12,7 @@ export const HeaderArea = styled.div`
 
 export const HeaderContainer = styled.div`
   max-width: 1408px;
-  padding: 0px 20px;
+  padding: 0 20px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -22,40 +22,7 @@ export const HeaderContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 0px 16px;
-  }
-`;
-
-export const Icon = styled.img`
-  margin-right: 12px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 20px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    width: 16px;
-    margin-right: 8px;
-  }
-`;
-
-export const Title = styled.h1`
-  margin: 0;
-  font-weight: 500;
-  font-size: 24px;
-  letter-spacing: -1.5px;
-  display: flex;
-  align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 13px;
-    font-weight: 500;
+    padding: 0 16px;
   }
 `;
 
@@ -80,6 +47,39 @@ export const TextSide = styled.div`
   }
 `;
 
+export const Title = styled.h1`
+  margin: 0;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -1.5px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 13px;
+    font-weight: 500;
+  }
+`;
+
+export const Icon = styled.img`
+  margin-right: 12px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    width: 16px;
+    margin-right: 8px;
+  }
+`;
+
 export const NavList = styled.ul`
   margin: 0 0 0 72px;
   padding: 0;
@@ -91,7 +91,7 @@ export const NavList = styled.ul`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    margin: 0px 0px 0 7px;
+    margin: 0 0 0 7px;
   }
 `;
 
@@ -100,7 +100,6 @@ export const ListItem = styled.li`
   padding: 14px 24px;
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
-
   width: max-content;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
@@ -112,11 +111,19 @@ export const ListItem = styled.li`
     margin: 0 2px;
   }
 
-  ${({ inactive }) =>
-    inactive &&
-    css`
-      border: none;
-    `}
+  ${({ inactive }) => inactive && css`
+    border: none;
+  `}
+`;
+
+export const ListLink = styled.a`
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 12px;
+  }
 `;
 
 export const SearchBar = styled.div`
@@ -153,15 +160,5 @@ export const SearchInput = styled.input`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 13px;
-  }
-`;
-
-export const ListLink = styled.a`
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 12px;
   }
 `;
