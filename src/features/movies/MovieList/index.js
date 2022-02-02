@@ -1,6 +1,6 @@
-import {Pagination} from "../../../common/Pagination";
+import { Pagination } from "../../../common/Pagination";
 import { MovieTile } from "../MovieTile"
-import { Wrapper } from "./styled";
+import { Header, Wrapper } from "./styled";
 import { useSelector } from "react-redux";
 import { selectMovies } from "./movieListSlice";
 import { apiUrlImage } from "../../apiData";
@@ -18,6 +18,7 @@ export const MovieList = () => {
 
   return (
     <>
+      <Header>Popular movies</Header>
       <Wrapper>
         {[...movies].map((movie, index) => {
           return <MovieTile key={index}
