@@ -19,12 +19,7 @@ export const HeaderContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-wrap: wrap;
-    gap: 20px;
     padding: 0 16px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    gap: 10px;
   }
 `;
 
@@ -114,6 +109,11 @@ export const SearchBar = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-basis: 100%;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin-top: 10px;
   }
 `;
 
