@@ -10,7 +10,6 @@ import {
 import { apiUrlGenres, apiUrlPopularMovies } from "../../apiData";
 
 function* fetchMovieListHandler() {
-
     try {
         yield delay(2000);
         const apiRequest = yield call(getApi, apiUrlPopularMovies);
