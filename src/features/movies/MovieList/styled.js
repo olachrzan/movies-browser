@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin-bottom: 32px;
     grid-template-columns: 1fr;
     gap: 16px;
   }
