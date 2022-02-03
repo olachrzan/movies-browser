@@ -18,7 +18,8 @@ export const Wrapper = styled.div`
 
 export const Poster = styled.img`
   width: 100%;
-  height: fit-content;
+  height: 100%;
+  border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     width: 50%;
