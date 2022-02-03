@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const NoResultsText = styled.p`
   font-weight: 600;
   font-size: 33px;
-  letter-spacing: -0.5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     font-size: 30px;
@@ -14,15 +13,11 @@ export const NoResultsText = styled.p`
   }
 `;
 
-export const ImageContainer = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const Image = styled.img`
+  display: block;
+  margin: 0 auto;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 200px;
+    width: 250px;
   }
 `;
