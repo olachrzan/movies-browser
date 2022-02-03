@@ -1,12 +1,13 @@
 import { Pagination } from "../../../common/Pagination";
 import { MovieTile } from "../MovieTile"
-import { Header, Wrapper } from "./styled";
+import { Wrapper } from "./styled";
 import { useSelector } from "react-redux";
 import { selectMovies } from "./movieListSlice";
 import { apiUrlImage } from "../../apiData";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMovies } from "./movieListSlice";
+import { Title } from "../../../common/Title/styled";
 
 export const MovieList = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export const MovieList = () => {
 
   return (
     <>
-      <Header>Popular movies</Header>
+      <Title>Popular movies</Title>
       <Wrapper>
         {[...movies].map((movie, index) => {
           return <MovieTile key={index}
