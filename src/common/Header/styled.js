@@ -11,31 +11,26 @@ export const HeaderArea = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  max-width: 1368px;
-  padding: 0px 20px;
+  max-width: 1408px;
+  padding: 0 20px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 0px 16px;
+    padding: 0 16px;
   }
 `;
 
-export const Icon = styled.img`
-  margin-right: 12px;
+export const TextSide = styled.div`
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  flex-shrink: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 20px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    width: 16px;
-    margin-right: 8px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    justify-content: flex-end;
   }
 `;
 
@@ -47,38 +42,22 @@ export const Title = styled.h1`
   display: flex;
   align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
+  @media (max-width:  ${({ theme }) => theme.breakpoints.large}) {
+    flex: 1 1 auto;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 14px;
     letter-spacing: -0.5px;
-}
   }
 `;
 
-export const TextSide = styled.div`
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    flex-basis: 495px;
-    justify-content: space-between;
-    flex-shrink: 1;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    flex-basis: 420px;
-    justify-content: space-evenly;
-  }
+export const Icon = styled.img`
+  margin-right: 12px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    flex-basis: 360px;
+    width: 16px;
+    margin-right: 8px;
   }
 `;
 
@@ -89,44 +68,52 @@ export const NavList = styled.ul`
   display: flex;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    margin: 0px 0px 0 7px;
+    margin: 0 0 0 7px;
   }
 `;
 
 export const ListItem = styled.li`
   margin: 0 8px;
-  padding: 13.5px 24px;
+  padding: 14px 24px;
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
 
-  width: max-content;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding: 13px 22px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    &:last-child{
+      margin-right: 0px;
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    padding: 8px 12px;
+    padding: 6px 12px;
     margin: 0 2px;
   }
 
-  ${({ inactive }) =>
-    inactive &&
-    css`
-      border: none;
-    `}
+  ${({ inactive }) => inactive && css`
+    border: none;
+  `}
+`;
+
+export const ListLink = styled.a`
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 12px;
+  }
 `;
 
 export const SearchBar = styled.div`
-  flex-shrink: 1;
   position: relative;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    flex-basis: 495px;
+    flex-basis: 100%;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin-top: 10px;
   }
 `;
 
@@ -137,7 +124,7 @@ export const SearchIcon = styled.img`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     top: 30%;
-    left: 20px;
+    left: 16px;
     width: 15px;
   }
 `;
@@ -146,7 +133,7 @@ export const SearchInput = styled.input`
   width: 432px;
   border-radius: 25px;
   border: none;
-  padding: 15px 12px 12px 45px;
+  padding: 14px 12px 14px 45px;
   font-weight: 400;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -155,15 +142,6 @@ export const SearchInput = styled.input`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 13px;
-  }
-`;
-
-export const ListLink = styled.a`
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 12px;
+    padding: 12px 12px 12px 38px;
   }
 `;
