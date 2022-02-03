@@ -1,4 +1,5 @@
 import { Pagination } from "../../../common/Pagination";
+import { Container } from "../../../common/Container";
 import { MovieTile } from "../MovieTile"
 import { Wrapper } from "./styled";
 import { useSelector } from "react-redux";
@@ -18,7 +19,7 @@ export const MovieList = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Container>
       <Title>Popular movies</Title>
       <Wrapper>
         {[...movies].map((movie, index) => {
@@ -33,6 +34,6 @@ export const MovieList = () => {
         })}
       </Wrapper>
       <Pagination />
-    </>
+    </Container>
   )
 };
