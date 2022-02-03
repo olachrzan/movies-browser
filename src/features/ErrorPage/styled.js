@@ -27,6 +27,7 @@ export const ErrorMessage = styled.p`
   font-weight: 600;
   font-style: normal;
   margin: 24px;
+  text-align: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 28px;
@@ -37,7 +38,6 @@ export const ErrorMessage = styled.p`
     css`
       font-size: 22px;
       font-weight: 500;
-      text-align: center;
       padding: 10px;
       max-width: 35%;
 

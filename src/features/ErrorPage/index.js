@@ -1,7 +1,7 @@
 import { ErrorContainer, ErrorImage, ErrorMessage, HomepageButton } from "./styled";
 import image from "./icons/error.svg";
 
-export const SearchError = () => {
+export const ErrorPage = () => {
   return (
     <ErrorContainer>
       <ErrorImage src={image}/>
