@@ -16,11 +16,9 @@ export const HeaderContainer = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
     padding: 0 16px;
   }
@@ -32,17 +30,12 @@ export const HeaderContainer = styled.div`
 
 export const TextSide = styled.div`
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
   flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    flex-basis: 495px;
-    justify-content: space-between;
-    flex-shrink: 1;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    flex-basis: 320px;
+    justify-content: flex-end;
   }
 `;
 
@@ -53,6 +46,10 @@ export const Title = styled.h1`
   letter-spacing: -1.5px;
   display: flex;
   align-items: center;
+
+  @media (max-width:  ${({ theme }) => theme.breakpoints.large}) {
+    flex: 1 1 auto;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 14px;
@@ -85,10 +82,11 @@ export const ListItem = styled.li`
   padding: 14px 24px;
   border: 1px solid ${({ theme }) => theme.colors.white};
   border-radius: 25px;
-  width: max-content;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding: 10px 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    &:last-child{
+      margin-right: 0px;
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
@@ -106,21 +104,16 @@ export const ListLink = styled.a`
   font-weight: 600;
   text-transform: uppercase;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 12px;
   }
 `;
 
 export const SearchBar = styled.div`
-  flex-shrink: 1;
   position: relative;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    flex-basis: 495px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    flex-basis: 320px;
+    flex-basis: 100%;
   }
 `;
 
