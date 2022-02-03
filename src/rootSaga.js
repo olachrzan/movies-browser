@@ -5,6 +5,6 @@ import movieDetailsSaga from "./features/movies/MovieDetails/movieDetailsSaga";
 export default function* rootSaga() {
     yield all([
         movieListSaga(),
-        movieDetailsSaga()
+        movieDetailsSaga(),
     ]);
 };
