@@ -1,21 +1,28 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMovieDetails } from "./movieDetailsSlice";
-import { selectMovieDetails } from "./movieDetailsSlice";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMovieDetails, selectMovieDetails } from "./movieDetailsSlice";
 import Container from "../../../common/Container";
+import { MovieTile } from "../MovieTile";
+// import { apiUrlImage } from "../../apiData";
 
-export const MovieDetailsPage = () => {
+function MovieDetailsPage() {
+    const { id } = useParams();
     const dispatch = useDispatch();
     const movie = useSelector(selectMovieDetails);
-    console.log(movie);
 
     useEffect(() => {
-        dispatch(fetchMovieDetails());
-    }, [dispatch]);
+        dispatch(fetchMovieDetails({ id }))
+    }, [dispatch, id]);
 
     return (
         <Container>
-            jgfj
+            <MovieTile
+            // poster={`${apiUrlImage}w500/${poster_path}`}
+            // title={movie.original_title}
+            />
         </Container>
     )
 };
+
+export default MovieDetailsPage;

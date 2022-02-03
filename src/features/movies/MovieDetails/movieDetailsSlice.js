@@ -3,17 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const movieDetailsSlice = createSlice({
     name: 'movieDetails',
     initialState: {
-        movieDetails: {},
+        movieDetails: [],
         cast: [],
         crew: [],
-        loading: false,
-        error: false,
     },
     reducers: {
-        fetchMovieDetails: state => {
-            state.loading = !state.loading;
-        },
-        setMoviesDetails: (state, { payload: movieDetailsApi }) => {
+        fetchMovieDetails: () => { },
+        setMovieDetails: (state, { payload: movieDetailsApi }) => {
             state.movieDetails = movieDetailsApi;
             state.loading = false;
         },
@@ -31,19 +27,18 @@ const movieDetailsSlice = createSlice({
 
 export const {
     fetchMovieDetails,
-    setMoviesDetails,
-    setId,
+    setMovieDetails,
     setCast,
     setCrew,
     setError,
 } = movieDetailsSlice.actions;
 
-export const selectMovieDetailsState = state => state.movieDetails;
+const selectMovieDetailsState = state => state.movieDetails;
 
 export const selectMovieDetails = state => selectMovieDetailsState(state).movieDetails;
 export const selectMovieCast = state => selectMovieDetailsState(state).cast;
 export const selectMovieCrew = state => selectMovieDetailsState(state).crew;
 export const selectMovieLoading = state => selectMovieDetailsState(state).loading;
-export const selectMovieError = state => selectMovieDetailsState(state).error;
+export const selectMovieError = state => state.error;
 
 export default movieDetailsSlice.reducer;
