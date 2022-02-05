@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 export const HeaderArea = styled.div`
   background-color: ${({ theme }) => theme.colors.headerBackground};
@@ -94,7 +95,7 @@ export const ListItem = styled.li`
   `}
 `;
 
-export const ListLink = styled.a`
+export const ListLink = styled(Link)`
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;

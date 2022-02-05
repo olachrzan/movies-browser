@@ -26,7 +26,7 @@ export const Header = () => {
           <nav>
             <NavList>
               <ListItem>
-                <ListLink>Movies</ListLink>
+                <ListLink to={}>Movies</ListLink>
               </ListItem>
               <ListItem inactive>
                 <ListLink>People</ListLink>
