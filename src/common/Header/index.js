@@ -6,13 +6,10 @@ import {
   Icon,
   ListItem,
   TextSide,
-  SearchBar,
-  SearchIcon,
-  SearchInput,
   ListLink,
 } from "./styled";
 import camera from "./icons/camera-icon.svg";
-import search from "./icons/search-icon.svg";
+import { Search } from "../../features/Search/";
 
 export const Header = () => {
   return (
@@ -34,10 +31,7 @@ export const Header = () => {
             </NavList>
           </nav>
         </TextSide>
-        <SearchBar>
-          <SearchIcon src={search} alt="" />
-          <SearchInput type="search" placeholder="Search for movies..." />
-        </SearchBar>
+        <div>{<Search />}</div>
       </HeaderContainer>
     </HeaderArea>
   );
