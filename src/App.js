@@ -1,5 +1,5 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import {MovieDetailsPage} from "./features/movies/MovieDetails/MovieDetailsPage";
+import { MovieDetailsPage } from "./features/movies/MovieDetails/MovieDetailsPage";
 import { MovieList } from "./features/movies/MoviesList";
 
 function App() {

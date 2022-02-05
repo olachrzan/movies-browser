@@ -6,7 +6,7 @@ const moviesListSlice = createSlice({
         movies: [],
         genres: [],
         page: 1,
-        total_pages: '',
+        total_pages: 500,
         loading: false,
         error: false,
     },

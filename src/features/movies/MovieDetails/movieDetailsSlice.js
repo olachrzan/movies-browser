@@ -6,9 +6,13 @@ const movieDetailsSlice = createSlice({
         movieDetails: [],
         cast: [],
         crew: [],
+        loading: false,
+        error: false,
     },
     reducers: {
-        fetchMovieDetails: () => { },
+        fetchMovieDetails: state => {
+            state.loading = !state.loading;
+        },
         setMovieDetails: (state, { payload: movieDetailsApi }) => {
             state.movieDetails = movieDetailsApi;
             state.loading = false;
@@ -17,7 +21,7 @@ const movieDetailsSlice = createSlice({
             state.cast = movieCast;
         },
         setCrew: (state, { payload: movieCrew }) => {
-            state.crew = movieCrew
+            state.crew = movieCrew;
         },
         setError: state => {
             state.error = true;
@@ -31,14 +35,17 @@ export const {
     setCast,
     setCrew,
     setError,
+    setId,
 } = movieDetailsSlice.actions;
 
 const selectMovieDetailsState = state => state.movieDetails;
 
 export const selectMovieDetails = state => selectMovieDetailsState(state).movieDetails;
+export const selectMovieId = state => selectMovieDetailsState(state).id;
 export const selectMovieCast = state => selectMovieDetailsState(state).cast;
 export const selectMovieCrew = state => selectMovieDetailsState(state).crew;
 export const selectMovieLoading = state => selectMovieDetailsState(state).loading;
-export const selectMovieError = state => state.error;
+export const selectMovieError = state => selectMovieDetailsState(state).error;
+
 
 export default movieDetailsSlice.reducer;
