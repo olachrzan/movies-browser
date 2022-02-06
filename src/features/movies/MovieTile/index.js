@@ -23,9 +23,9 @@ export const MovieTile = ({ poster, title, year, rating, voteCount, genres }) =>
       <TextSide>
         <Title>{title}</Title>
         <Year>{year}</Year>
-        {genresList > 0 &&
+        {genresList.length > 0 &&
           <TagsLine>
-            {genres.map((genre, index) => (
+            {genres && genres.map((genre, index) => (
               <Tag key={index}
               >
                 {[...genresList].find((item) => item.id === genre).name}
