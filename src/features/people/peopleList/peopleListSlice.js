@@ -36,7 +36,7 @@ export const {
 const selectPeopleListState = state => state.people;
 
 export const selectPeopleList = state => selectPeopleListState(state).people;
-export const selectPeoplePage = state => selectPeopleListState(state).pagge;
+export const selectPeoplePage = state => selectPeopleListState(state).page;
 export const selectPeopleLoading = state => selectPeopleListState(state).loading;
 export const selectError = state => selectPeopleListState(state).error;
 
