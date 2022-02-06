@@ -6,7 +6,7 @@ const moviesListSlice = createSlice({
         movies: [],
         genres: [],
         page: 1,
-        total_pages: "loading",
+        total_pages: 500,
         loading: false,
         error: false,
     },
@@ -21,10 +21,9 @@ const moviesListSlice = createSlice({
         setError: state => {
             state.error = true;
             state.loading = false;
-            state.total_pages = "...";
         },
-        setTotalPages: (state, { payload: allPages }) => {
-            state.total_pages = allPages;
+        setPage: (state, { payload: page }) => {
+            state.page = page;
         },
         setGenres: (state, { payload: genresApi }) => {
             state.genres = genresApi;
@@ -36,7 +35,7 @@ export const {
     fetchMovies,
     setMovies,
     setError,
-    setTotalPages,
+    setPage,
     setGenres,
 } = moviesListSlice.actions;
 
@@ -44,8 +43,10 @@ const selectMoviesState = state => state.movies;
 
 export const selectMovies = state => selectMoviesState(state).movies;
 export const selectLoading = state => selectMoviesState(state).loading;
-export const selectError = state => selectMoviesState(state).error;
-export const selectTotalPages = state => selectMoviesState(state).total_pages;
+export const selectMovieError = state => selectMoviesState(state).error;
+export const selectMoviesPage = state => selectMoviesState(state).page;
 export const selectGenres = state => selectMoviesState(state).genres;
+export const selectMoviePage = state => selectMoviesState(state).page;
+export const selectMovieTotalPages = state => selectMoviesState(state).total_pages;
 
 export default moviesListSlice.reducer;

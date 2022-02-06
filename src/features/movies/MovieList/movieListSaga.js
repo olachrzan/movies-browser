@@ -4,7 +4,7 @@ import {
     fetchMovies,
     setMovies,
     setError,
-    setTotalPages,
+    setPage,
     setGenres,
 } from "./movieListSlice";
 import { apiUrlGenres, apiUrlPopularMovies } from "../../apiData";
@@ -12,11 +12,11 @@ import { apiUrlGenres, apiUrlPopularMovies } from "../../apiData";
 function* fetchMovieListHandler() {
 
     try {
-        yield delay(2000);
+        yield delay(1000);
         const apiRequest = yield call(getApi, apiUrlPopularMovies);
         const genres = yield call(getApi, apiUrlGenres);
         yield put(setMovies(apiRequest.results));
-        yield put(setTotalPages(apiRequest.total_pages));
+        yield put(setPage(apiRequest.page));
         yield put(setGenres(genres.genres));
     }
     catch (error) {

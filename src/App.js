@@ -1,13 +1,31 @@
-import { Header } from "./common/Header";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { MovieList } from "./features/movies/MovieList";
+import { Header } from "./common/Header";
+import { PeopleListPage } from "./features/people/peopleList/peopleListPage";
 
 function App() {
 
   return (
-    <>
+    <HashRouter>
       <Header />
-      <MovieList />
-    </>
+      <Switch>
+        <Route path="/movie/:id" >
+          {/* <MovieDetailsPage /> */}
+        </Route>
+        <Route path="/movie">
+          <MovieList />
+        </Route >
+        <Route path="/people/:id" >
+          
+        </Route>
+        <Route path="/people">
+          <PeopleListPage />
+        </Route >
+        <Route path="/">
+          <Redirect to="/movie" />
+        </Route>
+      </Switch>
+    </HashRouter >
   );
 };
 

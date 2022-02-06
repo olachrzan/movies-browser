@@ -26,10 +26,10 @@ export const Header = () => {
           <nav>
             <NavList>
               <ListItem>
-                <ListLink>Movies</ListLink>
+                <ListLink to="/movie">Movies</ListLink>
               </ListItem>
-              <ListItem inactive>
-                <ListLink>People</ListLink>
+              <ListItem >
+                <ListLink to="/people">People</ListLink>
               </ListItem>
             </NavList>
           </nav>

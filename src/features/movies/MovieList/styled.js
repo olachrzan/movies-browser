@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  max-width: 1368px;
-  margin: 0 auto 40px;
   display: grid;
-  /* grid-template-columns: repeat(auto-fill, minmax(324px, 1fr)); */
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 
@@ -13,7 +10,6 @@ export const Wrapper = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    margin-bottom: 32px;
     grid-template-columns: 1fr;
     gap: 16px;
   }

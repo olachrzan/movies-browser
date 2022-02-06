@@ -1,4 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const HeaderArea = styled.div`
   background-color: ${({ theme }) => theme.colors.headerBackground};
@@ -74,9 +75,6 @@ export const NavList = styled.ul`
 
 export const ListItem = styled.li`
   margin: 0 8px;
-  padding: 14px 24px;
-  border: 1px solid ${({ theme }) => theme.colors.white};
-  border-radius: 25px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     &:last-child{
@@ -85,22 +83,30 @@ export const ListItem = styled.li`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin: 0 2px;
+  }
+`;
+
+export const ListLink = styled(NavLink)`
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     padding: 6px 12px;
     margin: 0 2px;
   }
 
-  ${({ inactive }) => inactive && css`
-    border: none;
-  `}
-`;
-
-export const ListLink = styled.a`
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 12px;
+  }
+
+  &.active{
+    border: 1px solid ${({ theme }) => theme.colors.white};
+    border-radius: 25px;
   }
 `;
 
@@ -113,7 +119,7 @@ export const SearchBar = styled.div`
   }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    margin-top: 10px;
+    margin-top: 15px;
   }
 `;
 
