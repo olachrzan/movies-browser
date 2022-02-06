@@ -41,5 +41,5 @@ export const MovieTile = ({ poster, title, year, rating, voteCount, genres }) =>
         </RatingLine>
       </TextSide>
     </Wrapper >
-  );
-}
+  )
+};
