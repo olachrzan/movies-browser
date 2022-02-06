@@ -10,7 +10,7 @@ import { fetchMovies, selectLoading, selectMovieError, selectMovies } from "./mo
 import { Title } from "../../../common/Title/styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { nanoid } from "@reduxjs/toolkit";
-import { LoadingPage } from "../../../common/LoadingPage";
+import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
 
 export const MovieList = () => {
@@ -27,7 +27,7 @@ export const MovieList = () => {
     <Container>
       <Title>Popular movies</Title>
       {loading
-        ? <LoadingPage />
+        ? <Loader />
         : error ? <ErrorPage />
           : (
             <>
