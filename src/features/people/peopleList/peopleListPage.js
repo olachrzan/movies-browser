@@ -8,6 +8,7 @@ import { WrapperLink } from "../../../common/wrapperLink";
 import { apiUrlImage } from "../../apiData";
 import { Pagination } from "../../../common/Pagination";
 import { LoadingPage } from "../../../common/LoadingPage";
+import { Title } from "../../../common/Title/styled";
 
 
 export const PeopleListPage = () => {
@@ -22,6 +23,7 @@ export const PeopleListPage = () => {
 
   return (
     < Container >
+      <Title>Popular people</Title>
       {loading ? <LoadingPage />
         :
         <>
