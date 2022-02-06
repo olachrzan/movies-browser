@@ -38,7 +38,7 @@ export const {
     setId,
 } = movieDetailsSlice.actions;
 
-const selectMovieDetailsState = state => state.movieDetails;
+const selectMovieDetailsState = state => state.moviesDetails;
 
 export const selectMovieDetails = state => selectMovieDetailsState(state).movieDetails;
 export const selectMovieId = state => selectMovieDetailsState(state).id;
