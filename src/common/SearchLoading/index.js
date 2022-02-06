@@ -1,11 +1,11 @@
-import { LoadingText } from "./styled";
 import { Container } from "../Container"
 import { Loader } from "../Loader";
+import { Title } from "../Title/styled";
 
 export const SearchLoading = ({ title }) => {
   return (
     <Container>
-      <LoadingText>Search results for "{title}"</LoadingText>
+      <Title>Search results for "{title}"</Title>
       <Loader />
     </Container>
   );
