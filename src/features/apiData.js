@@ -10,6 +10,7 @@ export const apiUrlPopularPeople = `${apiUrl}person/popular?api_key=${apiKey}`; 
 export const apiUrlMovieCredits = `${apiUrl}person/{person_id}/movie_credits?api_key=${apiKey}`; // cast and crew for person
 export const apiUrlImage = `https://image.tmdb.org/t/p/`; // base Url for images
 export const apiUrlGenres = `${apiUrl}genre/movie/list?api_key=${apiKey}`; // genre list
+export const apiUrlSearchMovies =`${apiUrl}search/movie?&api_key=${apiKey}&query=`;
 
 export const apiUrlConfiguration = `${apiUrl}configuration?api_key=${apiKey}`; // images size
 

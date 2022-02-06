@@ -1,10 +1,9 @@
-import { SearchBar, SearchIcon, SearchInput } from "./styled";
-import search from "./icons/search-icon.svg";
-import { useState } from "react";
-import { apiUrlSearchMovies } from "../apiData";
+import { Search } from "./index";
+import { MovieList } from "../movies/MovieList";
 
-export const Search = () => {
-
+export const SearchPage = () => {
+  const apiUrlSearchMovies =
+    "https://api.themoviedb.org/3/search/movie?&api_key=5d668a4e55e28292714d6fdd2fd67935&query=";
 
   const [searchTerm, setSearchTerm] = useState("");
   const [moviesSearch, setMoviesSearch] = useState([]);
@@ -28,12 +27,11 @@ export const Search = () => {
   };
 
   return (
-    <SearchBar>
-      <SearchIcon src={search} alt="" />
-      <form onSubmit={handleOnSubmit}>
-        {" "}
-        <SearchInput type="search" value={searchTerm }placeholder="Search for movies..."  onChange={handleOnChange}/>
-      </form>
-    </SearchBar>
+    <>
+      <Header>
+          <div>{Search}</div>
+      </Header>
+      <MovieList />
+    </>
   );
 };
