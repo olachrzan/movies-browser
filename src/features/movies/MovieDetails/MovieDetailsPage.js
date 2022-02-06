@@ -22,7 +22,7 @@ export const MovieDetailsPage = () => {
 			<MovieHeader />
 			<Container>
 				<MovieTile
-					// poster={`${apiUrlImage}w300/${movie.poster_path}`}
+					poster={`${apiUrlImage}w300/${movieDetails.poster_path}`}
 					title={movieDetails.original_title}
 				/>
 			</Container>
