@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ReactComponent as star } from "./star.svg";
+import styled, { css } from "styled-components";
+import { ReactComponent as star } from "../star.svg";
 
 export const Wrapper = styled.div`
   padding: 16px;
@@ -13,6 +13,11 @@ export const Wrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     flex-direction: row;
   }
+
+  ${({ big }) => big && css`
+    display: flex;
+    flex-direction: row;
+  `}
 `;
 
 export const Poster = styled.img`
