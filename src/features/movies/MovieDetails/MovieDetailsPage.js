@@ -9,24 +9,24 @@ import { apiUrlImage } from "../../apiData";
 import { MovieHeader } from "./MovieHeader";
 
 export const MovieDetailsPage = () => {
-	const { id } = useParams();
-	const dispatch = useDispatch();
-	const movieDetails = useSelector(selectMovieDetails);
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const movieDetails = useSelector(selectMovieDetails);
 
-	useEffect(() => {
-		dispatch(fetchMovieDetails({ id }));
-	}, [dispatch, id]);
+  useEffect(() => {
+    dispatch(fetchMovieDetails({ id }));
+  }, [dispatch, id]);
 
-	return (
-		<>
-			<MovieHeader />
-			<Container>
-				<MovieTile
-					poster={`${apiUrlImage}w300/${movieDetails.poster_path}`}
-					title={movieDetails.original_title}
-				/>
-			</Container>
-		</>
-	)
+  return (
+    <>
+      <MovieHeader />
+      <Container>
+        <MovieTile
+          poster={`${apiUrlImage}w300/${movieDetails.poster_path}`}
+          title={movieDetails.original_title}
+        />
+      </Container>
+    </>
+  )
 };
 
