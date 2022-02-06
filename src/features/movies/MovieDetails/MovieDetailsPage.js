@@ -10,7 +10,7 @@ import { apiUrlImage } from "../../apiData";
 export const MovieDetailsPage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    // const { movie } = useSelector(selectMovieDetails);
+    const { movie } = useSelector(selectMovieDetails);
     // console.log(movie);
     // console.log(id);
 
@@ -24,7 +24,6 @@ export const MovieDetailsPage = () => {
             // poster={`${apiUrlImage}w500/${movie.poster_path}`}
             // title={movie.original_title}
             />
-
         </Container>
     )
 };
