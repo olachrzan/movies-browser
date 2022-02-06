@@ -6,25 +6,27 @@ import Container from "../../../common/Container";
 import { selectMovieDetails } from "./movieDetailsSlice";
 import { MovieTile } from "../MovieTile";
 import { apiUrlImage } from "../../apiData";
+import { MovieHeader } from "./MovieHeader";
 
 export const MovieDetailsPage = () => {
-    const { id } = useParams();
-    const dispatch = useDispatch();
-    const { movie } = useSelector(selectMovieDetails);
-    // console.log(movie);
-    // console.log(id);
+	const { id } = useParams();
+	const dispatch = useDispatch();
+	const movieDetails = useSelector(selectMovieDetails);
 
-    useEffect(() => {
-        dispatch(fetchMovieDetails({ id }));
-    }, [dispatch, id]);
+	useEffect(() => {
+		dispatch(fetchMovieDetails({ id }));
+	}, [dispatch, id]);
 
-    return (
-        <Container>
-            <MovieTile
-            // poster={`${apiUrlImage}w500/${movie.poster_path}`}
-            // title={movie.original_title}
-            />
-        </Container>
-    )
+	return (
+		<>
+			<MovieHeader />
+			<Container>
+				<MovieTile
+					// poster={`${apiUrlImage}w300/${movie.poster_path}`}
+					title={movieDetails.original_title}
+				/>
+			</Container>
+		</>
+	)
 };
 
