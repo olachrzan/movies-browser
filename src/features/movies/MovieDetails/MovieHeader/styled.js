@@ -50,12 +50,11 @@ export const Content = styled.div`
 export const Title = styled.h3`
     font-weight: 600;
     font-size: 64px;
-    line-height: 1.2;
     margin-bottom: 25px;
     margin-top: 0px;
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}px){
-        margin-bottom: calc(5px + (25 - 5) * ((100vw - 320px) / (1368 - 320)));
+        margin-bottom: calc(2px + (25 - 2) * ((100vw - 320px) / (1368 - 320)));
         font-size: calc(24px + (64 - 24) * ((100vw - 320px) / (1368 - 320)));
     }
 `;
