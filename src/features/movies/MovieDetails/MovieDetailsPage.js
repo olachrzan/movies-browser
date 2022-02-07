@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetails } from "./movieDetailsSlice";
 import Container from "../../../common/Container";
 import { selectMovieDetails } from "./movieDetailsSlice";
-import { MovieTile } from "../MovieTile";
-import { apiUrlImage } from "../../apiData";
 import { MovieHeader } from "./MovieHeader";
+import { Title } from "../../../common/Title/styled";
+import { MovieInfo } from "./MovieInfo";
 
 export const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -21,10 +21,8 @@ export const MovieDetailsPage = () => {
     <>
       <MovieHeader />
       <Container>
-        <MovieTile
-          poster={`${apiUrlImage}w300/${movieDetails.poster_path}`}
-          title={movieDetails.original_title}
-        />
+        <MovieInfo />
+        <Title>Cast</Title>
       </Container>
     </>
   )
