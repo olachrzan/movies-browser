@@ -15,7 +15,7 @@ export const PeopleListPage = () => {
   const dispatch = useDispatch();
   const people = useSelector(selectPeopleList);
   const loading = useSelector(selectPeopleLoading);
-  console.log(loading);
+  // console.log(loading);
 
   useEffect(() => {
     dispatch(fetchPeople());
@@ -39,9 +39,9 @@ export const PeopleListPage = () => {
               )
             })}
           </Wrapper>
+          <Pagination />
         </>
       }
-      <Pagination />
     </Container >
   )
 };

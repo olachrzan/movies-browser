@@ -45,10 +45,10 @@ export const MovieList = () => {
                   </WrapperLink>
                 })}
               </Wrapper>
+              <Pagination />
             </>
           )
       }
-      <Pagination />
     </Container >
   )
 };
