@@ -11,22 +11,49 @@ import {
   Title,
   Votes,
   Wrapper,
-  Year
+  Year,
+  LabelWrapper,
+  Label,
+  LabelInfo,
+  RatingTotal,
+  Overview
 } from "./styled";
 
-export const MovieTile = ({ poster, title, year, rating, voteCount, genres }) => {
+export const MovieTile = ({
+  poster,
+  title,
+  year,
+  production,
+  productionInfo,
+  release,
+  releaseInfo,
+  rating,
+  voteCount,
+  genres,
+  movieInfo,
+  ratingTotal,
+  overview
+}) => {
   const genresList = useSelector(selectGenres);
 
   return (
-    <Wrapper>
-      <Poster src={poster} alt="poster" />
-      <TextSide>
-        <Title>{title}</Title>
-        <Year>{year}</Year>
+    <Wrapper big={movieInfo}>
+      <Poster big={movieInfo} src={poster} alt="poster" />
+      <TextSide big={movieInfo}>
+        <Title big={movieInfo}>{title}</Title>
+        <Year big={movieInfo}>{year}</Year>
+        <LabelWrapper big={movieInfo}>
+          <Label>{production}</Label>
+          <LabelInfo>{productionInfo}</LabelInfo>
+        </LabelWrapper>
+        <LabelWrapper big={movieInfo}>
+          <Label>{release}</Label>
+          <LabelInfo>{releaseInfo}</LabelInfo>
+        </LabelWrapper>
         {genresList.length > 0 &&
-          <TagsLine>
+          <TagsLine big={movieInfo}>
             {genres && genres.map((genre, index) => (
-              <Tag key={index}
+              <Tag big={movieInfo} key={index}
               >
                 {[...genresList].find((item) => item.id === genre).name}
               </Tag>
@@ -34,11 +61,13 @@ export const MovieTile = ({ poster, title, year, rating, voteCount, genres }) =>
             }
           </TagsLine>
         }
-        <RatingLine>
+        <RatingLine big={movieInfo}>
           <Star />
-          <Rating>{rating}</Rating>
-          <Votes> <span>{voteCount}</span> votes</Votes>
+          <Rating big={movieInfo}>{rating}</Rating>
+          <RatingTotal>{ratingTotal}</RatingTotal>
+          <Votes big={movieInfo}>{voteCount} votes</Votes>
         </RatingLine>
+        <Overview big={movieInfo}>{overview}</Overview>
       </TextSide>
     </Wrapper >
   )

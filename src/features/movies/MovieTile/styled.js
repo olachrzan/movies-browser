@@ -15,8 +15,14 @@ export const Wrapper = styled.div`
   }
 
   ${({ big }) => big && css`
-    display: flex;
-    flex-direction: row;
+    display: block;
+    margin-bottom: 64px;
+    min-height: 500px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      margin-bottom: calc(21px + (64 - 21) * ((100vw - 320px) / (1368 - 320)));
+      min-height: calc(201px + (500 - 201) * ((100vw - 320px) / (1368 - 320)));
+    }
   `}
 `;
 
@@ -29,6 +35,17 @@ export const Poster = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 40%;
   }
+
+  ${({ big }) => big && css`
+    width: 312px;
+    float: left;
+    margin-right: 40px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      width: calc(114px + (312 - 114) * ((100vw - 320px) / (1368 - 320)));
+      margin-right: calc(16px + (40 - 16) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
 `;
 
 export const TextSide = styled.div`
@@ -39,6 +56,14 @@ export const TextSide = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     margin-left: 16px;
   }
+
+  ${({ big }) => big && css`
+    display: block;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
+      margin-left: 0px;
+    }
+  `}
 `;
 
 export const Title = styled.h3`
@@ -53,6 +78,17 @@ export const Title = styled.h3`
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 4vw;
   }
+
+  ${({ big }) => big && css`
+    font-size: 36px;
+    margin-top: 8px;
+    margin-bottom: 24px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      font-size: calc(16px + (36 - 16) * ((100vw - 320px) / (1368 - 320)));
+      margin-bottom: calc(1px + (36 - 4) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
 `;
 
 export const Year = styled.p`
@@ -66,12 +102,65 @@ export const Year = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 2.5vw;
   }
+
+  ${({ big }) => big && css`
+    font-size: 22px;
+    margin-bottom: 24px;
+    line-height: 1.1;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      font-size: calc(13px + (22 - 13) * ((100vw - 320px) / (1368 - 320)));
+      margin-bottom: calc(4px + (24 - 4) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
+`;
+
+export const LabelWrapper = styled.div`
+  display: none;
+
+  ${({ big }) => big && css`
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 8px 0px;
+
+    &:last-child{
+      margin:0px
+    }
+  `}
+`;
+
+export const Label = styled.span`
+  font-size: 18px;
+  color: ${({ theme }) => theme.colors.labelColor};
+  margin-right: 10px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    display: none;
+  }
+`;
+
+export const LabelInfo = styled.p`
+  font-size: 18px;
+  margin: 0px;
+
+  @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1368 - 320)));
+  }
 `;
 
 export const TagsLine = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+
+  ${({ big }) => big && css`
+    margin-top: 16px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      margin-top: calc(2px + (16 - 2) * ((100vw - 320px) / (1368 - 320)));
+      gap: calc(4px + (8 - 4) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
 `;
 
 export const Tag = styled.p`
@@ -88,6 +177,13 @@ export const Tag = styled.p`
     padding: 1vw 2vw;
     font-size: 2vw;
   }
+
+  ${({ big }) => big && css`
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
 `;
 
 export const RatingLine = styled.div`
@@ -105,6 +201,14 @@ export const RatingLine = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     gap: 8px;
   }
+
+  ${({ big }) => big && css`
+    margin-top: 27px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      margin-top: calc(12px + (27 - 12) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
 `;
 
 export const Star = styled(star)`
@@ -128,9 +232,50 @@ export const Rating = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 3vw;
   }
+
+  ${({ big }) => big && css`
+    font-size: 22px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      font-size : calc(13px + (22 - 13) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}    
+`;
+
+export const RatingTotal = styled.span`
+  font-size: 14px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    display: none;
+  }
 `;
 
 export const Votes = styled(Rating)`
   font-weight: 400;
   color: ${({ theme }) => theme.colors.grayText};
+
+  ${({ big }) => big && css`
+     font-size: 14px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      font-size : calc(13px + (14 - 13) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}  
+`;
+
+export const Overview = styled.p`
+  display: none;
+
+  ${({ big }) => big && css`
+    display: block;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: 24px;
+    margin-bottom: 0px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+      font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1368 - 320)));
+      margin-top: calc(10px + (24 - 10) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
 `;
