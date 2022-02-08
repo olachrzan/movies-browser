@@ -16,10 +16,11 @@ export const Wrapper = styled.div`
 
 export const Poster = styled.img`
     border-radius: 5px;
-    width: 100%;               
+    width: 100%;           
 `;
 
 export const Name = styled.p`
+    flex: 1 1 auto;
     font-weight: 500;
     font-size: 22px;
     line-height: 1.3;
@@ -28,5 +29,19 @@ export const Name = styled.p`
     @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
         font-size: 14px;
         margin: 8px 0px 0px 0px;
+    }
+`;
+
+export const Info = styled.p`
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.3;
+    color: ${({ theme }) => theme.colors.grayText};
+    margin: 8px 0px 0px 0px; 
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+        font-size: 13px;
+        margin: 5px 0px 0px 0px;
     }
 `;
