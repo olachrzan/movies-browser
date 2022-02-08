@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Wrapper } from "./styled";
 import { MovieTile } from "../../MovieTile";
 import { apiUrlImage } from "../../../apiData";
 import { selectMovieDetails } from "../movieDetailsSlice";
@@ -7,7 +8,7 @@ export const MovieInfo = () => {
   const movieDetails = useSelector(selectMovieDetails);
 
   return (
-    <>
+    <Wrapper>
       {movieDetails && movieDetails.length !== 0 &&
         < MovieTile movieInfo
           poster={`${apiUrlImage}w342/${movieDetails.poster_path}`}
@@ -27,6 +28,6 @@ export const MovieInfo = () => {
           overview={movieDetails.overview}
         />
       }
-    </>
+    </Wrapper>
   )
 };
