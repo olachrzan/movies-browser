@@ -16,11 +16,9 @@ export const Wrapper = styled.div`
 
   ${({ big }) => big && css`
     display: block;
-    margin-bottom: 64px;
     min-height: 500px;
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}px){
-      margin-bottom: calc(21px + (64 - 21) * ((100vw - 320px) / (1368 - 320)));
       min-height: calc(201px + (500 - 201) * ((100vw - 320px) / (1368 - 320)));
     }
   `}
@@ -272,6 +270,7 @@ export const Overview = styled.p`
     line-height: 1.6;
     margin-top: 24px;
     margin-bottom: 0px;
+    padding-right: 10px;
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}px){
       font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1368 - 320)));
