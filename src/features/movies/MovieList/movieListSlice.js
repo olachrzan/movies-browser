@@ -7,13 +7,11 @@ const moviesListSlice = createSlice({
         genres: [],
         page: 1,
         total_pages: 500,
-        loading: false,
+        loading: true,
         error: false,
     },
     reducers: {
-        fetchMovies: state => {
-            state.loading = !state.loading;
-        },
+        fetchMovies: () => { },
         setMovies: (state, { payload: moviesFromApi }) => {
             state.movies = moviesFromApi;
             state.loading = false;
@@ -22,8 +20,9 @@ const moviesListSlice = createSlice({
             state.error = true;
             state.loading = false;
         },
-        setPage: (state, { payload: page }) => {
-            state.page = page;
+        setPage: (state, { payload: currentPage }) => {
+            state.page = currentPage;
+            state.loading = true;
         },
         setGenres: (state, { payload: genresApi }) => {
             state.genres = genresApi;

@@ -8,31 +8,36 @@ import {
     PageInfo,
     Span
 } from "./styled";
+import { selectPage, selectTotalPages, setPage } from "../../features/movies/MovieList/movieListSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Pagination = () => {
+    const dispatch = useDispatch();
+    const page = useSelector(selectPage);
+    const totalPage = useSelector(selectTotalPages);
 
     return (
         <Wrapper>
-            <Button disabled>
+            <Button disabled onClick={() => dispatch(setPage(1))}>
                 <ArrowIcon disabled mobile="true" />
-                <ArrowIcon disabled/>
+                <ArrowIcon disabled />
                 <ButtonText>First</ButtonText>
             </Button>
-            <Button>
+            <Button onClick={() => dispatch(setPage(page - 1))}>
                 <ArrowIcon />
                 <ButtonText>Previous</ButtonText>
             </Button>
             <PageInfo>
                 Page
-                <Span>1</Span>
+                <Span>{page}</Span>
                 of
-                <Span> 500</Span>
+                <Span> {totalPage}</Span>
             </PageInfo>
-            <Button>
+            <Button onClick={() => dispatch(setPage(page + 1))}>
                 <ButtonText>Next</ButtonText>
-                <ArrowIconNext/>
+                <ArrowIconNext />
             </Button>
-            <Button>
+            <Button onClick={() => dispatch(setPage(totalPage))}>
                 <ButtonText>Last</ButtonText>
                 <ArrowIconNext mobile="true" />
                 <ArrowIconNext />
