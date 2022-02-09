@@ -7,6 +7,7 @@ const peopleListSlice = createSlice({
         page: 1,
         loading: false,
         error: false,
+        totalPage: 500,
     },
     reducers: {
         fetchPeople: state => {
@@ -39,5 +40,6 @@ export const selectPeopleList = state => selectPeopleListState(state).people;
 export const selectPeoplePage = state => selectPeopleListState(state).page;
 export const selectPeopleLoading = state => selectPeopleListState(state).loading;
 export const selectPeopleError = state => selectPeopleListState(state).error;
+export const selectPeopleTotalPage = state => selectPeopleListState(state).totalPage;
 
 export default peopleListSlice.reducer;
