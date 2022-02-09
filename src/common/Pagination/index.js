@@ -31,13 +31,13 @@ export const Pagination = () => {
                 Page
                 <Span>{page}</Span>
                 of
-                <Span> {totalPage}</Span>
+                <Span last> {totalPage}</Span>
             </PageInfo>
-            <Button disabled={page === totalPage} onClick={() => dispatch(setPage(page + 1))}>
+            <Button next disabled={page === totalPage} onClick={() => dispatch(setPage(page + 1))}>
                 <ButtonText>Next</ButtonText>
                 <ArrowIconNext />
             </Button>
-            <Button disabled={page === totalPage} onClick={() => dispatch(setPage(totalPage))}>
+            <Button next disabled={page === totalPage} onClick={() => dispatch(setPage(totalPage))}>
                 <ButtonText>Last</ButtonText>
                 <ArrowIconNext mobile="true" />
                 <ArrowIconNext />

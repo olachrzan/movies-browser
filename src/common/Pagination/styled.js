@@ -40,8 +40,21 @@ export const Button = styled.button`
     font-size: 14px;
     border: none;
     background: ${({ theme }) => theme.colors.lightBlueButton};
-    margin: 0px 6px;
+    margin-right: 12px;
     transition: background .3s;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        padding: 8px 12px;
+        margin-right: 8px;
+    }
+
+    ${({ next }) => next && css`
+        margin: 0px 0px 0px 12px;
+        
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+            margin: 0px 0px 0px 8px;
+        }
+    `}
 
     &:active{
         background: ${({ theme }) => theme.colors.activeButton};
@@ -51,10 +64,6 @@ export const Button = styled.button`
         background: ${({ theme }) => theme.colors.grayButton};
         color: ${({ theme }) => theme.colors.darkText};
         pointer-events: none;
-    }
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-        padding: 8px 12px;
     }
 `;
 
@@ -126,11 +135,10 @@ export const ArrowIconNext = styled(arrowNext)`
 `;
 
 export const PageInfo = styled.p`
-    margin: 0px 10px 0px 18px;
+    margin: 0px;
     font-size: 16px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-        margin: 0px 0px 0px 3px;
         font-size: 12px;
     }
 `;
@@ -142,5 +150,13 @@ export const Span = styled.span`
     @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         margin: 0px 3px;
     }
+
+    ${({ last }) => last && css`
+        margin-right: 0px;
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+            margin-right: 0px;
+        }
+    `}
 `;
 
