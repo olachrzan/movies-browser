@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { apiUrlImage } from "../../apiData";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchMovies, selectLoading, selectMovieError, selectMovies } from "./movieListSlice";
+import { fetchMovies, selectLoading, selectError, selectMovies } from "./movieListSlice";
 import { Title } from "../../../common/Title/styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { nanoid } from "@reduxjs/toolkit";
@@ -17,7 +17,7 @@ export const MovieList = () => {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
   const loading = useSelector(selectLoading);
-  const error = useSelector(selectMovieError);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchMovies());
