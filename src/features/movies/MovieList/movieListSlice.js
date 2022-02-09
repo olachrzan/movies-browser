@@ -23,6 +23,7 @@ const moviesListSlice = createSlice({
         setPage: (state, { payload: currentPage }) => {
             state.page = currentPage;
             state.loading = true;
+            window.scrollTo(0, 0);
         },
         setGenres: (state, { payload: genresApi }) => {
             state.genres = genresApi;
