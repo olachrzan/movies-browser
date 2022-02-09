@@ -42,6 +42,7 @@ export const Poster = styled.img`
     width: 312px;
     float: left;
     margin-right: 40px;
+    margin-bottom: 5px;
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}px){
       width: calc(114px + (312 - 114) * ((100vw - 320px) / (1368 - 320)));
