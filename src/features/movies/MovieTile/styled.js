@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   flex: 1 1 324px;
   flex-direction: column;
   height: 100%;
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     flex-direction: row;
   }
@@ -26,10 +27,13 @@ export const Wrapper = styled.div`
 
 export const Poster = styled.img`
   width: 100%;
-  height: fit-content;
+  height: 100%;
+  border-radius: 5px;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     width: 50%;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 40%;
   }
@@ -69,10 +73,12 @@ export const Title = styled.h3`
   font-weight: 500;
   font-size: 22px;
   line-height: 130%;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     font-size: 16px;
     margin: 0 0 4px;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 4vw;
   }
@@ -94,9 +100,11 @@ export const Year = styled.p`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.grayText};
   line-height: 150%;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     font-size: 13px;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 2.5vw;
   }
@@ -167,10 +175,12 @@ export const Tag = styled.p`
   background: ${({ theme }) => theme.colors.grayButton};
   border-radius: 5px;
   font-size: 14px;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: 4px 8px;
     font-size: 10px; 
   }
+  
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 1vw 2vw;
     font-size: 2vw;
@@ -214,6 +224,7 @@ export const Star = styled(star)`
     width: 16px;
     height: 16px;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 3vw;
     height: 3vw;
@@ -224,9 +235,11 @@ export const Rating = styled.p`
   margin: 0;
   font-weight: 600;
   font-size: 16px;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     font-size: 13px;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 3vw;
   }

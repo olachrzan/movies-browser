@@ -6,6 +6,11 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 40px 0px 0px 0px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        margin: 32px 0px 0px 0px;
+    } 
 `;
 
 const move = keyframes`
