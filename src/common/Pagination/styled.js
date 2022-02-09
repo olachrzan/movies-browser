@@ -69,6 +69,10 @@ export const ArrowIcon = styled(arrow)`
     color: ${({ theme }) => theme.colors.darkBlueButton};
     margin-right: 8px;
 
+    ${Button}:disabled & {
+        color: ${({ theme }) => theme.colors.grayText};
+    }
+
     @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
         ${Button}:hover & {
             animation: ${move} 1s linear infinite;
@@ -80,10 +84,6 @@ export const ArrowIcon = styled(arrow)`
         width: 5px;
         height: 8px;
     }
-
-    ${({ disabled }) => disabled && css`
-        color: ${({ theme }) => theme.colors.grayText};
-    `}
 
     ${({ mobile }) => mobile && css`
         display: none;
@@ -99,6 +99,10 @@ export const ArrowIconNext = styled(arrowNext)`
     color: ${({ theme }) => theme.colors.darkBlueButton};
     margin-left: 8px;
 
+    ${Button}:disabled & {
+        color: ${({ theme }) => theme.colors.grayText};
+    }
+
     @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
         ${Button}:hover & {
             animation: ${move} 1s linear infinite reverse;
@@ -110,7 +114,6 @@ export const ArrowIconNext = styled(arrowNext)`
         width: 5px;
         height: 8px;
     }
-
 
     ${({ mobile }) => mobile && css`
         display: none;

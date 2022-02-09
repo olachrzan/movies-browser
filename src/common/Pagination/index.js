@@ -18,12 +18,12 @@ export const Pagination = () => {
 
     return (
         <Wrapper>
-            <Button disabled onClick={() => dispatch(setPage(1))}>
-                <ArrowIcon disabled mobile="true" />
-                <ArrowIcon disabled />
+            <Button disabled={page === 1} onClick={() => dispatch(setPage(1))}>
+                <ArrowIcon mobile="true" />
+                <ArrowIcon />
                 <ButtonText>First</ButtonText>
             </Button>
-            <Button onClick={() => dispatch(setPage(page - 1))}>
+            <Button disabled={page === 1} onClick={() => dispatch(setPage(page - 1))}>
                 <ArrowIcon />
                 <ButtonText>Previous</ButtonText>
             </Button>
@@ -33,11 +33,11 @@ export const Pagination = () => {
                 of
                 <Span> {totalPage}</Span>
             </PageInfo>
-            <Button onClick={() => dispatch(setPage(page + 1))}>
+            <Button disabled={page === totalPage} onClick={() => dispatch(setPage(page + 1))}>
                 <ButtonText>Next</ButtonText>
                 <ArrowIconNext />
             </Button>
-            <Button onClick={() => dispatch(setPage(totalPage))}>
+            <Button disabled={page === totalPage} onClick={() => dispatch(setPage(totalPage))}>
                 <ButtonText>Last</ButtonText>
                 <ArrowIconNext mobile="true" />
                 <ArrowIconNext />
