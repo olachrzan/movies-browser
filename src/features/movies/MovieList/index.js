@@ -1,12 +1,12 @@
 import { Pagination } from "../../../common/Pagination";
 import { Container } from "../../../common/Container";
 import { MovieTile } from "../MovieTile"
-import { Wrapper } from "./styled";
+import { Wrapper} from "./styled";
 import { useSelector } from "react-redux";
 import { apiUrlImage } from "../../apiData";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchMovies, selectLoading, selectMovieError, selectMovies } from "./movieListSlice";
+import { fetchMovies, selectLoading, selectMovieError, selectMovies} from "./movieListSlice";
 import { Title } from "../../../common/Title/styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { nanoid } from "@reduxjs/toolkit";

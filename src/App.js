@@ -1,6 +1,6 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { MovieDetailsPage } from "./features/movies/MovieDetails/MovieDetailsPage";
-import { MovieList } from "./features/movies/MoviesList";
+import { MovieList } from "./features/movies/MovieList";
 import { Header } from "./common/Header";
 import { PeopleListPage } from "./features/people/peopleList/peopleListPage";
 
@@ -17,7 +17,6 @@ function App() {
           <MovieList />
         </Route >
         <Route path="/people/:id" >
-
         </Route>
         <Route path="/people">
           <PeopleListPage />

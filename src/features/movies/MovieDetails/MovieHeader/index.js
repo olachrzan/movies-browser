@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Container from "../../../../common/Container";
+import { Container } from "../../../../common/Container";
 import { apiUrlImage } from "../../../apiData";
 import { selectMovieDetails } from "../movieDetailsSlice";
 import {

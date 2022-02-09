@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetails, selectMovieError } from "./movieDetailsSlice";
-import Container from "../../../common/Container";
+import { Container } from "../../../common/Container";
 import { MovieHeader } from "./MovieHeader";
 import { MovieInfo } from "./MovieInfo";
 import { Cast } from "./Cast";
