@@ -1,7 +1,7 @@
 import { Wrapper } from "./styled";
 
 export const Container = ({ children }) => (
-    <Wrapper>
-        {children}
-    </Wrapper>
+  <Wrapper>
+    {children}
+  </Wrapper>
 );

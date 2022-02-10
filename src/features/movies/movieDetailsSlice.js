@@ -1,41 +1,41 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const movieDetailsSlice = createSlice({
-    name: 'movieDetails',
-    initialState: {
-        movieDetails: [],
-        cast: [],
-        crew: [],
-        loading: false,
-        error: false,
+  name: 'movieDetails',
+  initialState: {
+    movieDetails: [],
+    cast: [],
+    crew: [],
+    loading: false,
+    error: false,
+  },
+  reducers: {
+    fetchMovieDetails: state => {
+      state.loading = !state.loading;
     },
-    reducers: {
-        fetchMovieDetails: state => {
-            state.loading = !state.loading;
-        },
-        setMoviesDetails: (state, { payload: movieDetailsApi }) => {
-            state.movieDetails = movieDetailsApi;
-            state.loading = false;
-        },
-        setCast: (state, { payload: movieCast }) => {
-            state.cast = movieCast;
-        },
-        setCrew: (state, { payload: movieCrew }) => {
-            state.crew = movieCrew
-        },
-        setError: state => {
-            state.error = true;
-        },
+    setMoviesDetails: (state, { payload: movieDetailsApi }) => {
+      state.movieDetails = movieDetailsApi;
+      state.loading = false;
     },
+    setCast: (state, { payload: movieCast }) => {
+      state.cast = movieCast;
+    },
+    setCrew: (state, { payload: movieCrew }) => {
+      state.crew = movieCrew
+    },
+    setError: state => {
+      state.error = true;
+    },
+  },
 });
 
 export const {
-    fetchMovieDetails,
-    setMoviesDetails,
-    setId,
-    setCast,
-    setCrew,
-    setError,
+  fetchMovieDetails,
+  setMoviesDetails,
+  setId,
+  setCast,
+  setCrew,
+  setError,
 } = movieDetailsSlice.actions;
 
 const selectMovieDetailsState = state => state.movieDetails;

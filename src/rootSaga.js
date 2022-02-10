@@ -4,9 +4,9 @@ import movieDetailsSaga from "./features/movies/movieDetailsSaga";
 import peopleListSaga from "./features/people/peopleList/peopleListSaga";
 
 export default function* rootSaga() {
-    yield all([
-        movieDetailsSaga(),
-        movieListSaga(),
-        peopleListSaga()
-    ]);
+  yield all([
+    movieDetailsSaga(),
+    movieListSaga(),
+    peopleListSaga()
+  ]);
 };

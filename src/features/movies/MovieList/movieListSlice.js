@@ -1,45 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const moviesListSlice = createSlice({
-    name: 'movies',
-    initialState: {
-        movies: [],
-        genres: [],
-        page: 1,
-        total_pages: 500,
-        loading: true,
-        error: false,
+  name: 'movies',
+  initialState: {
+    movies: [],
+    genres: [],
+    page: 1,
+    total_pages: 500,
+    loading: true,
+    error: false,
+  },
+  reducers: {
+    fetchMovies: (state) => {
+      state.loading = true;
+      state.page = 1;
     },
-    reducers: {
-        fetchMovies: (state) => {
-            state.loading = true;
-            state.page = 1;
-        },
-        setMovies: (state, { payload: moviesFromApi }) => {
-            state.movies = moviesFromApi;
-            state.loading = false;
-        },
-        setError: state => {
-            state.error = true;
-            state.loading = false;
-        },
-        setPage: (state, { payload: currentPage }) => {
-            state.page = currentPage;
-            state.loading = true;
-            window.scrollTo(0, 0);
-        },
-        setGenres: (state, { payload: genresApi }) => {
-            state.genres = genresApi;
-        },
+    setMovies: (state, { payload: moviesFromApi }) => {
+      state.movies = moviesFromApi;
+      state.loading = false;
     },
+    setError: state => {
+      state.error = true;
+      state.loading = false;
+    },
+    setPage: (state, { payload: currentPage }) => {
+      state.page = currentPage;
+      state.loading = true;
+      window.scrollTo(0, 0);
+    },
+    setGenres: (state, { payload: genresApi }) => {
+      state.genres = genresApi;
+    },
+  },
 });
 
 export const {
-    fetchMovies,
-    setMovies,
-    setError,
-    setPage,
-    setGenres,
+  fetchMovies,
+  setMovies,
+  setError,
+  setPage,
+  setGenres,
 } = moviesListSlice.actions;
 
 const selectMoviesState = state => state.movies;
