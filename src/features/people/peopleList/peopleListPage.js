@@ -9,6 +9,7 @@ import { apiUrlImage } from "../../apiData";
 import { Pagination } from "../../../common/Pagination";
 import { Loader } from "../../../common/Loader";
 import { Title } from "../../../common/Title/styled";
+import posterError from "../PersonTile/posterError.jpg";
 
 
 export const PeopleListPage = () => {
@@ -32,7 +33,9 @@ export const PeopleListPage = () => {
               return (
                 <WrapperLink key={person.id} to={`/people/${person.id}`}>
                   <PersonTile
-                    poster={`${apiUrlImage}w300/${person.profile_path}`}
+                    poster={person.profile_path
+                      ? `${apiUrlImage}w300/${person.profile_path}`
+                      : posterError}
                     name={person.name}
                   />
                 </WrapperLink>
