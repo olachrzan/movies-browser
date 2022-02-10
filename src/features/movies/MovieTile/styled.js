@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 import { ReactComponent as star } from "../star.svg";
 
 export const Wrapper = styled.div`
+  position: relative;
+  overflow: hidden;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.colors.tileBoxShadow};
@@ -276,15 +278,31 @@ export const Votes = styled(Rating)`
 `;
 
 export const Overview = styled.p`
-  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(120%);
+  padding: 16px;
+  transition: transform .4s;
+  background: ${({ theme }) => theme.colors.headerBackground};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: 5px;
+
+  ${Wrapper}:hover & {
+    transform: translateY(0);
+  }
 
   ${({ big }) => big && css`
+    position: relative;
     display: block;
     font-size: 20px;
     line-height: 1.6;
     margin-top: 24px;
     margin-bottom: 0px;
-    padding-right: 10px;
+    padding: 0px 10px 0px 0px;
+    transform: translateY(0);
+    background: transparent;
+    color: ${({ theme }) => theme.colors.darkText};
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}){
       font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1368 - 320)));
