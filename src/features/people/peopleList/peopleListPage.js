@@ -39,9 +39,9 @@ export const PeopleListPage = () => {
               )
             })}
           </Wrapper>
+          <Pagination />
         </>
       }
-      <Pagination />
     </Container >
   )
 };
