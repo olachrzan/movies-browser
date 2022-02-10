@@ -15,7 +15,7 @@ export const Wrapper = styled.section`
         background: linear-gradient(270deg, #000000 19.32%, rgba(0, 0, 0, 0.873268) 19.08%, rgba(0, 0, 0, 0.720529) 18.51%, rgba(0, 0, 0, 0.294577) 19.99%, rgba(0, 0, 0, 0.159921) 22.88%, rgba(0, 0, 0, 0) 26.68%), linear-gradient(90deg, #000000 13.6%, rgba(0, 0, 0, 0.984059) 16.58%, rgba(0, 0, 0, 0.967732) 15.44%, rgba(0, 0, 0, 0.865569) 17.3%, rgba(0, 0, 0, 0.230315) 22.87%, rgba(0, 0, 0, 0) 26.64%), linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.689555) 4.66%, rgba(0, 0, 0, 0.439033) 9.34%, rgba(0, 0, 0, 0.20628) 15.16%, rgba(0, 0, 0, 0) 24.22%), linear-gradient(189.44deg, rgba(0, 0, 0, 0) 58.48%, rgba(0, 0, 0, 0.106473) 63.17%, rgba(0, 0, 0, 0.235359) 68.85%, rgba(0, 0, 0, 0.492821) 78.08%, rgba(0, 0, 0, 0.740286) 85.86%, #000000 92.87%);
     }
 
-    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
         margin-bottom: calc(16px + (64 - 16) * ((100vw - 320px) / (1368 - 320)));
     }
 `;
@@ -42,7 +42,7 @@ export const Content = styled.div`
     margin-bottom: 56px;
     color: ${({ theme }) => theme.colors.white};
 
-    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
         margin-bottom: calc(9px + (56 - 9) * ((100vw - 320px) / (1368 - 320)));
     }
 `;
@@ -53,7 +53,7 @@ export const Title = styled.h3`
     margin-bottom: 25px;
     margin-top: 0px;
 
-    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
         margin-bottom: calc(2px + (25 - 2) * ((100vw - 320px) / (1368 - 320)));
         font-size: calc(24px + (64 - 24) * ((100vw - 320px) / (1368 - 320)));
     }
@@ -84,7 +84,7 @@ export const Star = styled(star)`
     width: 40px;
     margin-right: 8px;
 
-    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
         width: calc(16px + (40 - 16) * ((100vw - 320px) / (1368 - 320)));
         height: calc(16px + (40 - 16) * ((100vw - 320px) / (1368 - 320)));
         margin-right: calc(4px + (8 - 4) * ((100vw - 320px) / (1368 - 320)));
@@ -96,7 +96,7 @@ export const Rate = styled.p`
     font-size: 16px;
     margin: 0px;
 
-    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
         font-size: calc(10px + (16 - 10) * ((100vw - 320px) / (1368 - 320)));
     }
 `;
@@ -106,7 +106,7 @@ export const Vote = styled.span`
     font-size: 30px;
     margin-right: 7px;
 
-    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
         font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1368 - 320)));
         margin-right: calc(2px + (7 - 2) * ((100vw - 320px) / (1368 - 320)));
     }
@@ -121,7 +121,7 @@ export const Votes = styled.p`
         line-height: 1.5;
     }
 
-    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
         font-size: calc(10px + (16 - 10) * ((100vw - 320px) / (1368 - 320)));
     }
 `;

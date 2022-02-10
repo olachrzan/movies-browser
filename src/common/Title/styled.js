@@ -17,7 +17,7 @@ export const Title = styled.h2`
     font-size: 36px;
     margin-bottom: 32px;
 
-    @media(max-width:${({ theme }) => theme.breakpoints.container}px){
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
       font-size: calc(20px + (36 - 20) * ((100vw - 320px) / (1368 - 320)));
       margin-top: calc(21px + (64 - 21) * ((100vw - 320px) / (1368 - 320)));
     }
