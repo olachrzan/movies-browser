@@ -1,6 +1,6 @@
-import {Wrapper, Loading} from "./styled";
+import { Wrapper, Loading } from "./styled";
 
-export const Loader = () =>(
+export const Loader = () => (
    <Wrapper>
       <Loading />
    </Wrapper>
