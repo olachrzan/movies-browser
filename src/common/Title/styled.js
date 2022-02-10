@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Title = styled.h2`
-  margin-top: 0;
+  margin-top: 56px;
   margin-bottom: 24px;
   font-weight: 600;
   font-size: 36px;
@@ -12,6 +12,10 @@ export const Title = styled.h2`
     margin-bottom: 12px;
     font-size: 18px;
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoints.container}){
+      margin-top: calc(24px + (56 - 24) * ((100vw - 320px) / (1368 - 320)));
+    }
 
   ${({ movie }) => movie && css`
     font-size: 36px;
