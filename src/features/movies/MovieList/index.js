@@ -12,6 +12,7 @@ import { WrapperLink } from "../../../common/wrapperLink";
 import { nanoid } from "@reduxjs/toolkit";
 import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
+import posterError from "./posterError.png";
 
 export const MovieList = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,11 @@ export const MovieList = () => {
                 {[...movies].map((movie) => {
                   return <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
                     <MovieTile
-                      poster={`${apiUrlImage}w500/${movie.poster_path}`} //here we need to change the image for mobile phones 
+                      poster={
+                        movie.poster_path
+                          ? `${apiUrlImage}w500/${movie.poster_path}` //here we need to change the image for mobile phones
+                          : posterError
+                      }
                       title={movie.title}
                       year={(movie.release_date).slice(0, 4)}
                       genres={movie.genre_ids}
