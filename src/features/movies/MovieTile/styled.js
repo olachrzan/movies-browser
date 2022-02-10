@@ -12,6 +12,22 @@ export const Wrapper = styled.div`
   flex: 1 1 324px;
   flex-direction: column;
   height: 100%;
+
+    &:after{
+      content:'';
+      position:absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height:100%;
+      background: ${({ theme }) => theme.colors.headerBackground};
+      opacity: 0;
+    }
+  
+  &:hover:after{
+    transition: opacity 0.3s;
+    opacity: 0.6;
+  }
   
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     flex-direction: row;
@@ -20,6 +36,10 @@ export const Wrapper = styled.div`
   ${({ big }) => big && css`
     display: block;
     min-height: 500px;
+
+    &:hover:after{
+    opacity: 0;
+  }
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}){
       min-height: calc(201px + (500 - 201) * ((100vw - 320px) / (1368 - 320)));
@@ -279,14 +299,17 @@ export const Votes = styled(Rating)`
 
 export const Overview = styled.p`
   position: absolute;
+  z-index:2;
   bottom: 0;
   left: 0;
   transform: translateY(120%);
   padding: 16px;
   transition: transform .4s;
-  background: ${({ theme }) => theme.colors.headerBackground};
-  color: ${({ theme }) => theme.colors.white};
+  background: white;
+  color: ${({ theme }) => theme.colors.darkText};
   border-radius: 5px;
+  line-height: 1.2;
+  font-weight: 500;
 
   ${Wrapper}:hover & {
     transform: translateY(0);
@@ -296,6 +319,7 @@ export const Overview = styled.p`
     position: relative;
     display: block;
     font-size: 20px;
+    font-weight: 400;
     line-height: 1.6;
     margin-top: 24px;
     margin-bottom: 0px;
