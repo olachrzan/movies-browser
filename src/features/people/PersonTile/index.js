@@ -1,11 +1,11 @@
 import { Wrapper, Poster, Name, Info } from "./styled";
 
-export const PersonTile = ({ poster, name, info }) => {
+export const PersonTile = ({ poster, name, info, large }) => {
     return (
         <Wrapper>
             <Poster src={poster} />
             <Name>{name}</Name>
-            <Info>{info}</Info>
+            <Info big={large}>{info}</Info>
         </Wrapper>
     )
 };

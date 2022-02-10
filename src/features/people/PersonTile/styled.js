@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
     padding: 16px;
@@ -33,15 +33,21 @@ export const Name = styled.p`
 `;
 
 export const Info = styled.p`
-    flex: 1 1 auto;
-    text-align: center;
-    font-size: 18px;
-    line-height: 1.3;
-    color: ${({ theme }) => theme.colors.grayText};
-    margin: 8px 0px 0px 0px; 
+    display: none;
+
+    ${({ big }) => big && css`
+        display: block;
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.3;
+        color: ${({ theme }) => theme.colors.grayText};
+        margin: 8px 0px 0px 0px; 
 
     @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
         font-size: 13px;
         margin: 5px 0px 0px 0px;
     }
+    `}
+   
 `;

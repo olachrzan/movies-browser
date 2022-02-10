@@ -18,7 +18,7 @@ export const Crew = () => {
         {movieCrew && [...movieCrew].slice(0, 12).map((person, index) => {
           return (
             <WrapperLink key={index} to={`/people/${person.id}`}>
-              <PersonTile
+              <PersonTile large
                 poster={
                   person.profile_path
                     ? `${apiUrlImage}w342/${person.profile_path}`
