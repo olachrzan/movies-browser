@@ -11,7 +11,10 @@ const moviesListSlice = createSlice({
         error: false,
     },
     reducers: {
-        fetchMovies: () => { },
+        fetchMovies: (state) => {
+            state.loading = true;
+            state.page = 1;
+        },
         setMovies: (state, { payload: moviesFromApi }) => {
             state.movies = moviesFromApi;
             state.loading = false;

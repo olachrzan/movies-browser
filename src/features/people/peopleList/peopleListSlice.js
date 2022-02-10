@@ -10,7 +10,10 @@ const peopleListSlice = createSlice({
         totalPage: 500,
     },
     reducers: {
-        fetchPeople: () => { },
+        fetchPeople: (state) => {
+            state.loading = true;
+            state.page = 1;
+        },
         setPeople: (state, { payload: peopleApi }) => {
             state.people = peopleApi;
             state.loading = false;
