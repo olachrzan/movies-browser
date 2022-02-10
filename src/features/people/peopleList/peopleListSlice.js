@@ -5,14 +5,12 @@ const peopleListSlice = createSlice({
     initialState: {
         people: [],
         page: 1,
-        loading: false,
+        loading: true,
         error: false,
         totalPage: 500,
     },
     reducers: {
-        fetchPeople: state => {
-            state.loading = !state.loading;
-        },
+        fetchPeople: () => { },
         setPeople: (state, { payload: peopleApi }) => {
             state.people = peopleApi;
             state.loading = false;
@@ -21,8 +19,10 @@ const peopleListSlice = createSlice({
             state.error = true;
             state.loading = false;
         },
-        setPage: (state, { payload: page }) => {
-            state.page = page;
+        setPeoplePage: (state, { payload: currentPage }) => {
+            state.page = currentPage;
+            state.loading = true;
+            window.scrollTo(0, 0);
         },
     },
 });
@@ -31,7 +31,7 @@ export const {
     fetchPeople,
     setPeople,
     setError,
-    setPage,
+    setPeoplePage,
 } = peopleListSlice.actions;
 
 const selectPeopleListState = state => state.people;
