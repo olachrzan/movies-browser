@@ -305,7 +305,7 @@ export const Overview = styled.p`
   transform: translateY(120%);
   padding: 16px;
   transition: transform .4s;
-  background: white;
+  background: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.darkText};
   border-radius: 5px;
   line-height: 1.2;
