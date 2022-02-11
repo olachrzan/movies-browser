@@ -11,7 +11,7 @@ import {
 
 function* fetchMovieDetailsHandler({ payload: { id } }) {
   const movie = `${apiUrl}movie/${id}?api_key=${apiKey}`; // here we have to enter movie id
-  const credits = `${apiUrl}movie/157336/credits?api_key=${apiKey}`// here we have to enter movie id
+  const credits = `${apiUrl}movie/${id}/credits?api_key=${apiKey}`// here we have to enter movie id
 
   try {
     const movieDetails = yield call(getApi, movie);
