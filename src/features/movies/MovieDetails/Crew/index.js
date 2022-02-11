@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectMovieCrew } from "../movieDetailsSlice";
-import { StyledCrew } from "./styled";
+import { Section } from "../../../../common/section";
 import { Title } from "../../../../common/Title/styled";
 import { Wrapper } from "../Wrapper";
 import { WrapperLink } from "../../../../common/wrapperLink";
@@ -12,7 +12,7 @@ export const Crew = () => {
   const movieCrew = useSelector(selectMovieCrew);
 
   return (
-    <StyledCrew>
+    <Section>
       {movieCrew.length !== 0 &&
         <>
           <Title movie>Crew</Title>
@@ -35,7 +35,6 @@ export const Crew = () => {
           </Wrapper>
         </>
       }
-
-    </StyledCrew>
+    </Section>
   )
 }; 

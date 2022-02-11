@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledCast = styled.section`
+export const Section = styled.section`
     margin-bottom: 64px;
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}){

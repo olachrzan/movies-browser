@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectMovieCast } from "../movieDetailsSlice";
-import { StyledCast } from "./styled";
+import { Section } from "../../../../common/section";
 import { Wrapper } from "../Wrapper";
 import { PersonTile } from "../../../../common/PersonTile";
 import { WrapperLink } from "../../../../common/wrapperLink";
@@ -12,7 +12,7 @@ export const Cast = () => {
   const movieCast = useSelector(selectMovieCast);
 
   return (
-    <StyledCast>
+    <Section>
       {movieCast.length !== 0 &&
         <>
           <Title movie>Cast</Title>
@@ -36,7 +36,6 @@ export const Cast = () => {
         </>
 
       }
-
-    </StyledCast>
+    </Section>
   )
 };
