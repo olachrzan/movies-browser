@@ -1,6 +1,6 @@
-import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import { MovieDetailsPage } from "./features/movies/MovieDetails/MovieDetailsPage";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { MovieList } from "./features/movies/MovieList";
+import { MovieDetailsPage } from "./features/movies/MovieDetails/MovieDetailsPage";
 import { Header } from "./common/Header";
 import { PeopleListPage } from "./features/people/peopleList/peopleListPage";
 
@@ -9,22 +9,13 @@ function App() {
   return (
     <HashRouter>
       <Header />
-      <Switch>
-        <Route path="/movie/:id" >
-          <MovieDetailsPage />
-        </Route>
-        <Route path="/movie">
-          <MovieList />
-        </Route >
-        <Route path="/people/:id" >
-        </Route>
-        <Route path="/people">
-          <PeopleListPage />
-        </Route >
-        <Route path="/">
-          <Redirect to="/movie" />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/movie/:id" element={<MovieDetailsPage />} />
+        <Route path="/movie" element={<MovieList />} />
+        <Route path="/people/:id" />
+        <Route path="/people" element={<PeopleListPage />} />
+        <Route path="/" element={<Navigate to="/movie" />} />
+      </Routes>
     </HashRouter >
   );
 };
