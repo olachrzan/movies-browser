@@ -9,6 +9,7 @@ import { apiUrlImage } from "../../apiData";
 import { Pagination } from "../../../common/Pagination";
 import { Loader } from "../../../common/Loader";
 import { Title } from "../../../common/Title/styled";
+import { ErrorPage } from "../../../common/ErrorPage";
 import posterError from "../PersonTile/posterError.jpg";
 
 
@@ -26,24 +27,25 @@ export const PeopleListPage = () => {
     < Container >
       <Title>Popular people</Title>
       {loading ? <Loader />
-        :
-        <>
-          <Wrapper>
-            {[...people].slice(0, 18).map((person) => {
-              return (
-                <WrapperLink key={person.id} to={`/people/${person.id}`}>
-                  <PersonTile
-                    poster={person.profile_path
-                      ? `${apiUrlImage}w300/${person.profile_path}`
-                      : posterError}
-                    name={person.name}
-                  />
-                </WrapperLink>
-              )
-            })}
-          </Wrapper>
-          <Pagination />
-        </>
+        : error ? <ErrorPage />
+          :
+          <>
+            <Wrapper>
+              {[...people].slice(0, 18).map((person) => {
+                return (
+                  <WrapperLink key={person.id} to={`/people/${person.id}`}>
+                    <PersonTile
+                      poster={person.profile_path
+                        ? `${apiUrlImage}w300/${person.profile_path}`
+                        : posterError}
+                      name={person.name}
+                    />
+                  </WrapperLink>
+                )
+              })}
+            </Wrapper>
+            <Pagination />
+          </>
       }
     </Container >
   )
