@@ -9,8 +9,8 @@ import {
   setError,
 } from "./movieDetailsSlice";
 
-function* fetchMovieDetailsHandler() {
-  const movie = `${apiUrl}movie/157336?api_key=${apiKey}`; // here we have to enter movie id
+function* fetchMovieDetailsHandler({ payload: { id } }) {
+  const movie = `${apiUrl}movie/${id}?api_key=${apiKey}`; // here we have to enter movie id
   const credits = `${apiUrl}movie/157336/credits?api_key=${apiKey}`// here we have to enter movie id
 
   try {
