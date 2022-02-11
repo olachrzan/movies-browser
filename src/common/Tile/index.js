@@ -23,32 +23,33 @@ export const Tile = ({
   poster,
   title,
   year,
-  production,
-  productionInfo,
-  release,
-  releaseInfo,
+  label,
+  labelInfo,
+  nextLabel,
+  nextLabelInfo,
   rating,
   voteCount,
   genres,
   movieInfo,
   ratingTotal,
-  overview
+  overview,
+  person
 }) => {
   const genresList = useSelector(selectGenres);
 
   return (
     <Wrapper big={movieInfo}>
-      <Poster big={movieInfo} src={poster} alt="poster" />
+      <Poster big={movieInfo} person={person} src={poster} alt="poster" />
       <TextSide big={movieInfo}>
         <Title big={movieInfo}>{title}</Title>
         <Year big={movieInfo}>{year}</Year>
         <LabelWrapper big={movieInfo}>
-          <Label>{production}</Label>
-          <LabelInfo>{productionInfo}</LabelInfo>
+          <Label person={person}>{label}</Label>
+          <LabelInfo>{labelInfo}</LabelInfo>
         </LabelWrapper>
         <LabelWrapper big={movieInfo}>
-          <Label>{release}</Label>
-          <LabelInfo>{releaseInfo}</LabelInfo>
+          <Label person={person}>{nextLabel}</Label>
+          <LabelInfo>{nextLabelInfo}</LabelInfo>
         </LabelWrapper>
         {genresList.length > 0 &&
           <TagsLine big={movieInfo}>
@@ -61,13 +62,13 @@ export const Tile = ({
             }
           </TagsLine>
         }
-        <RatingLine big={movieInfo}>
+        <RatingLine big={movieInfo} person={person}>
           <Star />
           <Rating big={movieInfo}>{rating}</Rating>
           <RatingTotal>{ratingTotal}</RatingTotal>
           <Votes big={movieInfo}>{voteCount} votes</Votes>
         </RatingLine>
-        <Overview big={movieInfo}>{overview}</Overview>
+        <Overview big={movieInfo} person={person}>{overview}</Overview>
       </TextSide>
     </Wrapper >
   )

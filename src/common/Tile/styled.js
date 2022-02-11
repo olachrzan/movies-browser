@@ -71,6 +71,14 @@ export const Poster = styled.img`
       margin-right: calc(16px + (40 - 16) * ((100vw - 320px) / (1368 - 320)));
     }
   `}
+
+  ${({ person }) => person && css`
+    width: 399px;
+
+    @media(max-width:${({ theme }) => theme.breakpoints.container}){
+      width: calc(116px + (399 - 116) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
 `;
 
 export const TextSide = styled.div`
@@ -149,6 +157,7 @@ export const LabelWrapper = styled.div`
 
   ${({ big }) => big && css`
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0px 0px 8px 0px;
 
@@ -163,9 +172,19 @@ export const Label = styled.span`
   color: ${({ theme }) => theme.colors.labelColor};
   margin-right: 10px;
 
+  @media(max-width:${({ theme }) => theme.breakpoints.container}){
+    font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1368 - 320)));
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     display: none;
   }
+
+  ${({ person }) => person && css`
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+      display: block;
+    }
+  `}
 `;
 
 export const LabelInfo = styled.p`
@@ -240,6 +259,10 @@ export const RatingLine = styled.div`
       margin-top: calc(12px + (27 - 12) * ((100vw - 320px) / (1368 - 320)));
     }
   `}
+
+  ${({ person }) => person && css`
+    display: none;
+  `}
 `;
 
 export const Star = styled(star)`
@@ -273,7 +296,7 @@ export const Rating = styled.p`
     @media(max-width:${({ theme }) => theme.breakpoints.container}){
       font-size : calc(13px + (22 - 13) * ((100vw - 320px) / (1368 - 320)));
     }
-  `}    
+  `}
 `;
 
 export const RatingTotal = styled.span`
@@ -332,6 +355,12 @@ export const Overview = styled.p`
     @media(max-width:${({ theme }) => theme.breakpoints.container}){
       font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1368 - 320)));
       margin-top: calc(10px + (24 - 10) * ((100vw - 320px) / (1368 - 320)));
+    }
+  `}
+
+  ${({ person }) => person && css`
+    @media(max-width:${({ theme }) => theme.breakpoints.small}){
+      display: inline-block;
     }
   `}
 `;

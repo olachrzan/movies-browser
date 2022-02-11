@@ -14,14 +14,14 @@ export const MovieInfo = () => {
           poster={`${apiUrlImage}w342/${movieDetails.poster_path}`}
           title={movieDetails.original_title}
           year={(movieDetails.release_date).slice(0, 4)}
-          production={"Production:"}
-          productionInfo={movieDetails.production_countries.length !== 0
+          label={"Production:"}
+          labelInfo={movieDetails.production_countries.length !== 0
             ? (movieDetails.production_countries.map(
               (item) => item = item.name).slice(0, 2).join(", "))
             : "Unknown"
           }
-          release={"Release date:"}
-          releaseInfo={movieDetails.release_date ? movieDetails.release_date : "Unknown"}
+          nextLabel={"Release date:"}
+          nextLabelInfo={movieDetails.release_date ? movieDetails.release_date : "Unknown"}
           genres={movieDetails.genres.map((genre) => genre = genre.id)}
           rating={movieDetails.vote_average}
           ratingTotal={"/10"}
