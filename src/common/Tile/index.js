@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectGenres } from "../MovieList/movieListSlice";
+import { selectGenres } from "../../features/movies/MovieList/movieListSlice";
 import {
   Poster,
   Rating,
@@ -19,7 +19,7 @@ import {
   Overview
 } from "./styled";
 
-export const MovieTile = ({
+export const Tile = ({
   poster,
   title,
   year,

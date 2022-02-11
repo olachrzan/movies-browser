@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Wrapper } from "./styled";
-import { MovieTile } from "../../MovieTile";
+import { Tile } from "../../../../common/Tile";
 import { apiUrlImage } from "../../../apiData";
 import { selectMovieDetails } from "../movieDetailsSlice";
 
@@ -10,7 +10,7 @@ export const MovieInfo = () => {
   return (
     <Wrapper>
       {movieDetails && movieDetails.length !== 0 &&
-        < MovieTile movieInfo
+        < Tile movieInfo
           poster={`${apiUrlImage}w342/${movieDetails.poster_path}`}
           title={movieDetails.original_title}
           year={(movieDetails.release_date).slice(0, 4)}

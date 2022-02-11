@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container";
-import { PersonTile } from "../PersonTile";
+import { PersonTile } from "../../../common/PersonTile";
 import { fetchPeople, selectPeopleError, selectPeopleList, selectPeopleLoading } from "./peopleListSlice";
 import { Wrapper } from "./styled";
 import { WrapperLink } from "../../../common/wrapperLink";

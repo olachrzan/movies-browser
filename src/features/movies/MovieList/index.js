@@ -1,6 +1,6 @@
 import { Pagination } from "../../../common/Pagination";
 import { Container } from "../../../common/Container";
-import { MovieTile } from "../MovieTile"
+import { Tile } from "../../../common/Tile"
 import { Wrapper } from "./styled";
 import { useSelector } from "react-redux";
 import { apiUrlImage } from "../../apiData";
@@ -35,7 +35,7 @@ export const MovieList = () => {
               <Wrapper>
                 {[...movies].map((movie) => {
                   return <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
-                    <MovieTile
+                    <Tile
                       poster={
                         movie.poster_path
                           ? `${apiUrlImage}w500/${movie.poster_path}` //here we need to change the image for mobile phones

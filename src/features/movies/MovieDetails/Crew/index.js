@@ -4,7 +4,7 @@ import { StyledCrew } from "./styled";
 import { Title } from "../../../../common/Title/styled";
 import { Wrapper } from "../Wrapper";
 import { WrapperLink } from "../../../../common/wrapperLink";
-import { PersonTile } from "../../../people/PersonTile";
+import { PersonTile } from "../../../../common/PersonTile";
 import { apiUrlImage } from "../../../apiData";
 import posterError from "../../../people/PersonTile/posterError.jpg";
 

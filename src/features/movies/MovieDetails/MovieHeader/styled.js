@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as star } from "../../star.svg";
+import { ReactComponent as star } from "../../../../images/star.svg";
 
 export const Wrapper = styled.section`
     position: relative;

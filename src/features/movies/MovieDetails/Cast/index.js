@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { selectMovieCast } from "../movieDetailsSlice";
 import { StyledCast } from "./styled";
 import { Wrapper } from "../Wrapper";
-import { PersonTile } from "../../../people/PersonTile";
+import { PersonTile } from "../../../../common/PersonTile";
 import { WrapperLink } from "../../../../common/wrapperLink";
 import { apiUrlImage } from "../../../apiData";
 import posterError from "../../../people/PersonTile/posterError.jpg";
