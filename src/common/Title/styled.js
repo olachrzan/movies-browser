@@ -20,6 +20,7 @@ export const Title = styled.h2`
   ${({ movie }) => movie && css`
     font-size: 36px;
     margin-bottom: 32px;
+    margin-top: 0px;
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}){
       font-size: calc(20px + (36 - 20) * ((100vw - 320px) / (1368 - 320)));

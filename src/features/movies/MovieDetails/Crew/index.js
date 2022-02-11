@@ -12,10 +12,10 @@ export const Crew = () => {
   const movieCrew = useSelector(selectMovieCrew);
 
   return (
-    <Section>
+    <Section last>
       {movieCrew.length !== 0 &&
         <>
-          <Title movie>Crew</Title>
+          <Title movie last>Crew</Title>
           <Wrapper>
             {movieCrew && [...movieCrew].slice(0, 12).map((person, index) => {
               return (

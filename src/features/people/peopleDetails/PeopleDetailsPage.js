@@ -3,7 +3,9 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container";
 import { fetchPeopleDetails, selectError } from "./peopleDetailsSlice";
+import { ErrorPage } from "../../../common/ErrorPage";
 import { PersonInfo } from "./PersonInfo";
+import { MovieCast } from "./MovieCast";
 
 export const PeopleDetailsPage = () => {
   const { id } = useParams();
@@ -20,7 +22,13 @@ export const PeopleDetailsPage = () => {
 
   return (
     <Container>
-      <PersonInfo />
+      {error ? <ErrorPage />
+        :
+        <>
+          <PersonInfo />
+          <MovieCast />
+        </>
+      }
     </Container>
   )
 };

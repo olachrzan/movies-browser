@@ -12,7 +12,7 @@ import { WrapperLink } from "../../../common/wrapperLink";
 import { nanoid } from "@reduxjs/toolkit";
 import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
-import posterError from "./posterError.png";
+import posterError from "../../../images/posterError.png";
 
 export const MovieList = () => {
   const dispatch = useDispatch();

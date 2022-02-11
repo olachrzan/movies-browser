@@ -14,4 +14,8 @@ export const Section = styled.section`
       margin-top: calc(23px + (56 - 23) * ((100vw - 320px) / (1368 - 320)));
     }
   `}
+
+  ${({ last }) => last && css`
+    margin-bottom: 0px;
+  `}
 `;
