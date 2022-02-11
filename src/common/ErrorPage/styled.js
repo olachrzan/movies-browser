@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const ErrorContainer = styled.div`
@@ -6,11 +7,9 @@ export const ErrorContainer = styled.div`
   align-items: center;
   margin-top: 180px;
   padding: 0px 20px;
-
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     margin-top: 40px;
   }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 5px;
   }
@@ -28,11 +27,9 @@ export const ErrorMessage = styled.p`
   font-style: normal;
   margin: 24px;
   text-align: center;
-
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 28px;
   }
-
   ${({ smaller }) =>
     smaller &&
     css`
@@ -40,11 +37,9 @@ export const ErrorMessage = styled.p`
       font-weight: 500;
       padding: 10px;
       max-width: 35%;
-
       @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
         max-width: 50%;
       }
-
       @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         font-size: 19px;
         padding: 3px;
@@ -52,7 +47,7 @@ export const ErrorMessage = styled.p`
     `};
 `;
 
-export const HomepageButton = styled.button`
+export const HomepageButton = styled(Link)`
   border: none;
   font-size: 14px;
   font-weight: 700;
@@ -61,4 +56,5 @@ export const HomepageButton = styled.button`
   background-color: ${({ theme }) => theme.colors.darkBlueButton};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
+  text-decoration: none;
 `;

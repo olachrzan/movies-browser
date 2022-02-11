@@ -1,6 +1,6 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { getApi } from "../getApi";
-import { apiUrl, apiKey } from "../apiData";
+import { getApi } from "../../getApi";
+import { apiUrl, apiKey } from "../../apiData";
 import {
   fetchMovieDetails,
   setMoviesDetails,
@@ -9,9 +9,9 @@ import {
   setError,
 } from "./movieDetailsSlice";
 
-function* fetchMovieDetailsHandler() {
-  const movie = `${apiUrl}movie/157336?api_key=${apiKey}`; // here we have to enter movie id
-  const credits = `${apiUrl}movie/157336/credits?api_key=${apiKey}`// here we have to enter movie id
+function* fetchMovieDetailsHandler({ payload: { id } }) {
+  const movie = `${apiUrl}movie/${id}?api_key=${apiKey}`; // here we have to enter movie id
+  const credits = `${apiUrl}movie/${id}/credits?api_key=${apiKey}`// here we have to enter movie id
 
   try {
     const movieDetails = yield call(getApi, movie);

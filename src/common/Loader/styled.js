@@ -11,15 +11,12 @@ const rotate = keyframes`
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
-  height: 100%;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
 `;
 
 export const Loading = styled(loading)`
   animation: ${rotate} 1s linear infinite;
-  margin-bottom: 91px;
 `;

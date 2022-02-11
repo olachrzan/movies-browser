@@ -38,12 +38,14 @@ export const {
   setError,
 } = movieDetailsSlice.actions;
 
-const selectMovieDetailsState = state => state.movieDetails;
+const selectMovieDetailsState = state => state.moviesDetails;
 
 export const selectMovieDetails = state => selectMovieDetailsState(state).movieDetails;
+export const selectMovieId = state => selectMovieDetailsState(state).id;
 export const selectMovieCast = state => selectMovieDetailsState(state).cast;
 export const selectMovieCrew = state => selectMovieDetailsState(state).crew;
 export const selectMovieLoading = state => selectMovieDetailsState(state).loading;
 export const selectMovieError = state => selectMovieDetailsState(state).error;
+
 
 export default movieDetailsSlice.reducer;
