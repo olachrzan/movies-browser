@@ -13,7 +13,7 @@ import { ErrorPage } from "../../../common/ErrorPage";
 import posterError from "../PersonTile/posterError.jpg";
 
 
-export const PeopleListPage = () => {
+export const PeopleList = () => {
   const dispatch = useDispatch();
   const people = useSelector(selectPeopleList);
   const loading = useSelector(selectPeopleLoading);
