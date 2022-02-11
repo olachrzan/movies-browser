@@ -310,6 +310,7 @@ export const Overview = styled.p`
   border-radius: 5px;
   line-height: 1.2;
   font-weight: 500;
+  margin: 0px;
 
   ${Wrapper}:hover & {
     transform: translateY(0);
