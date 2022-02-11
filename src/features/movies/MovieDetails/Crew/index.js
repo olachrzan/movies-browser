@@ -13,24 +13,29 @@ export const Crew = () => {
 
   return (
     <StyledCrew>
-      <Title movie>Crew</Title>
-      <Wrapper>
-        {movieCrew && [...movieCrew].slice(0, 12).map((person, index) => {
-          return (
-            <WrapperLink key={index} to={`/people/${person.id}`}>
-              <PersonTile large
-                poster={
-                  person.profile_path
-                    ? `${apiUrlImage}w342/${person.profile_path}`
-                    : posterError
-                }
-                name={person.name}
-                info={person.job}
-              />
-            </WrapperLink>
-          )
-        })}
-      </Wrapper>
+      {movieCrew.length !== 0 &&
+        <>
+          <Title movie>Crew</Title>
+          <Wrapper>
+            {movieCrew && [...movieCrew].slice(0, 12).map((person, index) => {
+              return (
+                <WrapperLink key={index} to={`/people/${person.id}`}>
+                  <PersonTile large
+                    poster={
+                      person.profile_path
+                        ? `${apiUrlImage}w342/${person.profile_path}`
+                        : posterError
+                    }
+                    name={person.name}
+                    info={person.job}
+                  />
+                </WrapperLink>
+              )
+            })}
+          </Wrapper>
+        </>
+      }
+
     </StyledCrew>
   )
 }; 

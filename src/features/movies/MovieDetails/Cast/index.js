@@ -13,24 +13,30 @@ export const Cast = () => {
 
   return (
     <StyledCast>
-      <Title movie>Cast</Title>
-      <Wrapper>
-        {movieCast && [...movieCast].slice(0, 12).map((person) => {
-          return (
-            <WrapperLink key={person.id} to={`/people/${person.id}`}>
-              <PersonTile large
-                poster={
-                  person.profile_path
-                    ? `${apiUrlImage}w342/${person.profile_path}`
-                    : posterError
-                }
-                name={person.name}
-                info={person.character}
-              />
-            </WrapperLink>
-          )
-        })}
-      </Wrapper>
+      {movieCast.length !== 0 &&
+        <>
+          <Title movie>Cast</Title>
+          <Wrapper>
+            {movieCast && [...movieCast].slice(0, 12).map((person) => {
+              return (
+                <WrapperLink key={person.id} to={`/people/${person.id}`}>
+                  <PersonTile large
+                    poster={
+                      person.profile_path
+                        ? `${apiUrlImage}w342/${person.profile_path}`
+                        : posterError
+                    }
+                    name={person.name}
+                    info={person.character}
+                  />
+                </WrapperLink>
+              )
+            })}
+          </Wrapper>
+        </>
+
+      }
+
     </StyledCast>
   )
 };
