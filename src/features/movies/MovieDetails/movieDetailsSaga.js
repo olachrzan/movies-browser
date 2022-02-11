@@ -10,8 +10,8 @@ import {
 } from "./movieDetailsSlice";
 
 function* fetchMovieDetailsHandler({ payload: { id } }) {
-  const movie = `${apiUrl}movie/${id}?api_key=${apiKey}`; // here we have to enter movie id
-  const credits = `${apiUrl}movie/${id}/credits?api_key=${apiKey}`// here we have to enter movie id
+  const movie = `${apiUrl}movie/${id}?api_key=${apiKey}`;
+  const credits = `${apiUrl}movie/${id}/credits?api_key=${apiKey}`;
 
   try {
     const movieDetails = yield call(getApi, movie);
