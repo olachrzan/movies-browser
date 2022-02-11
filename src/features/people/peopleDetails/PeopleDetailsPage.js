@@ -6,6 +6,7 @@ import { fetchPeopleDetails, selectError } from "./peopleDetailsSlice";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { PersonInfo } from "./PersonInfo";
 import { MovieCast } from "./MovieCast";
+import { MovieCrew } from "./MovieCrew";
 
 export const PeopleDetailsPage = () => {
   const { id } = useParams();
@@ -27,6 +28,7 @@ export const PeopleDetailsPage = () => {
         <>
           <PersonInfo />
           <MovieCast />
+          <MovieCrew />
         </>
       }
     </Container>
