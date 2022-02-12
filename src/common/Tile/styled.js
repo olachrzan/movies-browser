@@ -24,11 +24,13 @@ export const Wrapper = styled.div`
       opacity: 0;
     }
   
-  &:hover:after{
-    transition: opacity 0.3s;
-    opacity: 0.6;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    &:hover:after{
+      transition: opacity 0.3s;
+      opacity: 0.6;
+    }
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.larger}) {
     flex-direction: row;
   }
@@ -334,9 +336,11 @@ export const Overview = styled.p`
   line-height: 1.2;
   font-weight: 500;
   margin: 0px;
-
-  ${Wrapper}:hover & {
-    transform: translateY(0);
+  
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    ${Wrapper}:hover & {
+      transform: translateY(0);
+    }
   }
 
   ${({ big }) => big && css`
