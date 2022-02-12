@@ -15,38 +15,42 @@ import {
   selectPeopleTotalPage,
   setPeoplePage
 } from "../../features/people/peopleList/peopleListSlice";
+import { useLocation } from "react-router";
+
 
 export const Pagination = () => {
   const dispatch = useDispatch();
-  const locationHash = window.location.hash;
+  const { pathname } = useLocation();
   const page = useSelector(
-    locationHash === "#/movie" ? selectPage : selectPeoplePage
+    pathname === "/movie" ? selectPage : selectPeoplePage
   );
   const totalPage = useSelector(
-    locationHash === "#/movie" ? selectTotalPages : selectPeopleTotalPage
+    pathname === "/movie" ? selectTotalPages : selectPeopleTotalPage
   );
+
+  console.log(pathname);
 
   const goToFirst = () => {
     dispatch(
-      locationHash === "#/movie" ? setPage(1) : setPeoplePage(1)
+      pathname === "/movie" ? setPage(1) : setPeoplePage(1)
     )
   };
 
   const goToPrevious = () => {
     dispatch(
-      locationHash === "#/movie" ? setPage(page - 1) : setPeoplePage(page - 1)
+      pathname === "/movie" ? setPage(page - 1) : setPeoplePage(page - 1)
     )
   };
 
   const goToNext = () => {
     dispatch(
-      locationHash === "#/movie" ? setPage(page + 1) : setPeoplePage(page + 1)
+      pathname === "/movie" ? setPage(page + 1) : setPeoplePage(page + 1)
     )
   };
 
   const goToLast = () => {
     dispatch(
-      locationHash === "#/movie" ? setPage(totalPage) : setPeoplePage(totalPage)
+      pathname === "/movie" ? setPage(totalPage) : setPeoplePage(totalPage)
     )
   };
 
