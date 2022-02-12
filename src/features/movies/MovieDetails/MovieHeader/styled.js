@@ -5,6 +5,7 @@ import backgroundShadow from "./background_shadow.png";
 export const Wrapper = styled.section`
     position: relative;
     margin-bottom: 64px;
+    margin-top: -1px;
     
     &:after{
         content:'';
