@@ -3,6 +3,7 @@ import { Section } from "../../../../common/section";
 import { Tile } from "../../../../common/Tile";
 import { apiUrlImage } from "../../../apiData";
 import { selectMovieDetails } from "../movieDetailsSlice";
+import posterError from "../../../../images/posterError.png";
 
 export const MovieInfo = () => {
   const movieDetails = useSelector(selectMovieDetails);
@@ -11,7 +12,9 @@ export const MovieInfo = () => {
     <Section>
       {movieDetails && movieDetails.length !== 0 &&
         < Tile movieInfo
-          poster={`${apiUrlImage}w342/${movieDetails.poster_path}`}
+          poster={movieDetails.poster_path
+            ? `${apiUrlImage}w342/${movieDetails.poster_path}`
+            : posterError}
           title={movieDetails.original_title}
           year={(movieDetails.release_date).slice(0, 4)}
           label={"Production:"}
