@@ -31,7 +31,7 @@ export const PeopleList = () => {
           :
           <>
             <Wrapper>
-              {[...people].slice(0, 18).map((person) => {
+              {[...people].map((person) => {
                 return (
                   <WrapperLink key={person.id} to={`/people/${person.id}`}>
                     <PersonTile
