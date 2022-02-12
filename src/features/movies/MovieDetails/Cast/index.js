@@ -5,7 +5,7 @@ import { Wrapper } from "../Wrapper";
 import { PersonTile } from "../../../../common/PersonTile";
 import { WrapperLink } from "../../../../common/wrapperLink";
 import { apiUrlImage } from "../../../apiData";
-import posterError from "../../../people/PersonTile/posterError.jpg";
+import personError from "../../../../images/personError.jpg";
 import { Title } from "../../../../common/Title/styled";
 
 export const Cast = () => {
@@ -24,7 +24,7 @@ export const Cast = () => {
                     poster={
                       person.profile_path
                         ? `${apiUrlImage}w342/${person.profile_path}`
-                        : posterError
+                        : personError
                     }
                     name={person.name}
                     info={person.character}

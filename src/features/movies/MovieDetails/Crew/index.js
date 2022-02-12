@@ -6,7 +6,7 @@ import { Wrapper } from "../Wrapper";
 import { WrapperLink } from "../../../../common/wrapperLink";
 import { PersonTile } from "../../../../common/PersonTile";
 import { apiUrlImage } from "../../../apiData";
-import posterError from "../../../people/PersonTile/posterError.jpg";
+import personError from "../../../../images/personError.jpg";
 
 export const Crew = () => {
   const movieCrew = useSelector(selectMovieCrew);
@@ -24,7 +24,7 @@ export const Crew = () => {
                     poster={
                       person.profile_path
                         ? `${apiUrlImage}w342/${person.profile_path}`
-                        : posterError
+                        : personError
                     }
                     name={person.name}
                     info={person.job}

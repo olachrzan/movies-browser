@@ -10,7 +10,7 @@ import { Pagination } from "../../../common/Pagination";
 import { Loader } from "../../../common/Loader";
 import { Title } from "../../../common/Title/styled";
 import { ErrorPage } from "../../../common/ErrorPage";
-import posterError from "../PersonTile/posterError.jpg";
+import personError from "../../../images/personError.jpg";
 
 
 export const PeopleListPage = () => {
@@ -37,7 +37,7 @@ export const PeopleListPage = () => {
                     <PersonTile
                       poster={person.profile_path
                         ? `${apiUrlImage}w300/${person.profile_path}`
-                        : posterError}
+                        : personError}
                       name={person.name}
                     />
                   </WrapperLink>

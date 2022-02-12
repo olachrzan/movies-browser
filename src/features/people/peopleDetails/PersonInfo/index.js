@@ -3,7 +3,7 @@ import { Section } from "../../../../common/section";
 import { Tile } from "../../../../common/Tile";
 import { apiUrlImage } from "../../../apiData";
 import { selectPeopleDetails } from "../peopleDetailsSlice";
-import posterError from "../../../../common/PersonTile/posterError.jpg";
+import personError from "../../../../images/personError.jpg";
 
 export const PersonInfo = () => {
   const personDetails = useSelector(selectPeopleDetails);
@@ -14,7 +14,7 @@ export const PersonInfo = () => {
         < Tile movieInfo person
           poster={personDetails.profile_path
             ? `${apiUrlImage}w500/${personDetails.profile_path}`
-            : posterError
+            : personError
           }
           title={personDetails.name}
           label={"Date of birth: "}
