@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import {
   Wrapper,
   ArrowIcon,
@@ -15,7 +16,6 @@ import {
   selectPeopleTotalPage,
   setPeoplePage
 } from "../../features/people/peopleList/peopleListSlice";
-import { useLocation } from "react-router";
 
 
 export const Pagination = () => {
@@ -28,40 +28,20 @@ export const Pagination = () => {
     pathname === "/movie" ? selectTotalPages : selectPeopleTotalPage
   );
 
-  console.log(pathname);
-
-  const goToFirst = () => {
+  const goToAnotherPage = (pageNumber) => {
     dispatch(
-      pathname === "/movie" ? setPage(1) : setPeoplePage(1)
-    )
-  };
-
-  const goToPrevious = () => {
-    dispatch(
-      pathname === "/movie" ? setPage(page - 1) : setPeoplePage(page - 1)
-    )
-  };
-
-  const goToNext = () => {
-    dispatch(
-      pathname === "/movie" ? setPage(page + 1) : setPeoplePage(page + 1)
-    )
-  };
-
-  const goToLast = () => {
-    dispatch(
-      pathname === "/movie" ? setPage(totalPage) : setPeoplePage(totalPage)
-    )
-  };
+      pathname === "/movie" ? setPage(pageNumber) : setPeoplePage(pageNumber)
+    );
+  }
 
   return (
     <Wrapper>
-      <Button disabled={page === 1} onClick={goToFirst} >
+      <Button disabled={page === 1} onClick={() => goToAnotherPage(1)} >
         <ArrowIcon mobile="true" />
         <ArrowIcon />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button disabled={page === 1} onClick={goToPrevious} >
+      <Button disabled={page === 1} onClick={() => goToAnotherPage(page - 1)} >
         <ArrowIcon />
         <ButtonText>Previous</ButtonText>
       </Button>
@@ -71,11 +51,11 @@ export const Pagination = () => {
         of
         <Span last>{totalPage}</Span>
       </PageInfo>
-      <Button next disabled={page === totalPage} onClick={goToNext} >
+      <Button next disabled={page === totalPage} onClick={() => goToAnotherPage(page + 1)} >
         <ButtonText>Next</ButtonText>
         <ArrowIconNext />
       </Button>
-      <Button next disabled={page === totalPage} onClick={goToLast} >
+      <Button next disabled={page === totalPage} onClick={() => goToAnotherPage(totalPage)} >
         <ButtonText>Last</ButtonText>
         <ArrowIconNext mobile="true" />
         <ArrowIconNext />
