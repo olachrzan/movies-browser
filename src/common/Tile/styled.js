@@ -196,6 +196,10 @@ export const LabelInfo = styled.p`
   @media(max-width:${({ theme }) => theme.breakpoints.container}){
     font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1368 - 320)));
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoints.small}){
+    flex-basis: 100%;
+  }
 `;
 
 export const TagsLine = styled.div`

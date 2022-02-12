@@ -42,7 +42,7 @@ export const MovieList = () => {
                           : posterError
                       }
                       title={movie.title}
-                      year={movie.release_date ? (movie.release_date).slice(0, 4) : ""}
+                      year={movie.release_date ? (movie.release_date).slice(0, 4) : "year: unknown"}
                       genres={movie.genre_ids}
                       rating={movie.vote_average}
                       voteCount={movie.vote_count}

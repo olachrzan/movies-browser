@@ -95,8 +95,8 @@ export const ListLink = styled(NavLink)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    padding: 6px 12px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding: 8px 12px;
     margin: 0 2px;
   }
 
