@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as star } from "../../../../images/star.svg";
+import backgroundShadow from "./background_shadow.png";
 
 export const Wrapper = styled.section`
     position: relative;
@@ -8,11 +9,12 @@ export const Wrapper = styled.section`
     &:after{
         content:'';
         position:absolute;
+        z-index:2;
         top:0;
         left:0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(270deg, #000000 19.32%, rgba(0, 0, 0, 0.873268) 19.08%, rgba(0, 0, 0, 0.720529) 18.51%, rgba(0, 0, 0, 0.294577) 19.99%, rgba(0, 0, 0, 0.159921) 22.88%, rgba(0, 0, 0, 0) 26.68%), linear-gradient(90deg, #000000 13.6%, rgba(0, 0, 0, 0.984059) 16.58%, rgba(0, 0, 0, 0.967732) 15.44%, rgba(0, 0, 0, 0.865569) 17.3%, rgba(0, 0, 0, 0.230315) 22.87%, rgba(0, 0, 0, 0) 26.64%), linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.689555) 4.66%, rgba(0, 0, 0, 0.439033) 9.34%, rgba(0, 0, 0, 0.20628) 15.16%, rgba(0, 0, 0, 0) 24.22%), linear-gradient(189.44deg, rgba(0, 0, 0, 0) 58.48%, rgba(0, 0, 0, 0.106473) 63.17%, rgba(0, 0, 0, 0.235359) 68.85%, rgba(0, 0, 0, 0.492821) 78.08%, rgba(0, 0, 0, 0.740286) 85.86%, #000000 92.87%);
+        background: url(${backgroundShadow}) 50% 0 no-repeat;
     }
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}){
@@ -25,6 +27,8 @@ export const Body = styled.div`
 `;
 
 export const Backdrop = styled.img`
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +40,7 @@ export const Backdrop = styled.img`
 export const Content = styled.div`
     position: absolute;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
     bottom: 0px;
     left: 0px;
     margin-bottom: 56px;
