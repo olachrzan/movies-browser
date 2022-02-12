@@ -5,14 +5,7 @@ export const ErrorContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 180px;
   padding: 0px 20px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin-top: 40px;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding: 5px;
-  }
 `;
 
 export const ErrorImage = styled.img`
