@@ -27,6 +27,9 @@ const peopleListSlice = createSlice({
       state.loading = true;
       window.scrollTo(0, 0);
     },
+    setTotalPage: (state, { payload: totalPages }) => {
+      state.totalPage = totalPages
+    },
   },
 });
 
@@ -35,6 +38,7 @@ export const {
   setPeople,
   setError,
   setPeoplePage,
+  setTotalPage,
 } = peopleListSlice.actions;
 
 const selectPeopleListState = state => state.people;
@@ -52,6 +56,6 @@ export const selectPeopleTotalPage = state => selectPeopleListState(state).total
 //     return people;
 //   }
 //   return people.find(({ name }) => name.toUpperCase().includes(query.trim().toUpperCase()));
-// }
+// };
 
 export default peopleListSlice.reducer;
