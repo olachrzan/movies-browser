@@ -18,24 +18,37 @@ import {
 import camera from "./icons/camera-icon.svg";
 import search from "./icons/search-icon.svg";
 import { apiUrl, apiKey } from "../../features/apiData";
-import { setPeople, setTotalPage } from "../../features/people/peopleList/peopleListSlice";
+import {
+  selectPeoplePage,
+  setPeople,
+  setPeoplePage,
+  setTotalPage,
+} from "../../features/people/peopleList/peopleListSlice";
+import { selectPage, setMovies, setPage } from "../../features/movies/MovieList/movieListSlice";
 
 export const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const locationHash = window.location.hash;
   // const query = (new URLSearchParams(location.search)).get("query");
 
   const onInputChange = debounce((value) => {
     const searchParams = new URLSearchParams(location.search);
 
     axios
-      .get(`${apiUrl}search/person?api_key=${apiKey}&query=${value}`)
+      .get(locationHash === "#/people"
+        ? `${apiUrl}search/person?api_key=${apiKey}&query=${value}`
+        : `${apiUrl}search/movie?api_key=${apiKey}&query=${value}`)
       .then((response) => {
-        dispatch(setPeople(response.data.results));
+        // dispatch(locationHash === "#/people"
+        //   ? setPeoplePage(response.data.page)
+        //   : setPage(response.data.page));
         dispatch(setTotalPage(response.data.total_pages));
+        dispatch(locationHash === "#/people"
+          ? setPeople(response.data.results)
+          : setMovies(response.data.results));
         console.log(response.data);
-
       })
       .catch((error) => {
         console.log(error, "Something went wrong");
