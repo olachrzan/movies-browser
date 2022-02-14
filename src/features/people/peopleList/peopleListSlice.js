@@ -45,4 +45,13 @@ export const selectPeopleLoading = state => selectPeopleListState(state).loading
 export const selectPeopleError = state => selectPeopleListState(state).error;
 export const selectPeopleTotalPage = state => selectPeopleListState(state).totalPage;
 
+// export const selectPeopleByQuery = (state, query) => {
+//   const people = selectPeopleList(state);
+
+//   if (!query || query.trim() === "") {
+//     return people;
+//   }
+//   return people.find(({ name }) => name.toUpperCase().includes(query.trim().toUpperCase()));
+// }
+
 export default peopleListSlice.reducer;
