@@ -87,7 +87,7 @@ export const Header = () => {
           <SearchInput
             onChange={(e) => onInputChange(e.target.value)}
             type="search"
-            placeholder="Search for movies..." />
+            placeholder={`Search for ${locationHash === "#/people" ? "people..." : "movies..."}`} />
         </SearchBar>
       </HeaderContainer>
     </HeaderArea>
