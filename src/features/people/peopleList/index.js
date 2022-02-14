@@ -13,7 +13,7 @@ import { ErrorPage } from "../../../common/ErrorPage";
 import posterError from "../PersonTile/posterError.jpg";
 
 
-export const PeopleListPage = () => {
+export const PeopleList = () => {
   const dispatch = useDispatch();
   const people = useSelector(selectPeopleList);
   const loading = useSelector(selectPeopleLoading);
@@ -31,7 +31,7 @@ export const PeopleListPage = () => {
           :
           <>
             <Wrapper>
-              {[...people].slice(0, 18).map((person) => {
+              {[...people].map((person) => {
                 return (
                   <WrapperLink key={person.id} to={`/people/${person.id}`}>
                     <PersonTile
