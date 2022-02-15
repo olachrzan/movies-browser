@@ -4,6 +4,7 @@ import rootSaga from "./rootSaga";
 import movieDetailsReducer from "./features/movies/MovieDetails/movieDetailsSlice";
 import movieListReducer from "./features/movies/MovieList/movieListSlice";
 import peopleListReducer from "./features/people/peopleList/peopleListSlice";
+import peopleDetailsReducer from "./features/people/peopleDetails/peopleDetailsSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,6 +13,7 @@ const store = configureStore({
     moviesDetails: movieDetailsReducer,
     movies: movieListReducer,
     people: peopleListReducer,
+    peopleDetails: peopleDetailsReducer,
   },
   middleware: [sagaMiddleware],
 });

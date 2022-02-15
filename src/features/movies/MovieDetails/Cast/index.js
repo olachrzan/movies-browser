@@ -1,18 +1,18 @@
 import { useSelector } from "react-redux";
 import { selectMovieCast } from "../movieDetailsSlice";
-import { StyledCast } from "./styled";
+import { Section } from "../../../../common/section";
 import { Wrapper } from "../Wrapper";
-import { PersonTile } from "../../../people/PersonTile";
+import { PersonTile } from "../../../../common/PersonTile";
 import { WrapperLink } from "../../../../common/wrapperLink";
 import { apiUrlImage } from "../../../apiData";
-import posterError from "../../../people/PersonTile/posterError.jpg";
+import personError from "../../../../images/personError.jpg";
 import { Title } from "../../../../common/Title/styled";
 
 export const Cast = () => {
   const movieCast = useSelector(selectMovieCast);
 
   return (
-    <StyledCast>
+    <Section>
       {movieCast.length !== 0 &&
         <>
           <Title movie>Cast</Title>
@@ -24,7 +24,7 @@ export const Cast = () => {
                     poster={
                       person.profile_path
                         ? `${apiUrlImage}w342/${person.profile_path}`
-                        : posterError
+                        : personError
                     }
                     name={person.name}
                     info={person.character}
@@ -36,7 +36,6 @@ export const Cast = () => {
         </>
 
       }
-
-    </StyledCast>
+    </Section>
   )
 };
