@@ -55,7 +55,7 @@ export const selectPeopleTotalPage = state => selectPeopleListState(state).total
 //   if (!query || query.trim() === "") {
 //     return people;
 //   }
-//   return people.find(({ name }) => name.toUpperCase().includes(query.trim().toUpperCase()));
+//   return people.find((person) => person.name.toUpperCase().includes(query.trim().toUpperCase()));
 // };
 
 export default peopleListSlice.reducer;

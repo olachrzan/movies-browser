@@ -31,6 +31,9 @@ const moviesListSlice = createSlice({
     setGenres: (state, { payload: genresApi }) => {
       state.genres = genresApi;
     },
+    setTotalMoviesPage: (state, { payload: totalPages }) => {
+      state.total_pages = totalPages;
+    },
   },
 });
 
@@ -40,6 +43,7 @@ export const {
   setError,
   setPage,
   setGenres,
+  setTotalMoviesPages,
 } = moviesListSlice.actions;
 
 const selectMoviesState = state => state.movies;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { debounce } from "lodash";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import {
   HeaderArea,
@@ -20,11 +20,16 @@ import search from "./icons/search-icon.svg";
 import { apiUrl, apiKey } from "../../features/apiData";
 import {
   selectPeoplePage,
+  setTotalPage,
   setPeople,
   setPeoplePage,
-  setTotalPage,
 } from "../../features/people/peopleList/peopleListSlice";
-import { selectPage, setMovies, setPage } from "../../features/movies/MovieList/movieListSlice";
+import {
+  selectPage,
+  setMovies,
+  setPage,
+  setTotalMoviesPages,
+} from "../../features/movies/MovieList/movieListSlice";
 
 export const Header = () => {
   const location = useLocation();
@@ -33,14 +38,15 @@ export const Header = () => {
   const locationHash = window.location.hash;
   // const query = (new URLSearchParams(location.search)).get("query");
   // console.log(query)
+  const page = useSelector(locationHash === "#/people" ? selectPeoplePage : selectPage);
 
   const onInputChange = debounce((value) => {
     const searchParams = new URLSearchParams(location.search);
 
     axios
       .get(locationHash === "#/people"
-        ? `${apiUrl}search/person?api_key=${apiKey}&query=${value}`
-        : `${apiUrl}search/movie?api_key=${apiKey}&query=${value}`)
+        ? `${apiUrl}search/person?api_key=${apiKey}&query=${value}&page=${page}`
+        : `${apiUrl}search/movie?api_key=${apiKey}&query=${value}&page=${page}`)
       .then((response) => {
         // dispatch(locationHash === "#/people"
         //   ? setPeoplePage(response.data.page)
@@ -49,7 +55,7 @@ export const Header = () => {
         dispatch(locationHash === "#/people"
           ? setPeople(response.data.results)
           : setMovies(response.data.results));
-        console.log(response.data);
+        console.log(response.data.results);
       })
       .catch((error) => {
         console.log(error, "Something went wrong");
