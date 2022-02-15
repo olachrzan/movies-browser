@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router";
 import { Container } from "../../../common/Container";
 import { PersonTile } from "../../../common/PersonTile";
 import { fetchPeople, selectPeopleError, selectPeopleList, selectPeopleLoading } from "./peopleListSlice";
@@ -18,6 +19,9 @@ export const PeopleListPage = () => {
   const people = useSelector(selectPeopleList);
   const loading = useSelector(selectPeopleLoading);
   const error = useSelector(selectPeopleError);
+  const location = useLocation();
+  const query = (new URLSearchParams(location.search)).get("query");
+  console.log(people);
 
   useEffect(() => {
     dispatch(fetchPeople());
@@ -25,7 +29,11 @@ export const PeopleListPage = () => {
 
   return (
     < Container >
-      <Title>Popular people</Title>
+      <Title>
+        {`${query
+          ? `Search results for "${query}" (${people.length})`
+          : "Popular people"}`}
+      </Title>
       {loading ? <Loader />
         : error ? <ErrorPage />
           :

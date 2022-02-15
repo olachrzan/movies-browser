@@ -13,12 +13,15 @@ import { nanoid } from "@reduxjs/toolkit";
 import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
 import posterError from "../../../images/posterError.png";
+import { useLocation } from "react-router";
 
 export const MovieList = () => {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const location = useLocation();
+  const query = (new URLSearchParams(location.search)).get("query");
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -26,7 +29,11 @@ export const MovieList = () => {
 
   return (
     <Container>
-      <Title>Popular movies</Title>
+      <Title>
+        {`${query
+          ? `Search results for "${query}" (${movies.length})`
+          : "Popular movies"}`}
+      </Title>
       {loading
         ? <Loader />
         : error ? <ErrorPage />

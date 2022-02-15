@@ -32,6 +32,7 @@ export const Header = () => {
   const dispatch = useDispatch();
   const locationHash = window.location.hash;
   // const query = (new URLSearchParams(location.search)).get("query");
+  // console.log(query)
 
   const onInputChange = debounce((value) => {
     const searchParams = new URLSearchParams(location.search);
@@ -87,7 +88,10 @@ export const Header = () => {
           <SearchInput
             onChange={(e) => onInputChange(e.target.value)}
             type="search"
-            placeholder={`Search for ${locationHash === "#/people" ? "people..." : "movies..."}`} />
+            placeholder={
+              `Search for ${locationHash === "#/people" ? "people..." : "movies..."}
+              `}
+          />
         </SearchBar>
       </HeaderContainer>
     </HeaderArea>
