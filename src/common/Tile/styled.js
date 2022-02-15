@@ -330,7 +330,6 @@ export const Overview = styled.p`
   position: absolute;
   z-index:2;
   width: 100%;
-  text-align: center;
   bottom: 0;
   left: 0;
   transform: translateY(120%);
@@ -352,7 +351,6 @@ export const Overview = styled.p`
   ${({ big }) => big && css`
     position: relative;
     display: block;
-    text-align: left;
     font-size: 20px;
     font-weight: 400;
     line-height: 1.6;
