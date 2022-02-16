@@ -51,14 +51,17 @@ export const Header = () => {
 
     if (value) {
       fetch(locationHash === "#/movie"
-        ? `${apiUrl}search/movie?api_key=${apiKey}&query=${value}&page=`
-        : `${apiUrl}search/person?api_key=${apiKey}&query=${value}&page=`)
+        ? `${apiUrl}search/movie?api_key=${apiKey}&query=${value}&page=1`
+        : `${apiUrl}search/person?api_key=${apiKey}&query=${value}&page=1`)
         .then(res => res.json())
         .then(data => {
           dispatch(locationHash === "#/movie"
             ? setMovies(data.results)
             : setPeople(data.results));
-            console.log(data);
+          console.log(data);
+          dispatch(locationHash === "#/people" ?
+            setTotalPage(data.total_pages)
+            : setPeoplePage(data.total_pages));
         });
     } else {
       dispatch(fetchMovies());
