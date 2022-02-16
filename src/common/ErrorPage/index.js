@@ -9,7 +9,7 @@ export const ErrorPage = () => {
       <ErrorMessage smaller>
         Please check your network connection and try again
       </ErrorMessage>
-      <HomepageButton to={"/movie"}>Back to homepage</HomepageButton>
+      <HomepageButton to={"/"}>Back to homepage</HomepageButton>
     </ErrorContainer>
   );
 };

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container";
-import { PersonTile } from "../PersonTile";
+import { PersonTile } from "../../../common/PersonTile";
 import { fetchPeople, selectPeopleError, selectPeopleList, selectPeopleLoading } from "./peopleListSlice";
 import { Wrapper } from "./styled";
 import { WrapperLink } from "../../../common/wrapperLink";
@@ -10,7 +10,7 @@ import { Pagination } from "../../../common/Pagination";
 import { Loader } from "../../../common/Loader";
 import { Title } from "../../../common/Title/styled";
 import { ErrorPage } from "../../../common/ErrorPage";
-import posterError from "../PersonTile/posterError.jpg";
+import personError from "../../../images/personError.jpg";
 
 
 export const PeopleList = () => {
@@ -37,7 +37,7 @@ export const PeopleList = () => {
                     <PersonTile
                       poster={person.profile_path
                         ? `${apiUrlImage}w300/${person.profile_path}`
-                        : posterError}
+                        : personError}
                       name={person.name}
                     />
                   </WrapperLink>
