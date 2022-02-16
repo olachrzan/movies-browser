@@ -16,11 +16,12 @@ import personError from "../../../images/personError.jpg";
 
 export const PeopleListPage = () => {
   const dispatch = useDispatch();
-  const people = useSelector(selectPeopleList);
+  const location = useLocation();
   const loading = useSelector(selectPeopleLoading);
   const error = useSelector(selectPeopleError);
-  const location = useLocation();
   const query = (new URLSearchParams(location.search)).get("query");
+
+  const people = useSelector(selectPeopleList);
   console.log(people);
 
   useEffect(() => {
@@ -30,8 +31,8 @@ export const PeopleListPage = () => {
   return (
     < Container >
       <Title>
-        {`${query
-          ? `Search results for "${query}" (${people.length})`
+        {`${!!query && query.length !== ""
+          ? `Search results for "${query.toUpperCase()}" (${people.length})`
           : "Popular people"}`}
       </Title>
       {loading ? <Loader />

@@ -31,7 +31,7 @@ export const MovieList = () => {
     <Container>
       <Title>
         {`${query
-          ? `Search results for "${query}" (${movies.length})`
+          ? `Search results for "${query.toUpperCase()}" (${movies.length})`
           : "Popular movies"}`}
       </Title>
       {loading
