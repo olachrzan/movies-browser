@@ -4,13 +4,15 @@
 
 
 ## Table of contents
-- [Live version](#live-version)
-- [Description](#description)
-- [API](#api)
-- [Technologies](#technologies)
-- [Methodologies](#methodologies)
-- [How to use the browser](#️-how-to-use-the-browser)
-- [Authors](#authors)
+- [**Movies Browser** 🎥](#movies-browser-)
+  - [Table of contents](#table-of-contents)
+  - [Live version](#live-version)
+  - [Description](#description)
+  - [How to use the browser](#how-to-use-the-browser)
+  - [API](#api)
+  - [Technologies](#technologies)
+  - [Methodologies](#methodologies)
+  - [Authors](#authors)
 ## Live version
 
 You can find the demo [**here**](https://olachrzan.github.io/movies-browser/)
@@ -19,6 +21,12 @@ You can find the demo [**here**](https://olachrzan.github.io/movies-browser/)
 
 This **Movies Browser** app was created as a final group project for the ***Frontend Developer*** course by **YouCode**.
 You can use the app to browse and search for movies and people, as well as display the more detailed descriptions of them.
+
+## How to use the browser
+
+1. To browse through movies or people select the button in the navigation.
+2. To learn more about the movie or person, click on the picture tile.
+3. To search for a movie or person enter your query on the input with the magnifying glass. You don't need to click any buttons.
 
 ## API
 
@@ -41,12 +49,6 @@ This project uses API provided by [**The Movie Database**](https://www.themovied
 - Hooks
 - Custom Hooks
 - JSX
-
-### ➡️ How to use the browser
-
-1. To browse through movies or people select the button in the navigation.
-2. To learn more about the movie or person, click on the picture tile.
-3. To search for a movie or person enter your query on the input with the magnifying glass. You don't need to click any buttons.
 
 ## Authors
 
