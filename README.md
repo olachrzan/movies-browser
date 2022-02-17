@@ -2,6 +2,15 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/olachrzan/movies-browser/Icon%26OG-Image/public/app-screenshot.jpg" alt="App layout screenshot"></p>
 
+
+## Table of contents
+- [Live version](#live-version)
+- [Description](#description)
+- [API](#api)
+- [Technologies](#technologies)
+- [Methodologies](#methodologies)
+- [How to use the browser](#️-how-to-use-the-browser)
+- [Authors](#authors)
 ## Live version
 
 You can find the demo [**here**](https://olachrzan.github.io/movies-browser/)
@@ -11,11 +20,11 @@ You can find the demo [**here**](https://olachrzan.github.io/movies-browser/)
 This **Movies Browser** app was created as a final group project for the ***Frontend Developer*** course by **YouCode**.
 You can use the app to browse and search for movies and people, as well as display the more detailed descriptions of them.
 
-### API
+## API
 
 This project uses API provided by [**The Movie Database**](https://www.themoviedb.org/).
 
-### ➡️ Technologies
+## Technologies
 
 - HTML5
 - CSS4
@@ -27,7 +36,7 @@ This project uses API provided by [**The Movie Database**](https://www.themovied
 - Styled Components v5.3.3
 - Axios
 
-### ➡️ Methodologies
+## Methodologies
 
 - Hooks
 - Custom Hooks
