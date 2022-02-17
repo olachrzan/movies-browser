@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import {
@@ -16,6 +16,7 @@ import {
   selectPeopleTotalPage,
   setPeoplePage
 } from "../../features/people/peopleList/peopleListSlice";
+import { useReplacePageParameter } from "./pageParameters";
 
 
 export const Pagination = () => {
@@ -28,11 +29,17 @@ export const Pagination = () => {
     pathname === "/movie" ? selectTotalPages : selectPeopleTotalPage
   );
 
+  const replacePageParameter = useReplacePageParameter();
+
+  useEffect(() => {
+    replacePageParameter({ value: page });
+  }, [page]);
+
   const goToAnotherPage = (pageNumber) => {
     dispatch(
       pathname === "/movie" ? setPage(pageNumber) : setPeoplePage(pageNumber)
     );
-  }
+  };
 
   return (
     <Wrapper>
