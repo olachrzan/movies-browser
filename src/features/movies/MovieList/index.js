@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { apiUrlImage } from "../../apiData";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchMovies, selectLoading, selectError, selectMovies } from "./movieListSlice";
+import { fetchMovies, selectLoading, selectError, selectMovies,selectTotalResults } from "./movieListSlice";
 import { Title } from "../../../common/Title/styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { nanoid } from "@reduxjs/toolkit";
@@ -17,21 +17,23 @@ import { useLocation } from "react-router";
 
 export const MovieList = () => {
   const dispatch = useDispatch();
-  const movies = useSelector(selectMovies);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const location = useLocation();
-  const query = (new URLSearchParams(location.search)).get("query");
+  const totalResults = useSelector(selectTotalResults);
+  const query = (new URLSearchParams(location.search)).get("search");
+
+  const movies = useSelector(selectMovies);
 
   useEffect(() => {
-    dispatch(fetchMovies());
-  }, [dispatch]);
+    dispatch(fetchMovies({ query }));
+  }, [dispatch, query]);
 
   return (
     <Container>
       <Title>
         {`${query
-          ? `Search results for "${query.toUpperCase()}" (${movies.length})`
+          ? `Search results for "${query.toUpperCase()}" (${totalResults})`
           : "Popular movies"}`}
       </Title>
       {loading

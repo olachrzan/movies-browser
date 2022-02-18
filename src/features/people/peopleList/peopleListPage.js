@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { Container } from "../../../common/Container";
 import { PersonTile } from "../../../common/PersonTile";
-import { fetchPeople, selectPeopleError, selectPeopleList, selectPeopleLoading } from "./peopleListSlice";
+import { fetchPeople, selectPeopleError, selectPeopleList, selectPeopleLoading, selectTotalResults } from "./peopleListSlice";
 import { Wrapper } from "./styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { apiUrlImage } from "../../apiData";
@@ -13,26 +13,25 @@ import { Title } from "../../../common/Title/styled";
 import { ErrorPage } from "../../../common/ErrorPage";
 import personError from "../../../images/personError.jpg";
 
-
 export const PeopleListPage = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const loading = useSelector(selectPeopleLoading);
   const error = useSelector(selectPeopleError);
-  const query = (new URLSearchParams(location.search)).get("query");
+  const totalResults = useSelector(selectTotalResults);
+  const query = (new URLSearchParams(location.search)).get("search");
 
   const people = useSelector(selectPeopleList);
-  console.log(people);
 
   useEffect(() => {
-    dispatch(fetchPeople());
-  }, [dispatch])
+    dispatch(fetchPeople({ query }));
+  }, [dispatch, query]);
 
   return (
     < Container >
       <Title>
         {`${!!query && query.length !== ""
-          ? `Search results for "${query.toUpperCase()}" (${people.length})`
+          ? `Search results for "${query.toUpperCase()}" (${totalResults})`
           : "Popular people"}`}
       </Title>
       {loading ? <Loader />

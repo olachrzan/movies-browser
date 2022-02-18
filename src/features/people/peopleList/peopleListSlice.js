@@ -8,6 +8,7 @@ const peopleListSlice = createSlice({
     loading: true,
     error: false,
     totalPage: 500,
+    total_results: '',
   },
   reducers: {
     fetchPeople: (state) => {
@@ -28,7 +29,10 @@ const peopleListSlice = createSlice({
       window.scrollTo(0, 0);
     },
     setTotalPage: (state, { payload: totalPages }) => {
-      state.totalPage = totalPages
+      state.totalPage = totalPages;
+    },
+    setTotalResults: (state, { payload: totalResults }) => {
+      state.total_results = totalResults;
     },
   },
 });
@@ -39,6 +43,7 @@ export const {
   setError,
   setPeoplePage,
   setTotalPage,
+  setTotalResults,
 } = peopleListSlice.actions;
 
 const selectPeopleListState = state => state.people;
@@ -48,14 +53,6 @@ export const selectPeoplePage = state => selectPeopleListState(state).page;
 export const selectPeopleLoading = state => selectPeopleListState(state).loading;
 export const selectPeopleError = state => selectPeopleListState(state).error;
 export const selectPeopleTotalPage = state => selectPeopleListState(state).totalPage;
-
-// export const selectPeopleByQuery = (state, query) => {
-//   const people = selectPeopleList(state);
-
-//   if (!query || query.trim() === "") {
-//     return people;
-//   }
-//   return people.map((person) => person);
-// };
+export const selectTotalResults = state => selectPeopleListState(state).total_results;
 
 export default peopleListSlice.reducer;
