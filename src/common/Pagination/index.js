@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router";
 import {
   Wrapper,
   ArrowIcon,
@@ -9,55 +10,40 @@ import {
   PageInfo,
   Span
 } from "./styled";
-import { selectPage, selectTotalPages, setPage } from "../../features/movies/MovieList/movieListSlice";
+import { selectPage, selectTotalMoviesPages, setPage } from "../../features/movies/MovieList/movieListSlice";
 import {
   selectPeoplePage,
   selectPeopleTotalPage,
   setPeoplePage
 } from "../../features/people/peopleList/peopleListSlice";
+import { useReplacePageParameter } from "./pageParameters";
+
 
 export const Pagination = () => {
   const dispatch = useDispatch();
-  const locationHash = window.location.hash;
+  const { pathname } = useLocation();
+  console.log(pathname);
   const page = useSelector(
-    locationHash === "#/movie" ? selectPage : selectPeoplePage
+    pathname === "/movie" ? selectPage : selectPeoplePage
   );
   const totalPage = useSelector(
-    locationHash === "#/movie" ? selectTotalPages : selectPeopleTotalPage
+    pathname === "/movie" ? selectTotalMoviesPages : selectPeopleTotalPage
   );
 
-  const goToFirst = () => {
-    dispatch(
-      locationHash === "#/movie" ? setPage(1) : setPeoplePage(1)
-    )
-  };
+  const replacePageParameter = useReplacePageParameter();
 
-  const goToPrevious = () => {
-    dispatch(
-      locationHash === "#/movie" ? setPage(page - 1) : setPeoplePage(page - 1)
-    )
-  };
-
-  const goToNext = () => {
-    dispatch(
-      locationHash === "#/movie" ? setPage(page + 1) : setPeoplePage(page + 1)
-    )
-  };
-
-  const goToLast = () => {
-    dispatch(
-      locationHash === "#/movie" ? setPage(totalPage) : setPeoplePage(totalPage)
-    )
+  const goToAnotherPage = () => {
+    replacePageParameter(page)
   };
 
   return (
     <Wrapper>
-      <Button disabled={page === 1} onClick={goToFirst} >
+      <Button disabled={page === 1} onClick={() => goToAnotherPage(1)} >
         <ArrowIcon mobile="true" />
         <ArrowIcon />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button disabled={page === 1} onClick={goToPrevious} >
+      <Button disabled={page === 1} onClick={() => goToAnotherPage(page - 1)} >
         <ArrowIcon />
         <ButtonText>Previous</ButtonText>
       </Button>
@@ -67,15 +53,15 @@ export const Pagination = () => {
         of
         <Span last>{totalPage}</Span>
       </PageInfo>
-      <Button next disabled={page === totalPage} onClick={goToNext} >
+      <Button next disabled={page === totalPage} onClick={() => goToAnotherPage(page + 1)} >
         <ButtonText>Next</ButtonText>
         <ArrowIconNext />
       </Button>
-      <Button next disabled={page === totalPage} onClick={goToLast} >
+      <Button next disabled={page === totalPage} onClick={() => goToAnotherPage(totalPage)} >
         <ButtonText>Last</ButtonText>
         <ArrowIconNext mobile="true" />
         <ArrowIconNext />
       </Button>
-    </Wrapper>
+    </Wrapper >
   );
 };
