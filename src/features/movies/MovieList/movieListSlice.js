@@ -5,8 +5,7 @@ const moviesListSlice = createSlice({
   initialState: {
     movies: [],
     genres: [],
-    page: 1,
-    pageSearch: 1,
+    // page: 1,
     total_pages: 500,
     total_results: '',
     loading: true,
@@ -15,7 +14,6 @@ const moviesListSlice = createSlice({
   reducers: {
     fetchMovies: (state) => {
       state.loading = true;
-      state.page = 1;
     },
     setMovies: (state, { payload: moviesFromApi }) => {
       state.movies = moviesFromApi;
@@ -25,11 +23,11 @@ const moviesListSlice = createSlice({
       state.error = true;
       state.loading = false;
     },
-    setPage: (state, { payload: currentPage }) => {
-      state.page = currentPage;
-      state.loading = false;
-      window.scrollTo(0, 0);
-    },
+    // setPage: (state, { payload: currentPage }) => {
+    //   state.page = currentPage;
+    //   state.loading = false;
+    //   window.scrollTo(0, 0);
+    // },
     setGenres: (state, { payload: genresApi }) => {
       state.genres = genresApi;
     },
@@ -46,7 +44,7 @@ export const {
   fetchMovies,
   setMovies,
   setError,
-  setPage,
+  // setPage,
   setGenres,
   setTotalMoviesPages,
   setTotalResults,
@@ -57,7 +55,7 @@ const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
 export const selectLoading = state => selectMoviesState(state).loading;
 export const selectError = state => selectMoviesState(state).error;
-export const selectPage = state => selectMoviesState(state).page;
+// export const selectPage = state => selectMoviesState(state).page;
 export const selectGenres = state => selectMoviesState(state).genres;
 export const selectTotalMoviesPages = state => selectMoviesState(state).total_pages;
 export const selectTotalResults = state => selectMoviesState(state).total_results;

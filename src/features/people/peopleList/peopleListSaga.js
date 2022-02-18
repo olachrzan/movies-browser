@@ -1,23 +1,20 @@
-import { call, put, delay, select, debounce } from "redux-saga/effects";
+import { call, put, delay, debounce } from "redux-saga/effects";
 import { getApi } from "../../getApi";
 import {
   fetchPeople,
   setPeople,
-  setPeoplePage,
   setError,
-  selectPeoplePage,
   setTotalPage
 } from "./peopleListSlice";
 import { apiUrlPopularPeople, apiUrl, apiKey } from "../../apiData";
 import { setTotalResults } from "./peopleListSlice";
 
-function* fetchPeopleListHandler({ payload: { query } }) {
+function* fetchPeopleListHandler({ payload: { page, query } }) {
   try {
     yield delay(1000);
-    const currentPage = yield select(selectPeoplePage);
     const people = yield call(getApi, !query
-      ? apiUrlPopularPeople + currentPage
-      : `${apiUrl}search/person?&api_key=${apiKey}&query=${query}&page=${currentPage}`);
+      ? apiUrlPopularPeople + page
+      : `${apiUrl}search/person?&api_key=${apiKey}&query=${query}&page=${page}`);
     console.log(people);
     yield put(setPeople(people.results));
     yield put(setTotalResults(people.total_results));
@@ -30,7 +27,6 @@ function* fetchPeopleListHandler({ payload: { query } }) {
 
 function* peopleListSaga() {
   yield debounce(1000, fetchPeople.type, fetchPeopleListHandler);
-  yield debounce(1000, setPeoplePage.type, fetchPeopleListHandler);
 };
 
 export default peopleListSaga;

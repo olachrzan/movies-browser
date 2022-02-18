@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { apiUrlImage } from "../../apiData";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchMovies, selectLoading, selectError, selectMovies,selectTotalResults } from "./movieListSlice";
+import { fetchMovies, selectLoading, selectError, selectMovies, selectTotalResults } from "./movieListSlice";
 import { Title } from "../../../common/Title/styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { nanoid } from "@reduxjs/toolkit";
@@ -22,12 +22,13 @@ export const MovieList = () => {
   const location = useLocation();
   const totalResults = useSelector(selectTotalResults);
   const query = (new URLSearchParams(location.search)).get("search");
+  const page = (new URLSearchParams(location.search)).get("page");
 
   const movies = useSelector(selectMovies);
 
   useEffect(() => {
-    dispatch(fetchMovies({ query }));
-  }, [dispatch, query]);
+    dispatch(fetchMovies({ query, page }));
+  }, [dispatch, query, page]);
 
   return (
     <Container>

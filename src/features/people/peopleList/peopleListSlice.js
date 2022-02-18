@@ -4,7 +4,6 @@ const peopleListSlice = createSlice({
   name: 'people',
   initialState: {
     people: [],
-    page: 1,
     loading: true,
     error: false,
     totalPage: 500,
@@ -23,11 +22,11 @@ const peopleListSlice = createSlice({
       state.error = true;
       state.loading = false;
     },
-    setPeoplePage: (state, { payload: currentPage }) => {
-      state.page = currentPage;
-      state.loading = true;
-      window.scrollTo(0, 0);
-    },
+    // setPeoplePage: (state, { payload: currentPage }) => {
+    //   state.page = currentPage;
+    //   state.loading = true;
+    //   window.scrollTo(0, 0);
+    // },
     setTotalPage: (state, { payload: totalPages }) => {
       state.totalPage = totalPages;
     },
@@ -41,7 +40,7 @@ export const {
   fetchPeople,
   setPeople,
   setError,
-  setPeoplePage,
+  // setPeoplePage,
   setTotalPage,
   setTotalResults,
 } = peopleListSlice.actions;
@@ -49,7 +48,7 @@ export const {
 const selectPeopleListState = state => state.people;
 
 export const selectPeopleList = state => selectPeopleListState(state).people;
-export const selectPeoplePage = state => selectPeopleListState(state).page;
+// export const selectPeoplePage = state => selectPeopleListState(state).page;
 export const selectPeopleLoading = state => selectPeopleListState(state).loading;
 export const selectPeopleError = state => selectPeopleListState(state).error;
 export const selectPeopleTotalPage = state => selectPeopleListState(state).totalPage;

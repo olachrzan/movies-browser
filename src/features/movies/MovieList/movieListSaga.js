@@ -1,23 +1,21 @@
-import { call, put, delay, select, debounce, takeLatest } from "redux-saga/effects";
+import { call, put, debounce } from "redux-saga/effects";
 import { getApi } from "../../getApi";
 import {
   fetchMovies,
   setMovies,
   setError,
   setGenres,
-  selectPage,
   setTotalMoviesPages,
   setTotalResults,
 } from "./movieListSlice";
 import { apiUrlGenres, apiUrlPopularMovies, apiKey, apiUrl } from "../../apiData";
 
-function* fetchMovieListHandler({ payload: { query } }) {
+function* fetchMovieListHandler({ payload: { page, query } }) {
 
   try {
-    const currentPage = yield select(selectPage);
     const apiRequest = yield call(getApi, !query
-      ? apiUrlPopularMovies + currentPage
-      : `${apiUrl}search/movie?&api_key=${apiKey}&query=${query}&page=${currentPage}`);
+      ? apiUrlPopularMovies + page
+      : `${apiUrl}search/movie?&api_key=${apiKey}&query=${query}&page=${page}`);
     const genres = yield call(getApi, apiUrlGenres);
     console.log(apiRequest);
     yield put(setTotalMoviesPages(apiRequest.total_pages));
@@ -33,7 +31,6 @@ function* fetchMovieListHandler({ payload: { query } }) {
 
 function* movieListSaga() {
   yield debounce(1000, fetchMovies.type, fetchMovieListHandler);
-  // yield takeLatest(setPage.type, fetchMovieListHandler);
 };
 
 export default movieListSaga;

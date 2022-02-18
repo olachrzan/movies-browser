@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router";
+import { selectTotalMoviesPages } from "../../features/movies/MovieList/movieListSlice";
+import { selectPeopleTotalPage } from "../../features/people/peopleList/peopleListSlice";
 import {
   Wrapper,
   ArrowIcon,
@@ -10,40 +12,41 @@ import {
   PageInfo,
   Span
 } from "./styled";
-import { selectPage, selectTotalMoviesPages, setPage } from "../../features/movies/MovieList/movieListSlice";
-import {
-  selectPeoplePage,
-  selectPeopleTotalPage,
-  setPeoplePage
-} from "../../features/people/peopleList/peopleListSlice";
-import { useReplacePageParameter } from "./pageParameters";
+
 
 
 export const Pagination = () => {
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
-  console.log(pathname);
-  const page = useSelector(
-    pathname === "/movie" ? selectPage : selectPeoplePage
-  );
-  const totalPage = useSelector(
-    pathname === "/movie" ? selectTotalMoviesPages : selectPeopleTotalPage
-  );
+  const location = useLocation();
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
+  const [page, setPage] = useState(1);
+  console.log(page);
+  console.log(location.pathname);
+  console.log(searchParams.toString());
 
-  const replacePageParameter = useReplacePageParameter();
+  const totalPage = useSelector(
+    location.pathname === "/movie" ? selectTotalMoviesPages : selectPeopleTotalPage
+  );
 
   const goToAnotherPage = () => {
-    replacePageParameter(page)
+    if (page <= 1) {
+      searchParams.delete("page");
+    } else {
+      searchParams.set("page", page);
+    }
+
+    navigate(`${location.pathname}?${searchParams.toString()}`);
   };
 
   return (
     <Wrapper>
-      <Button disabled={page === 1} onClick={() => goToAnotherPage(1)} >
+      <Button disabled={page === 1} onClick={() => goToAnotherPage(setPage(1))} >
         <ArrowIcon mobile="true" />
         <ArrowIcon />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button disabled={page === 1} onClick={() => goToAnotherPage(page - 1)} >
+      <Button disabled={page === 1} onClick={() => goToAnotherPage(setPage(page - 1))} >
         <ArrowIcon />
         <ButtonText>Previous</ButtonText>
       </Button>
@@ -53,11 +56,11 @@ export const Pagination = () => {
         of
         <Span last>{totalPage}</Span>
       </PageInfo>
-      <Button next disabled={page === totalPage} onClick={() => goToAnotherPage(page + 1)} >
+      <Button next disabled={page === totalPage} onClick={() => goToAnotherPage(setPage(page + 1))} >
         <ButtonText>Next</ButtonText>
         <ArrowIconNext />
       </Button>
-      <Button next disabled={page === totalPage} onClick={() => goToAnotherPage(totalPage)} >
+      <Button next disabled={page === totalPage} onClick={() => goToAnotherPage(setPage(totalPage))} >
         <ButtonText>Last</ButtonText>
         <ArrowIconNext mobile="true" />
         <ArrowIconNext />

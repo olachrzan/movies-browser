@@ -20,12 +20,13 @@ export const PeopleListPage = () => {
   const error = useSelector(selectPeopleError);
   const totalResults = useSelector(selectTotalResults);
   const query = (new URLSearchParams(location.search)).get("search");
+  const page = (new URLSearchParams(location.search)).get("page");
 
   const people = useSelector(selectPeopleList);
 
   useEffect(() => {
-    dispatch(fetchPeople({ query }));
-  }, [dispatch, query]);
+    dispatch(fetchPeople({ query, page }));
+  }, [dispatch, query, page]);
 
   return (
     < Container >
