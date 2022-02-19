@@ -21,7 +21,6 @@ export const Header = () => {
   const location = useLocation();
   const replaceQueryParameter = useReplaceQueryParameter();
 
-
   const onInputchange = debounce(({ target }) => {
     replaceQueryParameter({
       value: target.value.trim(),
