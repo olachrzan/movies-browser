@@ -3,6 +3,12 @@ import { useLocation, useNavigate } from "react-router";
 import { selectTotalPages } from "../../features/movies/MovieList/movieListSlice";
 import { selectPeopleTotalPage } from "../../features/people/peopleList/peopleListSlice";
 
+const pageParamName = "page";
+
+export const usePageParameter = () => {
+  const location = useLocation();
+  return (new URLSearchParams(location.search)).get(pageParamName);
+};
 
 export const useReplacePageParameter = () => {
   const navigate = useNavigate();
@@ -11,9 +17,8 @@ export const useReplacePageParameter = () => {
   const totalPage = useSelector(
     pathname === "/movie" ? selectTotalPages : selectPeopleTotalPage
   );
-  const pageParamName = "page";
 
-  return ({ value }) => {
+  return (value) => {
     if (value === undefined || value > totalPage) {
       pageParams.set(pageParamName, 1);
     } else {

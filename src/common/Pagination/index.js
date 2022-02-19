@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { usePageParameter, useReplacePageParameter } from "./pageParameters";
 import {
   Wrapper,
   ArrowIcon,
@@ -10,14 +11,16 @@ import {
   PageInfo,
   Span
 } from "./styled";
-import { selectPage, selectTotalPages, setPage } from "../../features/movies/MovieList/movieListSlice";
+import {
+  selectPage,
+  selectTotalPages,
+  setPage
+} from "../../features/movies/MovieList/movieListSlice";
 import {
   selectPeoplePage,
   selectPeopleTotalPage,
   setPeoplePage
 } from "../../features/people/peopleList/peopleListSlice";
-import { useReplacePageParameter } from "./pageParameters";
-
 
 export const Pagination = () => {
   const dispatch = useDispatch();
@@ -28,17 +31,23 @@ export const Pagination = () => {
   const totalPage = useSelector(
     pathname === "/movie" ? selectTotalPages : selectPeopleTotalPage
   );
-
+  const pageParamValue = usePageParameter();
   const replacePageParameter = useReplacePageParameter();
 
   useEffect(() => {
-    replacePageParameter({ value: page });
-  }, [page]);
+    const pageFromURL = Number(pageParamValue);
+    if (pageFromURL !== page && pageFromURL > 0 && pageFromURL <= totalPage) {
+      dispatch(
+        pathname === "/movie" ? setPage(pageFromURL) : setPeoplePage(pageFromURL)
+      );
+    }
+  });
 
   const goToAnotherPage = (pageNumber) => {
     dispatch(
       pathname === "/movie" ? setPage(pageNumber) : setPeoplePage(pageNumber)
     );
+    replacePageParameter(pageNumber);
   };
 
   return (
