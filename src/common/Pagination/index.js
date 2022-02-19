@@ -35,6 +35,11 @@ export const Pagination = () => {
   const replacePageParameter = useReplacePageParameter();
 
   useEffect(() => {
+    if (page === 1)
+      replacePageParameter(1);
+  }, []);
+
+  useEffect(() => {
     const pageFromURL = Number(pageParamValue);
     if (pageFromURL !== page && pageFromURL > 0 && pageFromURL <= totalPage) {
       dispatch(
