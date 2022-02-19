@@ -1,4 +1,3 @@
-import { useLocation, useNavigate } from "react-router";
 import debounce from "lodash.debounce";
 import camera from "./icons/camera-icon.svg";
 import search from "./icons/search-icon.svg";
@@ -15,20 +14,17 @@ import {
   SearchInput,
   ListLink,
 } from "./styled";
+import { useReplaceQueryParameter } from "../../queryParameters";
 
 export const Header = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const replaceQueryParameter = useReplaceQueryParameter();
   const locationHash = window.location.hash;
-  const searchParams = new URLSearchParams(location.search);
 
   const onInputchange = debounce(({ target }) => {
-    if (target.value.trim() === "") {
-      searchParams.delete("search");
-    } else {
-      searchParams.set("search", target.value);
-    }
-    navigate(`${location.pathname}?${searchParams.toString()}`);
+    replaceQueryParameter({
+      value: target.value.trim(),
+      key: "search"
+    })
   }, 1000);
 
   return (

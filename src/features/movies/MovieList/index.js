@@ -13,7 +13,7 @@ import { WrapperLink } from "../../../common/wrapperLink";
 import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
 import posterError from "../../../images/posterError.png";
-import { useQueryParameter } from "../../../useQueryParameter";
+import { useQueryParameter } from "../../../queryParameters";
 
 export const MovieList = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ export const MovieList = () => {
                       <Tile
                         poster={
                           movie.poster_path
-                            ? `${apiUrlImage}w500/${movie.poster_path}` //here we need to change the image for mobile phones
+                            ? `${apiUrlImage}w500/${movie.poster_path}`
                             : posterError
                         }
                         title={movie.title}

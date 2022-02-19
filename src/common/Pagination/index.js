@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import { selectTotalMoviesPages, selectTotalResults } from "../../features/movies/MovieList/movieListSlice";
 import { selectPeopleTotalPage } from "../../features/people/peopleList/peopleListSlice";
-import { useQueryParameter } from "../../useQueryParameter";
+import { useReplaceQueryParameter, useQueryParameter } from "../../queryParameters";
 import {
   Wrapper,
   ArrowIcon,
@@ -14,11 +14,10 @@ import {
 } from "./styled";
 
 export const Pagination = () => {
+  const replaceQueryParameter = useReplaceQueryParameter();
   const location = useLocation();
-  const navigate = useNavigate();
   const totalResults = useSelector(selectTotalResults);
   const totalPeopleResults = useSelector(selectPeopleTotalPage);
-  const searchParams = new URLSearchParams(location.search);
   const pageParameter = +useQueryParameter("page");
   const page = pageParameter === 0 ? 1 : pageParameter;
 
@@ -29,13 +28,10 @@ export const Pagination = () => {
   const totalCurrentPage = totalPage > 500 ? 500 : totalPage;
 
   const goToAnotherPage = (page) => {
-    if (page === "") {
-      searchParams.delete("page");
-    } else {
-      searchParams.set("page", page);
-    }
-
-    navigate(`${location.pathname}?${searchParams.toString()}`);
+    replaceQueryParameter({
+      value: page,
+      key: "page",
+    });
   };
 
   return (
