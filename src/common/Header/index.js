@@ -1,4 +1,7 @@
 import { useLocation, useNavigate } from "react-router";
+import debounce from "lodash.debounce";
+import camera from "./icons/camera-icon.svg";
+import search from "./icons/search-icon.svg";
 import {
   HeaderArea,
   HeaderContainer,
@@ -12,24 +15,21 @@ import {
   SearchInput,
   ListLink,
 } from "./styled";
-import camera from "./icons/camera-icon.svg";
-import search from "./icons/search-icon.svg";
 
 export const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const locationHash = window.location.hash;
   const searchParams = new URLSearchParams(location.search);
-  const query = searchParams.get("search");
 
-  const onInputchange = ({ target }) => {
+  const onInputchange = debounce(({ target }) => {
     if (target.value.trim() === "") {
       searchParams.delete("search");
     } else {
       searchParams.set("search", target.value);
     }
     navigate(`${location.pathname}?${searchParams.toString()}`);
-  };
+  }, 1000);
 
   return (
     <HeaderArea>
@@ -54,7 +54,6 @@ export const Header = () => {
           <SearchIcon src={search} alt="" />
           <SearchInput
             onChange={onInputchange}
-            value={query || ""}
             type="search"
             placeholder={
               `Search for ${locationHash === "#/people"
