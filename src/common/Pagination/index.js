@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
-import { selectTotalMoviesPages } from "../../features/movies/MovieList/movieListSlice";
+import { selectTotalMoviesPages, selectTotalResults } from "../../features/movies/MovieList/movieListSlice";
 import { selectPeopleTotalPage } from "../../features/people/peopleList/peopleListSlice";
 import { useQueryParameter } from "../../useQueryParameter";
 import {
@@ -16,6 +16,8 @@ import {
 export const Pagination = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const totalResults = useSelector(selectTotalResults);
+  const totalPeopleResults = useSelector(selectPeopleTotalPage);
   const searchParams = new URLSearchParams(location.search);
   const pageParameter = +useQueryParameter("page");
   const page = pageParameter === 0 ? 1 : pageParameter;
@@ -37,39 +39,43 @@ export const Pagination = () => {
   };
 
   return (
-    <Wrapper>
-      <Button disabled={page === 1}
-        onClick={() => goToAnotherPage(1)}
-      >
-        <ArrowIcon mobile="true" />
-        <ArrowIcon />
-        <ButtonText>First</ButtonText>
-      </Button>
-      <Button disabled={page === 1}
-        onClick={() => goToAnotherPage(page - 1)}
-      >
-        <ArrowIcon />
-        <ButtonText>Previous</ButtonText>
-      </Button>
-      <PageInfo>
-        Page
-        <Span>{page}</Span>
-        of
-        <Span last>{totalCurrentPage}</Span>
-      </PageInfo>
-      <Button next disabled={page === totalCurrentPage}
-        onClick={() => goToAnotherPage(page + 1)}
-      >
-        <ButtonText>Next</ButtonText>
-        <ArrowIconNext />
-      </Button>
-      <Button next disabled={page === totalCurrentPage}
-        onClick={() => goToAnotherPage(totalCurrentPage)}
-      >
-        <ButtonText>Last</ButtonText>
-        <ArrowIconNext mobile="true" />
-        <ArrowIconNext />
-      </Button>
-    </Wrapper >
+    totalResults <= 20 || totalPeopleResults <= 20
+      ? ""
+      : (
+        < Wrapper >
+          <Button disabled={page === 1}
+            onClick={() => goToAnotherPage(1)}
+          >
+            <ArrowIcon mobile="true" />
+            <ArrowIcon />
+            <ButtonText>First</ButtonText>
+          </Button>
+          <Button disabled={page === 1}
+            onClick={() => goToAnotherPage(page - 1)}
+          >
+            <ArrowIcon />
+            <ButtonText>Previous</ButtonText>
+          </Button>
+          <PageInfo>
+            Page
+            <Span>{page}</Span>
+            of
+            <Span last>{totalCurrentPage}</Span>
+          </PageInfo>
+          <Button next disabled={page === totalCurrentPage}
+            onClick={() => goToAnotherPage(page + 1)}
+          >
+            <ButtonText>Next</ButtonText>
+            <ArrowIconNext />
+          </Button>
+          <Button next disabled={page === totalCurrentPage}
+            onClick={() => goToAnotherPage(totalCurrentPage)}
+          >
+            <ButtonText>Last</ButtonText>
+            <ArrowIconNext mobile="true" />
+            <ArrowIconNext />
+          </Button>
+        </Wrapper >
+      )
   );
 };

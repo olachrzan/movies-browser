@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container";
 import { PersonTile } from "../../../common/PersonTile";
-import { fetchPeople, selectPeopleError, selectPeopleList, selectPeopleLoading, selectTotalResults } from "./peopleListSlice";
 import { Wrapper } from "./styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { apiUrlImage } from "../../apiData";
@@ -12,13 +11,19 @@ import { Title } from "../../../common/Title/styled";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { useQueryParameter } from "../../../useQueryParameter";
 import personError from "../../../images/personError.jpg";
-
+import {
+  fetchPeople,
+  selectPeopleError,
+  selectPeopleList,
+  selectPeopleLoading,
+  selectTotalPeopleResults
+} from "./peopleListSlice";
 
 export const PeopleList = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectPeopleLoading);
   const error = useSelector(selectPeopleError);
-  const totalResults = useSelector(selectTotalResults);
+  const totalResults = useSelector(selectTotalPeopleResults);
   const query = useQueryParameter("search");
   const page = useQueryParameter("page");
 

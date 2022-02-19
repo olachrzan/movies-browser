@@ -45,6 +45,6 @@ export const selectPeopleList = state => selectPeopleListState(state).people;
 export const selectPeopleLoading = state => selectPeopleListState(state).loading;
 export const selectPeopleError = state => selectPeopleListState(state).error;
 export const selectPeopleTotalPage = state => selectPeopleListState(state).totalPage;
-export const selectTotalResults = state => selectPeopleListState(state).total_results;
+export const selectTotalPeopleResults = state => selectPeopleListState(state).total_results;
 
 export default peopleListSlice.reducer;
