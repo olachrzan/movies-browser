@@ -15,10 +15,12 @@ import {
   ListLink,
 } from "./styled";
 import { useReplaceQueryParameter } from "../../queryParameters";
+import { useLocation } from "react-router";
 
 export const Header = () => {
+  const location = useLocation();
   const replaceQueryParameter = useReplaceQueryParameter();
-  const locationHash = window.location.hash;
+
 
   const onInputchange = debounce(({ target }) => {
     replaceQueryParameter({
@@ -49,10 +51,15 @@ export const Header = () => {
         <SearchBar>
           <SearchIcon src={search} alt="" />
           <SearchInput
+            disabled={
+              location.pathname.indexOf("/movie/") === 0 ||
+              location.pathname.indexOf("/people/") === 0
+            }
             onChange={onInputchange}
             type="search"
             placeholder={
-              `Search for ${locationHash === "#/people"
+              `Search for ${location.pathname === "/people" ||
+                location.pathname.indexOf("/people/") === 0
                 ? "people..."
                 : "movies..."}
               `}
