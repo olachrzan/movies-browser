@@ -13,7 +13,8 @@ import { ErrorPage } from "../../../common/ErrorPage";
 import { useQueryParameter } from "../../../useQueryParameter";
 import personError from "../../../images/personError.jpg";
 
-export const PeopleListPage = () => {
+
+export const PeopleList = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectPeopleLoading);
   const error = useSelector(selectPeopleError);
