@@ -32,16 +32,24 @@ export const MovieList = () => {
   return (
     <Container>
       <section>
-        <Title>
-          {`${query
-            ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
-            : "Popular movies"}`}
-        </Title>
         {loading
-          ? <Loader />
+          ?
+          <>
+            <Title>
+              {`${query
+                ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
+                : "Popular movies"}`}
+            </Title>
+            <Loader />
+          </>
           : error ? <ErrorPage />
             : (
               <>
+                <Title>
+                  {`${query
+                    ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
+                    : "Popular movies"}`}
+                </Title>
                 <Wrapper>
                   {[...movies].map((movie) => {
                     return <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
