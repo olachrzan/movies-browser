@@ -29,7 +29,7 @@ export const MovieInfo = () => {
           rating={movieDetails.vote_average}
           ratingTotal={"/10"}
           voteCount={movieDetails.vote_count}
-          overview={movieDetails.overview}
+          overview={movieDetails.overview ? movieDetails.overview : "Overview: Unknown!"}
         />
       }
     </Section>
