@@ -21,25 +21,27 @@ export const ErrorMessage = styled.p`
   margin: 24px;
   text-align: center;
   line-height: 140%;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 28px;
   }
-  ${({ smaller }) =>
-    smaller &&
-    css`
-      margin-top: 0;
-      font-size: 22px;
-      font-weight: 500;
-      padding: 10px;
-      max-width: 35%;
-      @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-        max-width: 50%;
-      }
-      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-        font-size: 19px;
-        padding: 3px;
-      }
-    `};
+
+  ${({ smaller }) => smaller && css`
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 10px;
+    max-width: 35%;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+      max-width: 50%;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+      font-size: 19px;
+      padding: 3px;
+    }
+  `};
 `;
 
 export const HomepageButton = styled(Link)`
