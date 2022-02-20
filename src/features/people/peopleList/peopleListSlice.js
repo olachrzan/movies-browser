@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {totalPagesForLists} from "../../totalPagesForLists";
 
 const peopleListSlice = createSlice({
   name: 'people',
@@ -6,7 +7,7 @@ const peopleListSlice = createSlice({
     people: [],
     loading: true,
     error: false,
-    totalPage: 500,
+    totalPage: totalPagesForLists,
     total_results: '',
   },
   reducers: {

@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import { selectTotalMoviesPages, selectTotalResults } from "../../features/movies/MovieList/movieListSlice";
 import { selectPeopleTotalPage } from "../../features/people/peopleList/peopleListSlice";
 import { useReplaceQueryParameter, useQueryParameter } from "../../queryParameters";
+import { totalPagesForLists } from "../../features/totalPagesForLists";
 import {
   Wrapper,
   ArrowIcon,
@@ -25,7 +26,7 @@ export const Pagination = () => {
     location.pathname === "/movie" ? selectTotalMoviesPages : selectPeopleTotalPage
   );
 
-  const totalCurrentPage = totalPage > 500 ? 500 : totalPage;
+  const totalCurrentPage = totalPage > totalPagesForLists ? totalPagesForLists : totalPage;
 
   const goToAnotherPage = (page) => {
     replaceQueryParameter({

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { selectTotalMoviesPages } from "../../features/movies/MovieList/movieListSlice";
 import { selectPeopleTotalPage } from "../../features/people/peopleList/peopleListSlice";
 import { useLocation } from "react-router";
+import {totalPagesForLists} from "../../features/totalPagesForLists";
 
 export const ErrorPage = () => {
   const page = useQueryParameter("page");
@@ -12,7 +13,7 @@ export const ErrorPage = () => {
   const totalPage = useSelector(
     pathname === "/movie" ? selectTotalMoviesPages : selectPeopleTotalPage
   );
-  const totalCurrentPage = totalPage > 500 ? 500 : totalPage;
+  const totalCurrentPage = totalPage > totalPagesForLists ? totalPagesForLists : totalPage;
 
   return (
     <ErrorContainer>
