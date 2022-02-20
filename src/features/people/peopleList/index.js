@@ -38,7 +38,7 @@ export const PeopleList = () => {
     <Container>
       <section>
         <Title>
-          {people.length === 0
+          {totalResults.length === 0
               ? `Sorry, there are no results for "${query}"` : `${
             !!query && query.length !== ""
               ? `Search results for "${

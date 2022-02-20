@@ -40,7 +40,7 @@ export const MovieList = () => {
     <Container>
       <section>
         <Title>
-          {movies.length === 0
+          {totalResults.length === 0
             ? `Sorry, there are no results for "${query}"`
             : `${
                 query
