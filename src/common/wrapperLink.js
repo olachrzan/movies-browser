@@ -5,8 +5,10 @@ export const WrapperLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.darkText};
   transition: transform .4s;
-  
-  &:hover{
-    transform: scale(1.04);
+
+  @media(min-width:${({ theme }) => theme.breakpoints.large}){
+    &:hover{
+      transform: scale(1.04);
+    }
   }
 `;
