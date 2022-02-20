@@ -14,6 +14,7 @@ const moviesListSlice = createSlice({
   reducers: {
     fetchMovies: (state) => {
       state.loading = true;
+      state.error = false;
     },
     setMovies: (state, { payload: moviesFromApi }) => {
       state.movies = moviesFromApi;
