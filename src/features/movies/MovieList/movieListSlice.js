@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {totalPagesForLists} from "../../totalPagesForLists";
 
 const moviesListSlice = createSlice({
   name: 'movies',
   initialState: {
     movies: [],
     genres: [],
-    total_pages: 500,
+    total_pages: totalPagesForLists,
     total_results: '',
     loading: true,
     error: false,
