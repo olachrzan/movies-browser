@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 import { selectTotalMoviesPages } from "../../features/movies/MovieList/movieListSlice";
 import { selectPeopleTotalPage } from "../../features/people/peopleList/peopleListSlice";
 import { useLocation } from "react-router";
-import {totalPagesForLists} from "../../features/totalPagesForLists";
+import { totalPagesForLists } from "../../features/totalPagesForLists";
 
 export const ErrorPage = () => {
   const page = useQueryParameter("page");
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   const totalPage = useSelector(
     pathname === "/movie" ? selectTotalMoviesPages : selectPeopleTotalPage
   );
@@ -20,7 +20,7 @@ export const ErrorPage = () => {
       <ErrorImage src={image} />
       <ErrorMessage>Ooops, something went wrong...</ErrorMessage>
       <ErrorMessage smaller>
-        {page <= 0 || page > totalCurrentPage
+        {page && page <= 0 || page && page > totalCurrentPage
           ? "It looks like the page you're looking for doesn't exist"
           : "Please check your network connection and try again"
         }
