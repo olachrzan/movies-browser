@@ -20,12 +20,14 @@ export const ErrorMessage = styled.p`
   font-style: normal;
   margin: 24px;
   text-align: center;
+  line-height: 140%;
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 28px;
   }
   ${({ smaller }) =>
     smaller &&
     css`
+      margin-top: 0;
       font-size: 22px;
       font-weight: 500;
       padding: 10px;
