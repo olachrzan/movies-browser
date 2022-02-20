@@ -20,8 +20,8 @@ import { useLocation } from "react-router";
 export const Header = () => {
   const location = useLocation();
   const replaceQueryParameter = useReplaceQueryParameter();
-  const pageParameter = useQueryParameter("page");
-  const page = pageParameter > 1 ? 1 : pageParameter;
+  const pageParameter = +useQueryParameter("page");
+  const page = pageParameter > 1 || pageParameter === 0 ? 1 : pageParameter;
 
   const onInputchange = debounce(({ target }) => {
     replaceQueryParameter({
