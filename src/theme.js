@@ -11,6 +11,7 @@ export const theme = {
       activeButton: "#ccdbf7",
       tileBoxShadow: "rgba(186, 199, 213, 0.5)",
       labelColor: "#74788B",
+      hoverLink: "#FF8C00"
     },
     breakpoints: {
       small: "480px",
