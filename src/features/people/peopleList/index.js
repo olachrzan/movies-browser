@@ -36,15 +36,24 @@ export const PeopleList = () => {
   return (
     < Container >
       <section>
-        <Title>
-          {`${!!query && query.length !== ""
-            ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
-            : "Popular people"}`}
-        </Title>
-        {loading ? <Loader />
+        {loading
+          ?
+          <>
+            <Title>
+              {`${!!query && query.length !== ""
+                ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
+                : "Popular people"}`}
+            </Title>
+            <Loader />
+          </>
           : error ? <ErrorPage />
             :
             <>
+              <Title>
+                {`${!!query && query.length !== ""
+                  ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
+                  : "Popular people"}`}
+              </Title>
               <Wrapper>
                 {[...people].map((person) => {
                   return (

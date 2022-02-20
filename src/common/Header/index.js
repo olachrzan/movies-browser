@@ -40,7 +40,7 @@ export const Header = () => {
     <HeaderArea>
       <HeaderContainer>
         <TextSide>
-          <Title>
+          <Title to="/">
             <Icon src={camera} alt="" />
             Movies Browser
           </Title>
