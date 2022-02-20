@@ -14,6 +14,7 @@ const peopleListSlice = createSlice({
     fetchPeople: (state) => {
       state.loading = true;
       state.page = 1;
+      state.error = false;
     },
     setPeople: (state, { payload: peopleApi }) => {
       state.people = peopleApi;
