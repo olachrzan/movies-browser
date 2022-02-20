@@ -13,6 +13,7 @@ import {
   SearchIcon,
   SearchInput,
   ListLink,
+  Span,
 } from "./styled";
 import { useReplaceQueryParameter } from "../../queryParameters";
 import { useLocation } from "react-router";
@@ -46,10 +47,24 @@ export const Header = () => {
           <nav>
             <NavList>
               <ListItem>
-                <ListLink to="/movie">Movies</ListLink>
+                <ListLink to="/movie">
+                  <Span>M</Span>
+                  <Span>o</Span>
+                  <Span>v</Span>
+                  <Span>i</Span>
+                  <Span>e</Span>
+                  <Span>s</Span>
+                </ListLink>
               </ListItem>
               <ListItem >
-                <ListLink to="/people">People</ListLink>
+                <ListLink to="/people">
+                  <Span>P</Span>
+                  <Span>e</Span>
+                  <Span>o</Span>
+                  <Span>p</Span>
+                  <Span>l</Span>
+                  <Span>e</Span>
+                </ListLink>
               </ListItem>
             </NavList>
           </nav>
