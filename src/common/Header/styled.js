@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const HeaderArea = styled.div`
   background-color: ${({ theme }) => theme.colors.headerBackground};
@@ -35,8 +35,10 @@ export const TextSide = styled.div`
   }
 `;
 
-export const Title = styled.h1`
+export const Title = styled(Link)`
   margin: 0;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   font-size: 24px;
   letter-spacing: -1.5px;
