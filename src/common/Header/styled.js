@@ -123,19 +123,19 @@ export const Span = styled.span`
     transition: all .3s;
 
     &:nth-child(2){
-      transition-delay: .1s;
+      transition-delay: 0.06s;
     }
     &:nth-child(3){
-      transition-delay: .2s;
+      transition-delay: 0.08s;
     }
     &:nth-child(4){
-      transition-delay: .3s;
+      transition-delay: 0.1s;
     }
     &:nth-child(5){
-      transition-delay: .4s;
+      transition-delay: 0.12s;
     }
     &:nth-child(6){
-      transition-delay: .5s;
+      transition-delay: 0.14s;
     }
   
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
