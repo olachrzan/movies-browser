@@ -28,7 +28,7 @@ You can use the app to browse and search for movies and people, as well as displ
 2. To learn more about the movie or person, click on the picture tile.
 3. To search for a movie or person enter your query on the input with the magnifying glass. You don't need to click any buttons.
 
-![how to use](https://i.ibb.co/YWDxKSw/Movies-Browser1.gif)
+![how to use](https://i.ibb.co/x3NKwWq/Movies-Browser2.gif)
 
 ## API
 
