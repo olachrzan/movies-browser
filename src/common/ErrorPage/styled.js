@@ -54,4 +54,10 @@ export const HomepageButton = styled(Link)`
   color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
   text-decoration: none;
+  transition: all 0.3s;
+
+  &:hover{
+    background-color: ${({ theme }) => theme.colors.lightBlueButton};
+    color: ${({ theme }) => theme.colors.darkText};
+  }
 `;
