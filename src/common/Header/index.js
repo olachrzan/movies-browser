@@ -14,14 +14,12 @@ import {
   SearchInput,
   ListLink,
 } from "./styled";
-import { useQueryParameter, useReplaceQueryParameter } from "../../queryParameters";
+import { useReplaceQueryParameter } from "../../queryParameters";
 import { useLocation } from "react-router";
 
 export const Header = () => {
   const location = useLocation();
   const replaceQueryParameter = useReplaceQueryParameter();
-  const pageParameter = +useQueryParameter("page");
-  const page = pageParameter > 1 || pageParameter === 0 ? 1 : pageParameter;
 
   const onInputchange = debounce(({ target }) => {
     replaceQueryParameter({
@@ -30,7 +28,7 @@ export const Header = () => {
     });
 
     replaceQueryParameter({
-      value: page,
+      value: 1,
       key: "page"
     });
 
