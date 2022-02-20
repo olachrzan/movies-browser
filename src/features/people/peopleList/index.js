@@ -39,7 +39,7 @@ export const PeopleList = () => {
       <section>
         <Title>
           {people.length === 0
-              ? `Sorry, there are no search results for "${query}"` : `${
+              ? `Sorry, there are no results for "${query}"` : `${
             !!query && query.length !== ""
               ? `Search results for "${
                   query[0].toUpperCase() + query.slice(1)

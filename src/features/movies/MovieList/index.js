@@ -41,7 +41,7 @@ export const MovieList = () => {
       <section>
         <Title>
           {movies.length === 0
-            ? `Sorry, there are no search results for "${query}"`
+            ? `Sorry, there are no results for "${query}"`
             : `${
                 query
                   ? `Search results for "${
