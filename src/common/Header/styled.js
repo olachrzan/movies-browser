@@ -94,6 +94,7 @@ export const ListLink = styled(NavLink)`
   text-transform: uppercase;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
+  transition: border 0.5s;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 8px 12px;
@@ -103,9 +104,14 @@ export const ListLink = styled(NavLink)`
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 12px;
   }
-
+  
   &.active{
     border: 1px solid ${({ theme }) => theme.colors.white};
+    border-radius: 25px;
+  }
+
+  &.active:hover{
+    border: 1px solid orange;
     border-radius: 25px;
   }
 `;
@@ -149,5 +155,29 @@ export const SearchInput = styled.input`
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 13px;
     padding: 12px 12px 12px 38px;
+  }
+`;
+
+export const Span = styled.span`
+    transition: all .5s;
+
+    &:nth-child(2){
+      transition-delay: .1s;
+    }
+    &:nth-child(3){
+      transition-delay: .2s;
+    }
+    &:nth-child(4){
+      transition-delay: .3s;
+    }
+    &:nth-child(5){
+      transition-delay: .3s;
+    }
+    &:nth-child(6){
+      transition-delay: .3s;
+    }
+
+  ${ListLink}:hover &&{
+    color: orange; //orange
   }
 `;
