@@ -111,8 +111,31 @@ export const ListLink = styled(NavLink)`
   }
 
   &.active:hover{
-    border: 1px solid orange;
-    border-radius: 25px;
+    border: 1px solid ${({ theme }) => theme.colors.hoverLink};
+  }
+`;
+
+export const Span = styled.span`
+    transition: all .3s;
+
+    &:nth-child(2){
+      transition-delay: .1s;
+    }
+    &:nth-child(3){
+      transition-delay: .2s;
+    }
+    &:nth-child(4){
+      transition-delay: .3s;
+    }
+    &:nth-child(5){
+      transition-delay: .4s;
+    }
+    &:nth-child(6){
+      transition-delay: .5s;
+    }
+
+  ${ListLink}:hover &&{
+    color: ${({ theme }) => theme.colors.hoverLink};
   }
 `;
 
@@ -155,29 +178,5 @@ export const SearchInput = styled.input`
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 13px;
     padding: 12px 12px 12px 38px;
-  }
-`;
-
-export const Span = styled.span`
-    transition: all .5s;
-
-    &:nth-child(2){
-      transition-delay: .1s;
-    }
-    &:nth-child(3){
-      transition-delay: .2s;
-    }
-    &:nth-child(4){
-      transition-delay: .3s;
-    }
-    &:nth-child(5){
-      transition-delay: .3s;
-    }
-    &:nth-child(6){
-      transition-delay: .3s;
-    }
-
-  ${ListLink}:hover &&{
-    color: orange; //orange
   }
 `;
