@@ -16,8 +16,9 @@ import {
   selectPeopleError,
   selectPeopleList,
   selectPeopleLoading,
-  selectTotalPeopleResults
+  selectTotalPeopleResults,
 } from "./peopleListSlice";
+import { NoResultsPage } from "../../../common/NoResultsPage";
 
 export const PeopleList = () => {
   const dispatch = useDispatch();
@@ -34,35 +35,46 @@ export const PeopleList = () => {
   }, [dispatch, query, page]);
 
   return (
-    < Container >
+    <Container>
       <section>
         <Title>
-          {`${!!query && query.length !== ""
-            ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
-            : "Popular people"}`}
+          {people.length === 0
+              ? `Sorry, there are no search results for "${query}"` : `${
+            !!query && query.length !== ""
+              ? `Search results for "${
+                  query[0].toUpperCase() + query.slice(1)
+                }" (${totalResults})`
+              : "Popular people"
+          }`}
         </Title>
-        {loading ? <Loader />
-          : error ? <ErrorPage />
-            :
-            <>
-              <Wrapper>
-                {[...people].map((person) => {
-                  return (
-                    <WrapperLink key={person.id} to={`/people/${person.id}`}>
-                      <PersonTile
-                        poster={person.profile_path
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <ErrorPage />
+        ) : people.length === 0 ? (
+          <NoResultsPage />
+        ) : (
+          <>
+            <Wrapper>
+              {[...people].map((person) => {
+                return (
+                  <WrapperLink key={person.id} to={`/people/${person.id}`}>
+                    <PersonTile
+                      poster={
+                        person.profile_path
                           ? `${apiUrlImage}w300/${person.profile_path}`
-                          : personError}
-                        name={person.name}
-                      />
-                    </WrapperLink>
-                  )
-                })}
-              </Wrapper>
-              <Pagination />
-            </>
-        }
+                          : personError
+                      }
+                      name={person.name}
+                    />
+                  </WrapperLink>
+                );
+              })}
+            </Wrapper>
+            <Pagination />
+          </>
+        )}
       </section>
-    </Container >
-  )
+    </Container>
+  );
 };
