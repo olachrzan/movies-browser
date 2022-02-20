@@ -20,7 +20,7 @@ export const ErrorPage = () => {
       <ErrorImage src={image} />
       <ErrorMessage>Ooops, something went wrong...</ErrorMessage>
       <ErrorMessage smaller>
-        {page && page <= 0 || page && page > totalCurrentPage
+        {(page && page <= 0) || (page && page > totalCurrentPage)
           ? "It looks like the page you're looking for doesn't exist"
           : "Please check your network connection and try again"
         }
