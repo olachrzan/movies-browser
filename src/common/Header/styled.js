@@ -96,6 +96,11 @@ export const ListLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.white};
   transition: border 0.3s;
 
+  &.active{
+    border: 1px solid ${({ theme }) => theme.colors.white};
+    border-radius: 25px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 8px 12px;
     margin: 0 2px;
@@ -105,13 +110,10 @@ export const ListLink = styled(NavLink)`
     font-size: 12px;
   }
   
-  &.active{
-    border: 1px solid ${({ theme }) => theme.colors.white};
-    border-radius: 25px;
-  }
-
-  &.active:hover{
-    border: 1px solid ${({ theme }) => theme.colors.hoverLink};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    &.active:hover{
+      border: 1px solid ${({ theme }) => theme.colors.hoverLink};
+    }
   }
 `;
 
@@ -133,9 +135,11 @@ export const Span = styled.span`
     &:nth-child(6){
       transition-delay: .5s;
     }
-
-  ${ListLink}:hover &&{
-    color: ${({ theme }) => theme.colors.hoverLink};
+  
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    ${ListLink}:hover &&{
+      color: ${({ theme }) => theme.colors.hoverLink};
+    }
   }
 `;
 
