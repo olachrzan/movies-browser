@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const ErrorContainer = styled.div`
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
