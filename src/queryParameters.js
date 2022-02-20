@@ -13,7 +13,9 @@ export const useReplaceQueryParameter = () => {
   const searchParams = new URLSearchParams(location.search);
 
   return ({ key, value }) => {
-    value === "" ? searchParams.delete(key) : searchParams.set(key, value);
+    value === "" ? searchParams.delete(key)
+      : searchParams.set(key, value);
+
     navigate(`${location.pathname}?${searchParams.toString()}`)
   }
 };
