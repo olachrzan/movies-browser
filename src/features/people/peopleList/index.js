@@ -37,7 +37,7 @@ export const PeopleList = () => {
 
   return (
     <Container >
-      {query && page && error ? <NoResultsPage />
+      {(page && query && error) || totalResults === 0 ? <NoResultsPage />
         :
         <Section last>
           {loading

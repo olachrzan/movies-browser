@@ -33,7 +33,7 @@ export const MovieList = () => {
 
   return (
     <Container>
-      {page && query && error ? <NoResultsPage />
+      {(page && query && error) || totalResults === 0 ? <NoResultsPage />
         :
         <Section last>
           {loading
