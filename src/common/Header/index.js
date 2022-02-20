@@ -25,7 +25,8 @@ export const Header = () => {
     replaceQueryParameter({
       value: target.value.trim(),
       key: "search"
-    })
+    });
+    target.value = "";
   }, 1000);
 
   return (
