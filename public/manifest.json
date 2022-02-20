@@ -3,8 +3,8 @@
   "name": "React Movies Browser",
   "icons": [
     {
-      "src": "favicon.png",
-      "type": "image/png",
+      "src": "favicon.svg",
+      "type": "image/svg",
       "sizes": "192x192"
     }
   ],
