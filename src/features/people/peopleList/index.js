@@ -10,6 +10,7 @@ import { Loader } from "../../../common/Loader";
 import { Title } from "../../../common/Title/styled";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { useQueryParameter } from "../../../queryParameters";
+import { Section } from "../../../common/section";
 import personError from "../../../images/personError.jpg";
 import {
   fetchPeople,
@@ -35,7 +36,7 @@ export const PeopleList = () => {
 
   return (
     < Container >
-      <section>
+      <Section last>
         {loading
           ?
           <>
@@ -71,7 +72,7 @@ export const PeopleList = () => {
               <Pagination />
             </>
         }
-      </section>
+      </Section>
     </Container >
   )
 };

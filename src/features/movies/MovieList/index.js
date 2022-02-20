@@ -12,6 +12,7 @@ import { Title } from "../../../common/Title/styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
+import { Section } from "../../../common/section";
 import posterError from "../../../images/posterError.png";
 import { useQueryParameter } from "../../../queryParameters";
 
@@ -31,7 +32,7 @@ export const MovieList = () => {
 
   return (
     <Container>
-      <section>
+      <Section last>
         {loading
           ?
           <>
@@ -73,7 +74,7 @@ export const MovieList = () => {
               </>
             )
         }
-      </section>
+      </Section>
     </Container >
   )
 };
