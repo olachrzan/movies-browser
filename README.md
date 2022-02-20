@@ -1,6 +1,6 @@
 # **Movies Browser** 🎥
 
-<p align="center"><img src="https://raw.githubusercontent.com/olachrzan/movies-browser/Icon%26OG-Image/public/app-screenshot.jpg" alt="App layout screenshot"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/olachrzan/movies-browser/main/public/app-screenshot.jpg" alt="App layout screenshot"></p>
 
 
 ## Table of contents
