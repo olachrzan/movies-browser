@@ -13,6 +13,7 @@ import { WrapperLink } from "../../../common/wrapperLink";
 import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { Section } from "../../../common/section";
+import { NoResultsPage } from "../../../common/NoResultsPage";
 import posterError from "../../../images/posterError.png";
 import { useQueryParameter } from "../../../queryParameters";
 
@@ -32,49 +33,52 @@ export const MovieList = () => {
 
   return (
     <Container>
-      <Section last>
-        {loading
-          ?
-          <>
-            <Title>
-              {`${query
-                ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
-                : "Popular movies"}`}
-            </Title>
-            <Loader />
-          </>
-          : error ? <ErrorPage />
-            : (
-              <>
-                <Title>
-                  {`${query
-                    ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
-                    : "Popular movies"}`}
-                </Title>
-                <Wrapper>
-                  {[...movies].map((movie) => {
-                    return <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
-                      <Tile
-                        poster={
-                          movie.poster_path
-                            ? `${apiUrlImage}w500/${movie.poster_path}`
-                            : posterError
-                        }
-                        title={movie.title}
-                        year={movie.release_date ? (movie.release_date).slice(0, 4) : "year: unknown"}
-                        genres={movie.genre_ids}
-                        rating={movie.vote_average}
-                        voteCount={movie.vote_count}
-                        overview={movie.overview}
-                      />
-                    </WrapperLink>
-                  })}
-                </Wrapper>
-                <Pagination />
-              </>
-            )
-        }
-      </Section>
+      {page && query && error ? <NoResultsPage />
+        :
+        <Section last>
+          {loading
+            ?
+            <>
+              <Title>
+                {`${query
+                  ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
+                  : "Popular movies"}`}
+              </Title>
+              <Loader />
+            </>
+            : error ? <ErrorPage />
+              : (
+                <>
+                  <Title>
+                    {`${query
+                      ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
+                      : "Popular movies"}`}
+                  </Title>
+                  <Wrapper>
+                    {[...movies].map((movie) => {
+                      return <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
+                        <Tile
+                          poster={
+                            movie.poster_path
+                              ? `${apiUrlImage}w500/${movie.poster_path}`
+                              : posterError
+                          }
+                          title={movie.title}
+                          year={movie.release_date ? (movie.release_date).slice(0, 4) : "year: unknown"}
+                          genres={movie.genre_ids}
+                          rating={movie.vote_average}
+                          voteCount={movie.vote_count}
+                          overview={movie.overview}
+                        />
+                      </WrapperLink>
+                    })}
+                  </Wrapper>
+                  <Pagination />
+                </>
+              )
+          }
+        </Section>
+      }
     </Container >
   )
 };

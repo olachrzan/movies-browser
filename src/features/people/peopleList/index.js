@@ -12,6 +12,7 @@ import { ErrorPage } from "../../../common/ErrorPage";
 import { useQueryParameter } from "../../../queryParameters";
 import { Section } from "../../../common/section";
 import personError from "../../../images/personError.jpg";
+import { NoResultsPage } from "../../../common/NoResultsPage";
 import {
   fetchPeople,
   selectPeopleError,
@@ -35,44 +36,47 @@ export const PeopleList = () => {
   }, [dispatch, query, page]);
 
   return (
-    < Container >
-      <Section last>
-        {loading
-          ?
-          <>
-            <Title>
-              {`${!!query && query.length !== ""
-                ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
-                : "Popular people"}`}
-            </Title>
-            <Loader />
-          </>
-          : error ? <ErrorPage />
-            :
+    <Container >
+      {query && page && error ? <NoResultsPage />
+        :
+        <Section last>
+          {loading
+            ?
             <>
               <Title>
                 {`${!!query && query.length !== ""
-                  ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
+                  ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
                   : "Popular people"}`}
               </Title>
-              <Wrapper>
-                {[...people].map((person) => {
-                  return (
-                    <WrapperLink key={person.id} to={`/people/${person.id}`}>
-                      <PersonTile
-                        poster={person.profile_path
-                          ? `${apiUrlImage}w300/${person.profile_path}`
-                          : personError}
-                        name={person.name}
-                      />
-                    </WrapperLink>
-                  )
-                })}
-              </Wrapper>
-              <Pagination />
+              <Loader />
             </>
-        }
-      </Section>
+            : error ? <ErrorPage />
+              :
+              <>
+                <Title>
+                  {`${!!query && query.length !== ""
+                    ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
+                    : "Popular people"}`}
+                </Title>
+                <Wrapper>
+                  {[...people].map((person) => {
+                    return (
+                      <WrapperLink key={person.id} to={`/people/${person.id}`}>
+                        <PersonTile
+                          poster={person.profile_path
+                            ? `${apiUrlImage}w300/${person.profile_path}`
+                            : personError}
+                          name={person.name}
+                        />
+                      </WrapperLink>
+                    )
+                  })}
+                </Wrapper>
+                <Pagination />
+              </>
+          }
+        </Section>
+      }
     </Container >
   )
 };

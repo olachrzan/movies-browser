@@ -1,13 +1,15 @@
 import image from "../NoResultsPage/icons/no-results.svg";
 import { Image } from "./styled";
-import Container from "../../common/Container";
 import { Title } from "../../common/Title/styled";
+import { useQueryParameter } from "../../queryParameters";
 
-export const NoResultsPage = ({ title }) => {
+export const NoResultsPage = () => {
+  const query = useQueryParameter("search");
+
   return (
-    <Container>
-      <Title>Sorry, there are no results for "{title}"</Title>
+    <>
+      <Title>Sorry, there are no results for "{query[0].toUpperCase()}{query.slice(1)}"</Title>
       <Image src={image} />
-    </Container>
+    </>
   );
 };
