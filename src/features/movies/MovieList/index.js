@@ -68,7 +68,7 @@ export const MovieList = () => {
                           genres={movie.genre_ids}
                           rating={movie.vote_average}
                           voteCount={movie.vote_count}
-                          overview={movie.overview}
+                          overview={movie.overview ? movie.overview : "Overview: Unknown!"}
                         />
                       </WrapperLink>
                     })}
