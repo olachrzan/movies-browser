@@ -34,7 +34,7 @@ export const MovieList = () => {
       <section>
         <Title>
           {`${query
-            ? `Search results for "${query.toUpperCase()}" (${totalResults})`
+            ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
             : "Popular movies"}`}
         </Title>
         {loading

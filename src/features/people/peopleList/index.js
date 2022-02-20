@@ -38,7 +38,7 @@ export const PeopleList = () => {
       <section>
         <Title>
           {`${!!query && query.length !== ""
-            ? `Search results for "${query.toUpperCase()}" (${totalResults})`
+            ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
             : "Popular people"}`}
         </Title>
         {loading ? <Loader />
