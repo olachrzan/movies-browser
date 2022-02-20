@@ -1,3 +1,6 @@
+import debounce from "lodash.debounce";
+import camera from "./icons/camera-icon.svg";
+import search from "./icons/search-icon.svg";
 import {
   HeaderArea,
   HeaderContainer,
@@ -11,10 +14,20 @@ import {
   SearchInput,
   ListLink,
 } from "./styled";
-import camera from "./icons/camera-icon.svg";
-import search from "./icons/search-icon.svg";
+import { useReplaceQueryParameter } from "../../queryParameters";
+import { useLocation } from "react-router";
 
 export const Header = () => {
+  const location = useLocation();
+  const replaceQueryParameter = useReplaceQueryParameter();
+
+  const onInputchange = debounce(({ target }) => {
+    replaceQueryParameter({
+      value: target.value.trim(),
+      key: "search"
+    })
+  }, 1000);
+
   return (
     <HeaderArea>
       <HeaderContainer>
@@ -36,7 +49,20 @@ export const Header = () => {
         </TextSide>
         <SearchBar>
           <SearchIcon src={search} alt="" />
-          <SearchInput type="search" placeholder="Search for movies..." />
+          <SearchInput
+            disabled={
+              location.pathname.indexOf("/movie/") === 0 ||
+              location.pathname.indexOf("/people/") === 0
+            }
+            onChange={onInputchange}
+            type="search"
+            placeholder={
+              `Search for ${location.pathname === "/people" ||
+                location.pathname.indexOf("/people/") === 0
+                ? "people..."
+                : "movies..."}
+              `}
+          />
         </SearchBar>
       </HeaderContainer>
     </HeaderArea>

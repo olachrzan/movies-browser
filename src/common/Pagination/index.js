@@ -1,5 +1,8 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router";
+import { selectTotalMoviesPages, selectTotalResults } from "../../features/movies/MovieList/movieListSlice";
+import { selectPeopleTotalPage } from "../../features/people/peopleList/peopleListSlice";
+import { useReplaceQueryParameter, useQueryParameter } from "../../queryParameters";
 import {
   Wrapper,
   ArrowIcon,
@@ -9,73 +12,66 @@ import {
   PageInfo,
   Span
 } from "./styled";
-import { selectPage, selectTotalPages, setPage } from "../../features/movies/MovieList/movieListSlice";
-import {
-  selectPeoplePage,
-  selectPeopleTotalPage,
-  setPeoplePage
-} from "../../features/people/peopleList/peopleListSlice";
 
 export const Pagination = () => {
-  const dispatch = useDispatch();
-  const locationHash = window.location.hash;
-  const page = useSelector(
-    locationHash === "#/movie" ? selectPage : selectPeoplePage
-  );
+  const replaceQueryParameter = useReplaceQueryParameter();
+  const location = useLocation();
+  const totalResults = useSelector(selectTotalResults);
+  const totalPeopleResults = useSelector(selectPeopleTotalPage);
+  const pageParameter = +useQueryParameter("page");
+  const page = pageParameter === 0 ? 1 : pageParameter;
+
   const totalPage = useSelector(
-    locationHash === "#/movie" ? selectTotalPages : selectPeopleTotalPage
+    location.pathname === "/movie" ? selectTotalMoviesPages : selectPeopleTotalPage
   );
 
-  const goToFirst = () => {
-    dispatch(
-      locationHash === "#/movie" ? setPage(1) : setPeoplePage(1)
-    )
-  };
+  const totalCurrentPage = totalPage > 500 ? 500 : totalPage;
 
-  const goToPrevious = () => {
-    dispatch(
-      locationHash === "#/movie" ? setPage(page - 1) : setPeoplePage(page - 1)
-    )
-  };
-
-  const goToNext = () => {
-    dispatch(
-      locationHash === "#/movie" ? setPage(page + 1) : setPeoplePage(page + 1)
-    )
-  };
-
-  const goToLast = () => {
-    dispatch(
-      locationHash === "#/movie" ? setPage(totalPage) : setPeoplePage(totalPage)
-    )
+  const goToAnotherPage = (page) => {
+    replaceQueryParameter({
+      value: page,
+      key: "page",
+    });
   };
 
   return (
-    <Wrapper>
-      <Button disabled={page === 1} onClick={goToFirst} >
-        <ArrowIcon mobile="true" />
-        <ArrowIcon />
-        <ButtonText>First</ButtonText>
-      </Button>
-      <Button disabled={page === 1} onClick={goToPrevious} >
-        <ArrowIcon />
-        <ButtonText>Previous</ButtonText>
-      </Button>
-      <PageInfo>
-        Page
-        <Span>{page}</Span>
-        of
-        <Span last>{totalPage}</Span>
-      </PageInfo>
-      <Button next disabled={page === totalPage} onClick={goToNext} >
-        <ButtonText>Next</ButtonText>
-        <ArrowIconNext />
-      </Button>
-      <Button next disabled={page === totalPage} onClick={goToLast} >
-        <ButtonText>Last</ButtonText>
-        <ArrowIconNext mobile="true" />
-        <ArrowIconNext />
-      </Button>
-    </Wrapper>
+    totalResults <= 20 || totalPeopleResults <= 20
+      ? ""
+      : (
+        < Wrapper >
+          <Button disabled={page === 1}
+            onClick={() => goToAnotherPage(1)}
+          >
+            <ArrowIcon mobile="true" />
+            <ArrowIcon />
+            <ButtonText>First</ButtonText>
+          </Button>
+          <Button disabled={page === 1}
+            onClick={() => goToAnotherPage(page - 1)}
+          >
+            <ArrowIcon />
+            <ButtonText>Previous</ButtonText>
+          </Button>
+          <PageInfo>
+            Page
+            <Span>{page}</Span>
+            of
+            <Span last>{totalCurrentPage}</Span>
+          </PageInfo>
+          <Button next disabled={page === totalCurrentPage}
+            onClick={() => goToAnotherPage(page + 1)}
+          >
+            <ButtonText>Next</ButtonText>
+            <ArrowIconNext />
+          </Button>
+          <Button next disabled={page === totalCurrentPage}
+            onClick={() => goToAnotherPage(totalCurrentPage)}
+          >
+            <ButtonText>Last</ButtonText>
+            <ArrowIconNext mobile="true" />
+            <ArrowIconNext />
+          </Button>
+        </Wrapper >
+      )
   );
 };
