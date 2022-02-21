@@ -11,10 +11,11 @@ const rotate = keyframes`
 `;
 
 export const Wrapper = styled.div`
-  margin-top: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 50vh;
 `;
 
 export const Loading = styled(loading)`
