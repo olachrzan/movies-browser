@@ -21,6 +21,7 @@ const peopleListSlice = createSlice({
       state.people = payload.results;
       state.totalPages = payload.total_pages;
       state.totalResults = payload.total_results;
+      window.scrollTo(0, 0);
     },
     fetchPeopleFailure: state => {
       state.error = true;

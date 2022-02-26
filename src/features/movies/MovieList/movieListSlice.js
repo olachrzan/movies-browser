@@ -22,6 +22,7 @@ const moviesListSlice = createSlice({
       state.movies = payload.results;
       state.totalPages = payload.total_pages;
       state.totalResults = payload.total_results;
+      window.scrollTo(0, 0);
     },
     fetchMoviesFailure: state => {
       state.error = true;
