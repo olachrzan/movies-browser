@@ -8,7 +8,7 @@ const moviesListSlice = createSlice({
     genres: [],
     totalPages: totalPagesForLists,
     totalResults: '',
-    loading: true,
+    loading: false,
     error: false,
   },
   reducers: {

@@ -5,7 +5,7 @@ const peopleListSlice = createSlice({
   name: 'people',
   initialState: {
     people: [],
-    loading: true,
+    loading: false,
     error: false,
     totalPages: totalPagesForLists,
     totalResults: '',
