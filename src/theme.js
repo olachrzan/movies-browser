@@ -9,9 +9,9 @@ export const theme = {
       lightBlueButton: "#D6E4FF",
       darkBlueButton: "#0044CC",
       activeButton: "#ccdbf7",
-      tileBoxShadow: "rgba(186, 199, 213, 0.5)",
       labelColor: "#74788B",
-      hoverLink: "#FF8C00"
+      hoverLink: "#FF8C00",
+      tileBoxShadow: "rgba(186, 199, 213, 0.5)",
     },
     breakpoints: {
       small: "480px",
