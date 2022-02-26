@@ -8,7 +8,7 @@ import { PersonInfo } from "./PersonInfo";
 import { MovieCast } from "./MovieCast";
 import { MovieCrew } from "./MovieCrew";
 
-export const PeopleDetailsPage = () => {
+export const PeopleDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const error = useSelector(selectError);
