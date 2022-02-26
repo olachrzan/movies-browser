@@ -1,48 +1,43 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {totalPagesForLists} from "../../totalPagesForLists";
+import { totalPagesForLists } from "../../totalPagesForLists";
 
 const moviesListSlice = createSlice({
   name: 'movies',
   initialState: {
     movies: [],
     genres: [],
-    totalPages: totalPagesForLists,
-    totalResults: '',
     loading: false,
     error: false,
+    totalPages: totalPagesForLists,
+    totalResults: '',
   },
   reducers: {
     fetchMovies: (state) => {
       state.loading = true;
       state.error = false;
     },
-    setMovies: (state, { payload: moviesFromApi }) => {
-      state.movies = moviesFromApi;
+    fetchMoviesSuccess: (state, { payload }) => {
       state.loading = false;
+      state.error = false;
+      state.movies = payload.results;
+      state.totalPages = payload.total_pages;
+      state.totalResults = payload.total_results;
     },
-    setError: state => {
+    fetchMoviesFailure: state => {
       state.error = true;
       state.loading = false;
     },
     setGenres: (state, { payload: genresApi }) => {
       state.genres = genresApi;
     },
-    setTotalMoviesPages: (state, { payload: totalPages }) => {
-      state.totalPages = totalPages;
-    },
-    setTotalResults: (state, { payload: totalResults }) => {
-      state.totalResults = totalResults;
-    },
   },
 });
 
 export const {
   fetchMovies,
-  setMovies,
-  setError,
+  fetchMoviesSuccess,
+  fetchMoviesFailure,
   setGenres,
-  setTotalMoviesPages,
-  setTotalResults,
 } = moviesListSlice.actions;
 
 const selectMoviesState = state => state.movies;
