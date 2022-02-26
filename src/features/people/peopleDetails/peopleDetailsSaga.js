@@ -4,8 +4,7 @@ import { apiUrl, apiKey } from "../../apiData";
 import {
   fetchPeopleDetails,
   setPeopleDetails,
-  setCast,
-  setCrew,
+  setMovies,
   setError,
 } from "./peopleDetailsSlice";
 
@@ -18,8 +17,7 @@ function* fetchPeopleDetailsHandler({ payload: { id } }) {
     const peopleDetails = yield call(getApi, person);
     yield put(setPeopleDetails(peopleDetails));
     const creditsDetails = yield call(getApi, credits);
-    yield put(setCast(creditsDetails.cast));
-    yield put(setCrew(creditsDetails.crew));
+    yield put(setMovies(creditsDetails));
   }
   catch (error) {
     yield put(setError());
