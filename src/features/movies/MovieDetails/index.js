@@ -9,7 +9,7 @@ import { Cast } from "./Cast";
 import { Crew } from "./Crew";
 import { ErrorPage } from "../../../common/ErrorPage";
 
-export const MovieDetailsPage = () => {
+export const MovieDetails = () => {
   const { id } = useParams();
   const movieError = useSelector(selectMovieError);
   const dispatch = useDispatch();
