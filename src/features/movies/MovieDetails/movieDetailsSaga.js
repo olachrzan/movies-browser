@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, call, put, delay } from "redux-saga/effects";
 import { getApi } from "../../getApi";
 import { apiUrl, apiKey } from "../../apiData";
 import {
@@ -14,6 +14,7 @@ function* fetchMovieDetailsHandler({ payload: { id } }) {
   const credits = `${apiUrl}movie/${id}/credits?api_key=${apiKey}`;
 
   try {
+    yield delay(500);
     const movieDetails = yield call(getApi, movie);
     yield put(setMoviesDetails(movieDetails));
     const creditsDetails = yield call(getApi, credits);

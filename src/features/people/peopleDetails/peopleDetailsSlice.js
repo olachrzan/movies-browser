@@ -6,10 +6,13 @@ const peopleDetailsSlice = createSlice({
         peopleDetails: [],
         cast: [],
         crew: [],
+        loading: false,
         error: false,
     },
     reducers: {
-        fetchPeopleDetails: () => { },
+        fetchPeopleDetails: state => {
+            state.loading = true;
+        },
         setPeopleDetails: (state, { payload: peopleDetailsApi }) => {
             state.peopleDetails = peopleDetailsApi;
             state.loading = false;
@@ -39,6 +42,7 @@ const selectPeopleDetailsState = state => state.peopleDetails;
 export const selectPeopleDetails = state => selectPeopleDetailsState(state).peopleDetails;
 export const selectPeopleCast = state => selectPeopleDetailsState(state).cast;
 export const selectPeopleCrew = state => selectPeopleDetailsState(state).crew;
+export const selectLoading = state => selectPeopleDetailsState(state).loading;
 export const selectError = state => selectPeopleDetailsState(state).error;
 
 export default peopleDetailsSlice.reducer;
