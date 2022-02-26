@@ -13,17 +13,16 @@ const movieDetailsSlice = createSlice({
     fetchMovieDetails: state => {
       state.loading = true;
     },
-    setMoviesDetails: (state, { payload: movieDetailsApi }) => {
+    setMovieDetails: (state, { payload: movieDetailsApi }) => {
       state.movieDetails = movieDetailsApi;
       state.loading = false;
     },
-    setCast: (state, { payload: movieCast }) => {
-      state.cast = movieCast;
-    },
-    setCrew: (state, { payload: movieCrew }) => {
-      state.crew = movieCrew
+    setMovieTeam: (state, { payload }) => {
+      state.cast = payload.cast;
+      state.crew = payload.crew;
     },
     setError: state => {
+      state.loading = false;
       state.error = true;
     },
   },
@@ -31,10 +30,8 @@ const movieDetailsSlice = createSlice({
 
 export const {
   fetchMovieDetails,
-  setMoviesDetails,
-  setId,
-  setCast,
-  setCrew,
+  setMovieDetails,
+  setMovieTeam,
   setError,
 } = movieDetailsSlice.actions;
 
