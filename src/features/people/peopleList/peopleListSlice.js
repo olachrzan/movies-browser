@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {totalPagesForLists} from "../../totalPagesForLists";
+import { totalPagesForLists } from "../../totalPagesForLists";
 
 const peopleListSlice = createSlice({
   name: 'people',
@@ -13,32 +13,26 @@ const peopleListSlice = createSlice({
   reducers: {
     fetchPeople: (state) => {
       state.loading = true;
-      state.page = 1;
       state.error = false;
     },
-    setPeople: (state, { payload: peopleApi }) => {
-      state.people = peopleApi;
+    fetchPeopleSuccess: (state, { payload }) => {
       state.loading = false;
+      state.error = false;
+      state.people = payload.results;
+      state.totalPages = payload.total_pages;
+      state.totalResults = payload.total_results;
     },
-    setError: state => {
+    fetchPeopleFailure: state => {
       state.error = true;
       state.loading = false;
-    },
-    setTotalPage: (state, { payload: totalPages }) => {
-      state.totalPages = totalPages;
-    },
-    setTotalResults: (state, { payload: totalResults }) => {
-      state.totalResults = totalResults;
     },
   },
 });
 
 export const {
   fetchPeople,
-  setPeople,
-  setError,
-  setTotalPage,
-  setTotalResults,
+  fetchPeopleSuccess,
+  fetchPeopleFailure,
 } = peopleListSlice.actions;
 
 const selectPeopleListState = state => state.people;
