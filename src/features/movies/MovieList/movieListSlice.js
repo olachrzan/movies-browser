@@ -7,7 +7,7 @@ const moviesListSlice = createSlice({
     movies: [],
     genres: [],
     total_pages: totalPagesForLists,
-    total_results: '',
+    totalResults: '',
     loading: true,
     error: false,
   },
@@ -31,7 +31,7 @@ const moviesListSlice = createSlice({
       state.total_pages = totalPages;
     },
     setTotalResults: (state, { payload: totalResults }) => {
-      state.total_results = totalResults;
+      state.totalResults = totalResults;
     },
   },
 });
@@ -52,6 +52,6 @@ export const selectLoading = state => selectMoviesState(state).loading;
 export const selectError = state => selectMoviesState(state).error;
 export const selectGenres = state => selectMoviesState(state).genres;
 export const selectTotalMoviesPages = state => selectMoviesState(state).total_pages;
-export const selectTotalResults = state => selectMoviesState(state).total_results;
+export const selectTotalResults = state => selectMoviesState(state).totalResults;
 
 export default moviesListSlice.reducer;
