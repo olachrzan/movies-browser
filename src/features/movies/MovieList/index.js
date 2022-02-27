@@ -33,30 +33,35 @@ export const MovieList = () => {
 
   return (
     <Container>
-      {(page && query && error) || totalResults === 0 ? <NoResultsPage />
+      {(page && query && error) || totalResults === 0
+        ? <NoResultsPage />
         :
         <Section last>
           {loading
             ?
             <>
               <Title>
-                {`${query
+                {query
                   ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
-                  : "Popular movies"}`}
+                  : "Popular movies"
+                }
               </Title>
               <Loader />
             </>
-            : error ? <ErrorPage />
-              : (
-                <>
-                  <Title>
-                    {`${query
-                      ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
-                      : "Popular movies"}`}
-                  </Title>
-                  <Wrapper>
-                    {[...movies].map((movie) => {
-                      return <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
+            : error
+              ? <ErrorPage />
+              :
+              <>
+                <Title>
+                  {query
+                    ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
+                    : "Popular movies"
+                  }
+                </Title>
+                <Wrapper>
+                  {[...movies].map((movie) => {
+                    return (
+                      <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
                         <Tile
                           poster={
                             movie.poster_path
@@ -71,11 +76,11 @@ export const MovieList = () => {
                           overview={movie.overview ? movie.overview : "Overview: Unknown!"}
                         />
                       </WrapperLink>
-                    })}
-                  </Wrapper>
-                  <Pagination />
-                </>
-              )
+                    )
+                  })}
+                </Wrapper>
+                <Pagination />
+              </>
           }
         </Section>
       }

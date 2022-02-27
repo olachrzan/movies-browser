@@ -37,26 +37,30 @@ export const PeopleList = () => {
 
   return (
     <Container >
-      {(page && query && error) || totalResults === 0 ? <NoResultsPage />
+      {(page && query && error) || totalResults === 0
+        ? <NoResultsPage />
         :
         <Section last>
           {loading
             ?
             <>
               <Title>
-                {`${!!query && query.length !== ""
+                {!!query && query.length !== ""
                   ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
-                  : "Popular people"}`}
+                  : "Popular people"
+                }
               </Title>
               <Loader />
             </>
-            : error ? <ErrorPage />
+            : error
+              ? <ErrorPage />
               :
               <>
                 <Title>
-                  {`${!!query && query.length !== ""
+                  {!!query && query.length !== ""
                     ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
-                    : "Popular people"}`}
+                    : "Popular people"
+                  }
                 </Title>
                 <Wrapper>
                   {[...people].map((person) => {
