@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMovies, selectLoading, selectError, selectMovies, selectTotalResults } from "./movieListSlice";
 import { Title } from "../../../common/Title/styled";
-import { WrapperLink } from "../../../common/wrapperLink";
+import { WrapperLink } from "../../../common/WrapperLink/styled";
 import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { Section } from "../../../common/Section/styled";

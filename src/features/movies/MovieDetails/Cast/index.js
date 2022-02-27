@@ -3,7 +3,7 @@ import { selectMovieCast } from "../movieDetailsSlice";
 import { Section } from "../../../../common/Section/styled";
 import { Wrapper } from "../Wrapper";
 import { PersonTile } from "../../../../common/PersonTile";
-import { WrapperLink } from "../../../../common/wrapperLink";
+import { WrapperLink } from "../../../../common/WrapperLink/styled";
 import { apiUrlImage } from "../../../apiData";
 import personError from "../../../../images/personError.jpg";
 import { Title } from "../../../../common/Title/styled";

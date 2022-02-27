@@ -5,7 +5,7 @@ import { Title } from "../../../../common/Title/styled";
 import { selectPeopleCrew } from "../peopleDetailsSlice";
 import { Wrapper } from "../../../movies/MovieList/styled";
 import { Tile } from "../../../../common/Tile";
-import { WrapperLink } from "../../../../common/wrapperLink";
+import { WrapperLink } from "../../../../common/WrapperLink/styled";
 import posterError from "../../../../images/posterError.png";
 import { apiUrlImage } from "../../../apiData";
 

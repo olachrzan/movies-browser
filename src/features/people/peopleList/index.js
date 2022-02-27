@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container";
 import { PersonTile } from "../../../common/PersonTile";
 import { Wrapper } from "./styled";
-import { WrapperLink } from "../../../common/wrapperLink";
+import { WrapperLink } from "../../../common/WrapperLink/styled";
 import { apiUrlImage } from "../../apiData";
 import { Pagination } from "../../../common/Pagination";
 import { Loader } from "../../../common/Loader";
