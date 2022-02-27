@@ -8,8 +8,3 @@ export const apiUrlPopularPeople = `${apiUrl}person/popular?api_key=${apiKey}`;
 export const apiUrlSearchPeople = `${apiUrl}search/person?&api_key=${apiKey}`;
 export const apiUrlImage = `https://image.tmdb.org/t/p/`;
 export const apiUrlGenres = `${apiUrl}genre/movie/list?api_key=${apiKey}`;
-
-
-
-
-

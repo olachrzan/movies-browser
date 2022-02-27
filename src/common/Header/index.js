@@ -82,8 +82,9 @@ export const Header = () => {
               `Search for ${location.pathname === "/people" ||
                 location.pathname.indexOf("/people/") === 0
                 ? "people..."
-                : "movies..."}
-              `}
+                : "movies..."
+              }`
+            }
           />
         </SearchBar>
       </HeaderContainer>

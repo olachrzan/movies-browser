@@ -20,7 +20,8 @@ export const Cast = () => {
             {movieCast && [...movieCast].slice(0, 12).map((person) => {
               return (
                 <WrapperLink key={person.id} to={`/people/${person.id}`}>
-                  <PersonTile large
+                  <PersonTile
+                    large
                     poster={
                       person.profile_path
                         ? `${apiUrlImage}w342/${person.profile_path}`
@@ -34,7 +35,6 @@ export const Cast = () => {
             })}
           </Wrapper>
         </>
-
       }
     </Section>
   )

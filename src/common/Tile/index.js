@@ -54,8 +54,7 @@ export const Tile = ({
         {genresList.length > 0 &&
           <TagsLine big={movieInfo}>
             {genres && genres.map((genre, index) => (
-              <Tag big={movieInfo} key={index}
-              >
+              <Tag big={movieInfo} key={index}>
                 {[...genresList].find((item) => item.id === genre).name}
               </Tag>
             ))

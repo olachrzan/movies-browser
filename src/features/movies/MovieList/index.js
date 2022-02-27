@@ -22,10 +22,9 @@ export const MovieList = () => {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const totalResults = useSelector(selectTotalResults);
+  const movies = useSelector(selectMovies);
   const query = useQueryParameter("search");
   const page = useQueryParameter("page");
-
-  const movies = useSelector(selectMovies);
 
   useEffect(() => {
     dispatch(fetchMovies({ query, page }));

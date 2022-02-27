@@ -21,8 +21,7 @@ export const MovieHeader = () => {
 
   return (
     <Wrapper>
-      {
-        movieDetails.backdrop_path &&
+      {movieDetails.backdrop_path &&
         <Container>
           {movieDetails && movieDetails.length !== 0 &&
             <Body>

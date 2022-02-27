@@ -25,11 +25,10 @@ export const PeopleList = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectPeopleLoading);
   const error = useSelector(selectPeopleError);
+  const people = useSelector(selectPeopleList);
   const totalResults = useSelector(selectTotalPeopleResults);
   const query = useQueryParameter("search");
   const page = useQueryParameter("page");
-
-  const people = useSelector(selectPeopleList);
 
   useEffect(() => {
     dispatch(fetchPeople({ query, page }));

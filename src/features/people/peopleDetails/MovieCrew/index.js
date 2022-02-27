@@ -14,27 +14,28 @@ export const MovieCrew = () => {
 
   return (
     <Section last>
-      {
-        !!crew.length &&
+      {!!crew.length &&
         <>
           <Title movie>Movies - crew ({crew.length})</Title>
           <Wrapper>
             {[...crew].map((movie) => {
-              return <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
-                <Tile
-                  poster={
-                    movie.poster_path
-                      ? `${apiUrlImage}w500/${movie.poster_path}` //here we need to change the image for mobile phones
-                      : posterError
-                  }
-                  title={movie.title}
-                  year={movie.release_date ? (movie.release_date).slice(0, 4) : ""}
-                  genres={movie.genre_ids ? movie.genre_ids : ""}
-                  rating={movie.vote_average}
-                  voteCount={movie.vote_count}
-                  overview={movie.overview ? movie.overview : "Overview: Unknown!"}
+              return (
+                <WrapperLink key={nanoid()} to={`/movie/${movie.id}`} >
+                  <Tile
+                    poster={
+                      movie.poster_path
+                        ? `${apiUrlImage}w500/${movie.poster_path}`
+                        : posterError
+                    }
+                    title={movie.title}
+                    year={movie.release_date ? (movie.release_date).slice(0, 4) : ""}
+                    genres={movie.genre_ids ? movie.genre_ids : ""}
+                    rating={movie.vote_average}
+                    voteCount={movie.vote_count}
+                    overview={movie.overview ? movie.overview : "Overview: Unknown!"}
                   />
-              </WrapperLink>
+                </WrapperLink>
+              )
             })}
           </Wrapper>
         </>
