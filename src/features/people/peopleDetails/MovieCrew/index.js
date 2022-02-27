@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-import { Section } from "../../../../common/section";
+import { Section } from "../../../../common/Section/styled";
 import { Title } from "../../../../common/Title/styled";
 import { selectPeopleCrew } from "../peopleDetailsSlice";
 import { Wrapper } from "../../../movies/MovieList/styled";

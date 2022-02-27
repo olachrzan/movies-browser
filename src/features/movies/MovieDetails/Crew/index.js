@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectMovieCrew } from "../movieDetailsSlice";
-import { Section } from "../../../../common/section";
+import { Section } from "../../../../common/Section/styled";
 import { Title } from "../../../../common/Title/styled";
 import { Wrapper } from "../Wrapper";
 import { WrapperLink } from "../../../../common/wrapperLink";

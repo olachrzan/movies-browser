@@ -10,7 +10,7 @@ import { Loader } from "../../../common/Loader";
 import { Title } from "../../../common/Title/styled";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { useQueryParameter } from "../../../queryParameters";
-import { Section } from "../../../common/section";
+import { Section } from "../../../common/Section/styled";
 import personError from "../../../images/personError.jpg";
 import { NoResultsPage } from "../../../common/NoResultsPage";
 import {

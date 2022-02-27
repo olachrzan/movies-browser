@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Section } from "../../../../common/section";
+import { Section } from "../../../../common/Section/styled";
 import { Tile } from "../../../../common/Tile";
 import { apiUrlImage } from "../../../apiData";
 import { selectMovieDetails } from "../movieDetailsSlice";

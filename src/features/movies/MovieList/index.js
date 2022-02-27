@@ -12,7 +12,7 @@ import { Title } from "../../../common/Title/styled";
 import { WrapperLink } from "../../../common/wrapperLink";
 import { Loader } from "../../../common/Loader";
 import { ErrorPage } from "../../../common/ErrorPage";
-import { Section } from "../../../common/section";
+import { Section } from "../../../common/Section/styled";
 import { NoResultsPage } from "../../../common/NoResultsPage";
 import posterError from "../../../images/posterError.png";
 import { useQueryParameter } from "../../../queryParameters";

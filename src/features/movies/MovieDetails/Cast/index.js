@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectMovieCast } from "../movieDetailsSlice";
-import { Section } from "../../../../common/section";
+import { Section } from "../../../../common/Section/styled";
 import { Wrapper } from "../Wrapper";
 import { PersonTile } from "../../../../common/PersonTile";
 import { WrapperLink } from "../../../../common/wrapperLink";
