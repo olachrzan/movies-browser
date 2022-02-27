@@ -9,11 +9,14 @@ import {
 import { apiUrlGenres, apiUrlPopularMovies, apiUrlSearchMovies } from "../../apiData";
 
 function* fetchMovieListHandler({ payload: { page, query } }) {
+  const moviesWithoutQuery = `${apiUrlPopularMovies}&page=${page}`;
+  const moviesWithQuery = `${apiUrlSearchMovies}&query=${query}&page=${page}`;
+
   try {
     yield delay(500);
     const apiRequest = yield call(getApi, !query
-      ? apiUrlPopularMovies + page
-      : `${apiUrlSearchMovies}&query=${query}&page=${page}`
+      ? moviesWithoutQuery
+      : moviesWithQuery
     );
     const genres = yield call(getApi, apiUrlGenres);
     yield put(fetchMoviesSuccess(apiRequest));

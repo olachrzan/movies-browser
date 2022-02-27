@@ -8,11 +8,14 @@ import {
 import { apiUrlPopularPeople, apiUrlSearchPeople } from "../../apiData";
 
 function* fetchPeopleListHandler({ payload: { page, query } }) {
+  const peopleWithoutQuery = `${apiUrlPopularPeople}&page=${page}`;
+  const peopleWithQuery = `${apiUrlSearchPeople}&query=${query}&page=${page}`;
+
   try {
     yield delay(500);
     const people = yield call(getApi, !query
-      ? apiUrlPopularPeople + page
-      : `${apiUrlSearchPeople}&query=${query}&page=${page}`
+      ? peopleWithoutQuery
+      : peopleWithQuery
     );
     yield put(fetchPeopleSuccess(people));
   }
