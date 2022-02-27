@@ -11,9 +11,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     word-break: break-word;
-    background-color: ${({theme}) => theme.colors.mainBackground};
+    background-color: ${({ theme }) => theme.colors.mainBackground};
     font-family: 'Poppins', sans-serif;
-    color: ${({theme}) => theme.colors.darkText};
+    color: ${({ theme }) => theme.colors.darkText};
     padding-bottom: 103px;
 
     @media(max-width:${({ theme }) => theme.breakpoints.container}){

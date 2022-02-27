@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { selectMovieCast } from "../movieDetailsSlice";
-import { Section } from "../../../../common/section";
+import { Section } from "../../../../common/Section/styled";
 import { Wrapper } from "../Wrapper";
 import { PersonTile } from "../../../../common/PersonTile";
-import { WrapperLink } from "../../../../common/wrapperLink";
+import { WrapperLink } from "../../../../common/WrapperLink/styled";
 import { apiUrlImage } from "../../../apiData";
 import personError from "../../../../images/personError.jpg";
 import { Title } from "../../../../common/Title/styled";
@@ -20,7 +20,8 @@ export const Cast = () => {
             {movieCast && [...movieCast].slice(0, 12).map((person) => {
               return (
                 <WrapperLink key={person.id} to={`/people/${person.id}`}>
-                  <PersonTile large
+                  <PersonTile
+                    large
                     poster={
                       person.profile_path
                         ? `${apiUrlImage}w342/${person.profile_path}`
@@ -34,7 +35,6 @@ export const Cast = () => {
             })}
           </Wrapper>
         </>
-
       }
     </Section>
   )

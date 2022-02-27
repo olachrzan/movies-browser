@@ -134,6 +134,3 @@ export const Votes = styled.p`
     font-size: calc(10px + (16 - 10) * ((100vw - 320px) / (1368 - 320)));
   }
 `;
-
-
-

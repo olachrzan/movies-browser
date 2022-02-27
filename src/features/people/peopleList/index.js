@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container";
 import { PersonTile } from "../../../common/PersonTile";
 import { Wrapper } from "./styled";
-import { WrapperLink } from "../../../common/wrapperLink";
+import { WrapperLink } from "../../../common/WrapperLink/styled";
 import { apiUrlImage } from "../../apiData";
 import { Pagination } from "../../../common/Pagination";
 import { Loader } from "../../../common/Loader";
 import { Title } from "../../../common/Title/styled";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { useQueryParameter } from "../../../queryParameters";
-import { Section } from "../../../common/section";
+import { Section } from "../../../common/Section/styled";
 import personError from "../../../images/personError.jpg";
 import { NoResultsPage } from "../../../common/NoResultsPage";
 import {
@@ -25,11 +25,10 @@ export const PeopleList = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectPeopleLoading);
   const error = useSelector(selectPeopleError);
+  const people = useSelector(selectPeopleList);
   const totalResults = useSelector(selectTotalPeopleResults);
   const query = useQueryParameter("search");
   const page = useQueryParameter("page");
-
-  const people = useSelector(selectPeopleList);
 
   useEffect(() => {
     dispatch(fetchPeople({ query, page }));
@@ -37,26 +36,30 @@ export const PeopleList = () => {
 
   return (
     <Container >
-      {(page && query && error) || totalResults === 0 ? <NoResultsPage />
+      {(page && query && error) || totalResults === 0
+        ? <NoResultsPage />
         :
         <Section last>
           {loading
             ?
             <>
               <Title>
-                {`${!!query && query.length !== ""
+                {!!query && query.length !== ""
                   ? `Search results for "${query[0].toUpperCase() + query.slice(1)}"`
-                  : "Popular people"}`}
+                  : "Popular people"
+                }
               </Title>
               <Loader />
             </>
-            : error ? <ErrorPage />
+            : error
+              ? <ErrorPage />
               :
               <>
                 <Title>
-                  {`${!!query && query.length !== ""
+                  {!!query && query.length !== ""
                     ? `Search results for "${query[0].toUpperCase() + query.slice(1)}" (${totalResults})`
-                    : "Popular people"}`}
+                    : "Popular people"
+                  }
                 </Title>
                 <Wrapper>
                   {[...people].map((person) => {

@@ -1,44 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {totalPagesForLists} from "../../totalPagesForLists";
+import { totalPagesForLists } from "../../totalPagesForLists";
 
 const peopleListSlice = createSlice({
   name: 'people',
   initialState: {
     people: [],
-    loading: true,
+    loading: false,
     error: false,
-    totalPage: totalPagesForLists,
-    total_results: '',
+    totalPages: totalPagesForLists,
+    totalResults: '',
   },
   reducers: {
     fetchPeople: (state) => {
       state.loading = true;
-      state.page = 1;
       state.error = false;
     },
-    setPeople: (state, { payload: peopleApi }) => {
-      state.people = peopleApi;
+    fetchPeopleSuccess: (state, { payload }) => {
       state.loading = false;
+      state.error = false;
+      state.people = payload.results;
+      state.totalPages = payload.total_pages;
+      state.totalResults = payload.total_results;
+      window.scrollTo(0, 0);
     },
-    setError: state => {
+    fetchPeopleFailure: state => {
       state.error = true;
       state.loading = false;
-    },
-    setTotalPage: (state, { payload: totalPages }) => {
-      state.totalPage = totalPages;
-    },
-    setTotalResults: (state, { payload: totalResults }) => {
-      state.total_results = totalResults;
     },
   },
 });
 
 export const {
   fetchPeople,
-  setPeople,
-  setError,
-  setTotalPage,
-  setTotalResults,
+  fetchPeopleSuccess,
+  fetchPeopleFailure,
 } = peopleListSlice.actions;
 
 const selectPeopleListState = state => state.people;
@@ -46,7 +41,7 @@ const selectPeopleListState = state => state.people;
 export const selectPeopleList = state => selectPeopleListState(state).people;
 export const selectPeopleLoading = state => selectPeopleListState(state).loading;
 export const selectPeopleError = state => selectPeopleListState(state).error;
-export const selectPeopleTotalPage = state => selectPeopleListState(state).totalPage;
-export const selectTotalPeopleResults = state => selectPeopleListState(state).total_results;
+export const selectPeopleTotalPage = state => selectPeopleListState(state).totalPages;
+export const selectTotalPeopleResults = state => selectPeopleListState(state).totalResults;
 
 export default peopleListSlice.reducer;

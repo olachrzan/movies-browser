@@ -8,9 +8,12 @@ import { MovieInfo } from "./MovieInfo";
 import { Cast } from "./Cast";
 import { Crew } from "./Crew";
 import { ErrorPage } from "../../../common/ErrorPage";
+import { Loader } from "../../../common/Loader";
+import { selectMovieLoading } from "../MovieDetails/movieDetailsSlice";
 
-export const MovieDetailsPage = () => {
+export const MovieDetails = () => {
   const { id } = useParams();
+  const loading = useSelector(selectMovieLoading);
   const movieError = useSelector(selectMovieError);
   const dispatch = useDispatch();
 
@@ -24,9 +27,11 @@ export const MovieDetailsPage = () => {
 
   return (
     <>
-      {movieError
-        ? <ErrorPage />
-        : (
+      {loading
+        ? <Loader />
+        : movieError
+          ? <ErrorPage />
+          :
           <>
             <MovieHeader />
             <Container>
@@ -35,9 +40,7 @@ export const MovieDetailsPage = () => {
               <Crew />
             </Container>
           </>
-        )
       }
     </>
   )
 };
-

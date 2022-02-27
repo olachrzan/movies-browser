@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Section } from "../../../../common/section";
+import { Section } from "../../../../common/Section/styled";
 import { Tile } from "../../../../common/Tile";
 import { apiUrlImage } from "../../../apiData";
 import { selectPeopleDetails } from "../peopleDetailsSlice";
@@ -11,7 +11,9 @@ export const PersonInfo = () => {
   return (
     <Section person>
       {personDetails && personDetails.length !== 0 &&
-        < Tile movieInfo person
+        <Tile
+          movieInfo
+          person
           poster={personDetails.profile_path
             ? `${apiUrlImage}w500/${personDetails.profile_path}`
             : personError
@@ -27,7 +29,10 @@ export const PersonInfo = () => {
             ? personDetails.place_of_birth
             : "Unknown"
           }
-          overview={personDetails.biography ? personDetails.biography : "Unknown"}
+          overview={personDetails.biography
+            ? personDetails.biography
+            : "Unknown"
+          }
         />
       }
     </Section>

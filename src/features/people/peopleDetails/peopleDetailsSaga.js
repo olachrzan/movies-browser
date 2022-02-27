@@ -1,11 +1,10 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, call, put, delay } from "redux-saga/effects";
 import { getApi } from "../../getApi";
 import { apiUrl, apiKey } from "../../apiData";
 import {
   fetchPeopleDetails,
   setPeopleDetails,
-  setCast,
-  setCrew,
+  setMovies,
   setError,
 } from "./peopleDetailsSlice";
 
@@ -14,11 +13,11 @@ function* fetchPeopleDetailsHandler({ payload: { id } }) {
   const credits = `${apiUrl}person/${id}/movie_credits?api_key=${apiKey}`;
 
   try {
+    yield delay(500);
     const peopleDetails = yield call(getApi, person);
     yield put(setPeopleDetails(peopleDetails));
     const creditsDetails = yield call(getApi, credits);
-    yield put(setCast(creditsDetails.cast));
-    yield put(setCrew(creditsDetails.crew));
+    yield put(setMovies(creditsDetails));
   }
   catch (error) {
     yield put(setError());
