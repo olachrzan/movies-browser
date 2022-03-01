@@ -20,7 +20,7 @@ You can find the demo [**here**](https://olachrzan.github.io/movies-browser/)
 ## Description
 
 This **Movies Browser** app was created as a final group project for the ***Frontend Developer*** course by **YouCode**.
-You can use the app to browse and search for movies and people, as well as display the more detailed descriptions of them.
+You can use the app to browse and search for movies and people, as well as display more detailed descriptions of them.
 
 ## How to use the browser
 
